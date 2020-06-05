@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour
 {
+    [SerializeField] private float gameTime = 90;   // 残り時間
+    [SerializeField] private Text timeText;
+
+    private int summonGage = 5;     // 召喚ゲージ　: 最大は10
+
     void Start()
     {
         
@@ -12,6 +18,10 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
+        gameTime -= Time.deltaTime;
+        timeText.text = gameTime.ToString("00");
+
+        #region シーン遷移
         // 条件は後々変更する
         // PCからタブレットでも動くように条件式を書き換える
         if (Input.GetMouseButtonDown(0))
@@ -28,5 +38,6 @@ public class BattleController : MonoBehaviour
             // クリアして次に進まない場合
             SceneManager.LoadScene("OptionScene");
         }
+        #endregion
     }
 }
