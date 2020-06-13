@@ -67,6 +67,7 @@
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterInfo.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\DeckController.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\HandController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Clear\ClearController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Option\OptionController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Scenario\ScenarioController.cs" />

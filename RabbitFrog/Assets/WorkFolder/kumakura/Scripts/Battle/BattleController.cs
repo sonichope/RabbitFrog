@@ -55,13 +55,13 @@ public class BattleController : MonoBehaviour
             // 今後は条件に応じてシーン遷移の分岐
             // クリアして先に進む場合は次のBattleへ
             // BattleThirdでクリアした場合ClearSceneへ
-            SceneManager.LoadScene("ClearScene");
+            //SceneManager.LoadScene("ClearScene");
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             // クリアして次に進まない場合
-            SceneManager.LoadScene("OptionScene");
+            //SceneManager.LoadScene("OptionScene");
         }
         #endregion
     }
