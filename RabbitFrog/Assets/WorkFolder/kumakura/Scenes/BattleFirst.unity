@@ -227,8 +227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 70}
-  m_SizeDelta: {x: 25, y: 240}
+  m_AnchoredPosition: {x: -17.5, y: 70}
+  m_SizeDelta: {x: 20, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508311345
 MonoBehaviour:
@@ -292,9 +292,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 552984324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96dbd08485a276049952fad4e46c0046, type: 3}
+  m_Script: {fileID: 11500000, guid: c6c98f33af92296469a5dd6fd91c759b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
   myName: 0
   hp: 0
   power: 0
@@ -304,7 +305,7 @@ MonoBehaviour:
   myAttackMethod: 0
   myAttackRange: 0
   myAttackSpeed: 0
-  myCharacteristic: 0
+  myCharacteristic: 3
 --- !u!4 &552984326
 Transform:
   m_ObjectHideFlags: 0
@@ -350,6 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTime: 90
   timeText: {fileID: 1845169255}
+  summonGage: {fileID: 1153470262}
 --- !u!4 &737945602
 Transform:
   m_ObjectHideFlags: 0
@@ -500,8 +502,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -25, y: 70}
-  m_SizeDelta: {x: 30, y: 240}
+  m_AnchoredPosition: {x: -17.5, y: 70}
+  m_SizeDelta: {x: 22.5, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153470262
 MonoBehaviour:

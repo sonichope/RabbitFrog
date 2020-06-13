@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Battle\BattleController.cs" />
-    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterController.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterInfo.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\DeckController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Clear\ClearController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Option\OptionController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Scenario\ScenarioController.cs" />
