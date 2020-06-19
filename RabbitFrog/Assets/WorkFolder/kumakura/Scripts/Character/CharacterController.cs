@@ -17,9 +17,10 @@ public class CharacterController : CharacterInfo
     {
         if (hp <= 0)
         {
-            Destroy(gameObject);
+            enabled = false;
         }
     }
+
 
     /// <summary>
     /// 攻撃方法
