@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
-public class CharacterInfo : MonoBehaviour
+public class CharacterBase : MonoBehaviour
 {
     [Header("キャラクター画像")] public Sprite image;          // キャラクター画像
     [Header("名前")] public charaname myName;                  // 名前
