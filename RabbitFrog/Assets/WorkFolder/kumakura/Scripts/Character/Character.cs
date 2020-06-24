@@ -42,8 +42,12 @@ public class Character : CharacterBase
         // overrideで細かい攻撃方法追加
     }
 
+    /// <summary>
+    /// キャラの死亡
+    /// </summary>
     public override void Death()
     {
-        Debug.Log("aaa");
+        IsDeath = true;
+        gameObject.SetActive(false);
     }
 }

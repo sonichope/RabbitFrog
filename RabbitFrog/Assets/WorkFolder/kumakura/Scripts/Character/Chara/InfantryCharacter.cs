@@ -11,12 +11,11 @@ public class InfantryCharacter : Character
 
     void Update()
     {
-        
+        if (IsDeath) { return; }
     }
 
-    public override void Death()
-    {
-        base.Death();
-        gameObject.SetActive(false);
-    }
+    //public override void Death()
+    //{
+    //    base.Death();
+    //}
 }
