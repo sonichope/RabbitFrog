@@ -64,6 +64,7 @@
      <Compile Include="Assets\WorkFolder\kumakura\Scripts\Option\OptionController.cs" />
      <Compile Include="Assets\WorkFolder\kumakura\Scripts\Scenario\ScenarioController.cs" />
      <Compile Include="Assets\WorkFolder\kumakura\Scripts\Title\TitleController.cs" />
+     <Compile Include="Assets\WorkFolder\Tanaka\Scripts\RandomScripts.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Owner/Documents/RabbitFrog/RabbitFrog/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
