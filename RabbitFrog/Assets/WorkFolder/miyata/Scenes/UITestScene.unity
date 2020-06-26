@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35536ce325f569c4dbb5c3b05f03fc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aaa: {fileID: 440612954}
+  aaa: {fileID: 492544243366141499, guid: 2206d7151f701be41a9f652df96ddcbf, type: 3}
 --- !u!4 &675950095
 Transform:
   m_ObjectHideFlags: 0
@@ -634,6 +634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.97654855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849622469016545567, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c665477f90810da4990c10faf4f4d25e, type: 3}
