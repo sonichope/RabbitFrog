@@ -64,10 +64,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Battle\BattleController.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\ArcheryCorpsCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\CavalryCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\CavalryGeneralCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\HeavyKnightCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\InfantryCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\InfantryPlatoonCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\KnightCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\MonsterCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\NecromancerCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\NinjaCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\SamuraiCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\ThunderGodCharacter.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterBase.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterController.cs" />
-    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterInfo.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\CharacterDeta.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\DeckController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\HandController.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\TowerDeta.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Clear\ClearController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Option\OptionController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Scenario\ScenarioController.cs" />
