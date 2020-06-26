@@ -23,9 +23,6 @@ public class Test : MonoBehaviour
         {
 
         }
-        if(Input.GetMouseButtonUp(0))
-        {
-
-        }
+        
     }
 }
