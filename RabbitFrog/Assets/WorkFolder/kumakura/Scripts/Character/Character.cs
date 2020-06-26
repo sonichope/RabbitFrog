@@ -33,8 +33,9 @@ public class Character : CharacterBase
     /// <param name="speed"></param>
     public void CharacterMove(float speed)
     {
-        
+        transform.Translate(-speed, 0, 0);
     }
+
 
     public override void Attack()
     {

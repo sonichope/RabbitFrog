@@ -12,6 +12,7 @@ public class InfantryCharacter : Character
     void Update()
     {
         if (IsDeath) { return; }
+        CharacterMove(moveSpeed);
     }
 
     //public override void Death()
