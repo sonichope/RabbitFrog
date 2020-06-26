@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Battle\BattleController.cs" />
+    <Compile Include="Assets\WorkFolder\kumakura\Scripts\Battle\IncModeController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\ArcheryCorpsCharacter.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\CavalryCharacter.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Character\Chara\CavalryGeneralCharacter.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Option\OptionController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Scenario\ScenarioController.cs" />
     <Compile Include="Assets\WorkFolder\kumakura\Scripts\Title\TitleController.cs" />
+    <Compile Include="Assets\WorkFolder\miyata\Scripts\Test.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/tokku/OneDrive/ドキュメント/Unity Project/RabbitFrog/RabbitFrog/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
