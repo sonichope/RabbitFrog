@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/WorkFolder/Tanaka/Scenes/TestScene.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
