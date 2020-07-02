@@ -4,3 +4,11 @@
 *.log
 *.pdb
 RabbitFrog/Library/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+.vs/
+*.sln
+*.sln.meta
+*.suo
+*.csproj
