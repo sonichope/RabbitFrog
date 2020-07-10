@@ -36,6 +36,11 @@ public class Character : CharacterBase
         transform.Translate(-speed, 0, 0);
     }
 
+    
+    void OnTrigerEnter2D(Collider2D col)
+    {
+        Debug.Log("当たった");
+    }
 
     public override void Attack()
     {
