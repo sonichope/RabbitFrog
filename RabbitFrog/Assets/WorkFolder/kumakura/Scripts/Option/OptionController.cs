@@ -17,7 +17,17 @@ public class OptionController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // 遷移するシーンはBattleシーン完成後に変更すること
-            SceneManager.LoadScene("BattleFirst");
+            //SceneManager.LoadScene("BattleFirst");
         }
+    }
+
+    public void OnOpenOrganization()
+    {
+        Debug.Log("aaa");
+    }
+
+    public void OnOpenStageSelect()
+    {
+        Debug.Log("bbb");
     }
 }
