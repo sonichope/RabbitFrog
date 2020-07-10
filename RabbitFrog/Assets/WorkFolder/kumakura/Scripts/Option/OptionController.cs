@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class OptionController : MonoBehaviour
 {
+    [SerializeField] private Canvas organizationCanvas;
+    [SerializeField] private Canvas stageSelectCanvas;
+
+
+
     void Start()
     {
-        
+        organizationCanvas.enabled = false;
+        stageSelectCanvas.enabled = false;
     }
 
     void Update()
@@ -21,13 +28,29 @@ public class OptionController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 編成画面ボタンを押した時
+    /// </summary>
     public void OnOpenOrganization()
     {
-        Debug.Log("aaa");
+        // もうひとつが既にtrueならfalseにする処理
+        if (stageSelectCanvas.enabled)
+        {
+            stageSelectCanvas.rootCanvas.enabled = false;
+        }
+        organizationCanvas.enabled = !organizationCanvas.enabled;
     }
 
+    /// <summary>
+    /// ステージ選択画面を押した時
+    /// </summary>
     public void OnOpenStageSelect()
     {
-        Debug.Log("bbb");
+        // もうひとつが既にtrueならfalseにする処理
+        if (organizationCanvas.enabled)
+        {
+            organizationCanvas.enabled = false;
+        }
+        stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.enabled;
     }
 }
