@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class OptionController : MonoBehaviour
 {
@@ -34,11 +35,11 @@ public class OptionController : MonoBehaviour
     public void OnOpenOrganization()
     {
         // もうひとつが既にtrueならfalseにする処理
-        if (stageSelectCanvas.enabled)
-        {
-            stageSelectCanvas.rootCanvas.enabled = false;
-        }
-        organizationCanvas.enabled = !organizationCanvas.enabled;
+        //if (stageSelectCanvas.enabled)
+        //{
+        //}
+        stageSelectCanvas.rootCanvas.enabled = false;
+        organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
     }
 
     /// <summary>
@@ -47,10 +48,14 @@ public class OptionController : MonoBehaviour
     public void OnOpenStageSelect()
     {
         // もうひとつが既にtrueならfalseにする処理
-        if (organizationCanvas.enabled)
-        {
-            organizationCanvas.enabled = false;
-        }
-        stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.enabled;
+        //if (organizationCanvas.enabled)
+        //{
+        //}
+        organizationCanvas.rootCanvas.enabled = false;
+        stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
     }
+
+    
+
+
 }
