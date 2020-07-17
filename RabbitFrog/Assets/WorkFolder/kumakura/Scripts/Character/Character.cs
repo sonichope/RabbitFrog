@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class Character : CharacterBase
 {
@@ -36,10 +38,45 @@ public class Character : CharacterBase
         transform.Translate(-speed, 0, 0);
     }
 
-    
-    void OnTrigerEnter2D(Collider2D col)
+    private GameObject nearObj;
+
+    void Start()
     {
-        Debug.Log("当たった");
+        nearObj = serchTag(gameObject, "Enemy");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            nearObj = serchTag(gameObject, "Enemy");
+            Debug.Log("敵だ！！");
+            Debug.Log(gameObject.transform.position);
+            //transform.Translate(0, 0, 0);
+            //Debug.Log("当たった!");
+        }
+    }
+
+    GameObject serchTag(GameObject nowObj, string tagName)
+    {
+        float tmpDis = 0;           
+        float nearDis = 0;          
+          
+        GameObject targetObj = null;
+
+        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
+        {
+            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
+
+            if (nearDis == 0 || nearDis > tmpDis)
+            {
+                nearDis = tmpDis;
+                //nearObjName = obs.name;
+                targetObj = obs;
+            }
+        }
+        Debug.Log("aaa");
+        return targetObj;
     }
 
     public override void Attack()
