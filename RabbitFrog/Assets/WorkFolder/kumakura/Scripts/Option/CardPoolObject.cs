@@ -12,7 +12,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     void Awake()
     {
-        parentObject = transform;
+        parentObject = transform.parent.parent;
         rectTransform = GetComponent<RectTransform>();
     }
 
@@ -20,6 +20,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     {
         CreateDragObject();
         //dragObject.transform.position = pointerEventData.position;
+        //dragObject.transform.localScale = pointerEventData.position;
         Vector2 localPos = GetLocalPostion(pointerEventData.position);
         rectTransform.localPosition = localPos;
     }
@@ -27,6 +28,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnDrag(PointerEventData pointerEventData)
     {
         //dragObject.transform.position = pointerEventData.position;
+        //dragObject.transform.localScale = pointerEventData.position;
         Vector2 localPos = GetLocalPostion(pointerEventData.position);
         rectTransform.localPosition = localPos;
     }
@@ -41,7 +43,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private Vector2 GetLocalPostion(Vector2 screenPostion)
     {
-        Vector2 result = Vector3.zero;
+        Vector2 result = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPostion, Camera.main, out result);
         return result;
     }

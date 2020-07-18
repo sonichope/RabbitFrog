@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 193576326}
   - component: {fileID: 193576325}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: CardPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

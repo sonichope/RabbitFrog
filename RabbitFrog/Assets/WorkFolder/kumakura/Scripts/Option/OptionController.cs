@@ -34,10 +34,6 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenOrganization()
     {
-        // もうひとつが既にtrueならfalseにする処理
-        //if (stageSelectCanvas.enabled)
-        //{
-        //}
         stageSelectCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
     }
@@ -47,10 +43,6 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenStageSelect()
     {
-        // もうひとつが既にtrueならfalseにする処理
-        //if (organizationCanvas.enabled)
-        //{
-        //}
         organizationCanvas.rootCanvas.enabled = false;
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
     }
