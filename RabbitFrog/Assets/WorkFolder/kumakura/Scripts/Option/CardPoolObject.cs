@@ -54,7 +54,6 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         dragObject.transform.SetAsLastSibling();
         dragObject.transform.localPosition = mousePos;
         dragObject.transform.localScale = Vector3.one;
-        Debug.Log(dragObject.transform.localPosition);
 
         CanvasGroup canvasGroup = dragObject.AddComponent<CanvasGroup>();
         canvasGroup.blocksRaycasts = false;

@@ -15,9 +15,9 @@ public class ScenarioController : MonoBehaviour
     {
         // 条件は後々変更する
         // PCからタブレットでも動くように条件式を書き換える
-        if (Input.GetMouseButtonDown(0))
-        {
-            SceneManager.LoadScene("OptionScene");
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    SceneManager.LoadScene("OptionScene");
+        //}
     }
 }
