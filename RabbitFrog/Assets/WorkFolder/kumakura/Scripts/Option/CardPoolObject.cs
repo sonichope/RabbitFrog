@@ -4,33 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(Image))]
 public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     private Transform parentObject;
     private GameObject dragObject;
-    private RectTransform rectTransform;
+    
 
     void Awake()
     {
-        parentObject = transform.parent.parent;
-        rectTransform = GetComponent<RectTransform>();
+        parentObject = transform.parent.parent.parent.parent;
     }
 
     public void OnBeginDrag(PointerEventData pointerEventData)
     {
         CreateDragObject();
-        //dragObject.transform.position = pointerEventData.position;
-        //dragObject.transform.localScale = pointerEventData.position;
-        Vector2 localPos = GetLocalPostion(pointerEventData.position);
-        rectTransform.localPosition = localPos;
+        dragObject.transform.position = GetMousePosition();
     }
 
     public void OnDrag(PointerEventData pointerEventData)
     {
-        //dragObject.transform.position = pointerEventData.position;
-        //dragObject.transform.localScale = pointerEventData.position;
-        Vector2 localPos = GetLocalPostion(pointerEventData.position);
-        rectTransform.localPosition = localPos;
+        dragObject.transform.position = GetMousePosition();
     }
 
 
@@ -40,12 +34,13 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         Destroy(dragObject);
     }
 
-
-    private Vector2 GetLocalPostion(Vector2 screenPostion)
+    private Vector3 GetMousePosition()
     {
-        Vector2 result = Vector2.zero;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, screenPostion, Camera.main, out result);
-        return result;
+        Vector3 screenMousuPos = Input.mousePosition;
+        screenMousuPos.z = 10f;
+        Camera gameCamera = Camera.main;
+        Vector3 worldMousePos = gameCamera.ScreenToWorldPoint(screenMousuPos);
+        return worldMousePos;
     }
 
     /// <summary>
@@ -53,13 +48,16 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     /// </summary>
     private void CreateDragObject()
     {
+        Vector3 mousePos = Input.mousePosition;
         dragObject = new GameObject("DragObject");
         dragObject.transform.SetParent(parentObject);
         dragObject.transform.SetAsLastSibling();
+        dragObject.transform.localPosition = mousePos;
         dragObject.transform.localScale = Vector3.one;
+        Debug.Log(dragObject.transform.localPosition);
 
-        //CanvasGroup canvasGroup = dragObject.AddComponent<CanvasGroup>();
-        //canvasGroup.blocksRaycasts = false;
+        CanvasGroup canvasGroup = dragObject.AddComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = false;
 
         Image dragImage = dragObject.AddComponent<Image>();
         Image souceImage = GetComponent<Image>();
