@@ -31,6 +31,11 @@ public class ScenarioTextControl : MonoBehaviour
 
     void Update()
     {
+        if (currentLine == sentence.Length && Input.GetMouseButtonDown(0))
+        {
+            GameSceneManager.LoadOptionScene();
+        }
+
         if (IsCompleteDisplayText)
         {
             if (currentLine < sentence.Length && Input.GetMouseButtonDown(0))
@@ -46,6 +51,7 @@ public class ScenarioTextControl : MonoBehaviour
                 timeUntilDisplay = 0;
             }
         }
+
 
         // クリックから経過した時間が想定表示時間の何％か確認し、表示文字数を出す
         int displayCharacterCount = (int)(Mathf.Clamp01((Time.time - timeElapsed) / timeUntilDisplay) * currentText.Length);

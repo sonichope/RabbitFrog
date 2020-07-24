@@ -17,10 +17,15 @@ public class HandController : MonoBehaviour
     public void OnBeginDrag()
     {
         Debug.Log("ドラッグした");
+        // ここで何を召喚するか判断する
     }
 
     public void OnEndDrag()
     {
         Debug.Log("離した");
+        // 判断したキャラクターを召喚する
+        // 召喚した後にImageを次のキャラクターに切り替える
+        // DeckObjectからDeckManagerクラスにセットしたキャラクターを報告する
+        // staticの使用を考える
     }
 }
