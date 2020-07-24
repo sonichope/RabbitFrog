@@ -39,21 +39,31 @@ public class Character : CharacterBase
     }
 
     private GameObject nearObj;
+    private GameObject homingObj;
+    private GameObject Player;
+    public float Speed;
 
     void Start()
     {
         nearObj = serchTag(gameObject, "Enemy");
+        homingObj = GameObject.FindGameObjectWithTag("Enemy");
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //transform.Translate(0, 0, 0);
+    //    //Debug.Log("当たった!");
+    //}
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
             nearObj = serchTag(gameObject, "Enemy");
             Debug.Log("敵だ！！");
             Debug.Log(gameObject.transform.position);
-            //transform.Translate(0, 0, 0);
-            //Debug.Log("当たった!");
+            //transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, Player.transform.position.y), Speed * Time.deltaTime);
         }
     }
 

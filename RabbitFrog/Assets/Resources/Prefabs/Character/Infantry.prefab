@@ -150,6 +150,7 @@ MonoBehaviour:
   moveSpeed: 0.01
   summonVol: 0
   cost: 0
+  Speed: 0
 --- !u!50 &1020412521329885864
 Rigidbody2D:
   serializedVersion: 4
