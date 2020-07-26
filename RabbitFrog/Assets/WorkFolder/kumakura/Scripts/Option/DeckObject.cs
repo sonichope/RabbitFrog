@@ -8,10 +8,15 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 {
     public Image iconImage;
     private Sprite nowSprite;
+    public CardPoolObject cardPoolObject;
+
 
     void Start()
     {
         nowSprite = null;
+        //cardPoolObject = FindObjectOfType<CardPoolObject>();
+        //cardPoolObject.myCardType = CardPoolObject.CardType.none;
+        //Debug.Log(cardPoolObject);
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
@@ -33,6 +38,10 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     public void OnDrop(PointerEventData pointerEventData)
     {
         Image dropImage = pointerEventData.pointerDrag.GetComponent<Image>();
+        cardPoolObject = pointerEventData.pointerDrag.GetComponent<CardPoolObject>();
+        cardPoolObject.myCardType = pointerEventData.pointerDrag.GetComponent<CardPoolObject>().myCardType;
+        //Debug.Log(pointerEventData.pointerDrag.GetComponent<CardPoolObject>().myCardType);
+        Debug.Log(cardPoolObject.myCardType);
         iconImage.sprite = dropImage.sprite;
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;

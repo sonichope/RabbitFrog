@@ -9,7 +9,26 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 {
     private Transform parentObject;
     private GameObject dragObject;
+
+    public CardType myCardType;
     
+    public enum CardType
+    {
+        none,
+        infantry,
+        infantryPlatoon,
+        cavalry,
+        knight,
+        samurai,
+        archeryCorps,
+        ninja,
+        cavalryGeneral,
+        heavyKnight,
+        monster,
+        necromancer,
+        ghost,
+        thunderGod,
+    }
 
     void Awake()
     {
@@ -34,6 +53,10 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         Destroy(dragObject);
     }
 
+    /// <summary>
+    /// MousePositionの取得
+    /// </summary>
+    /// <returns></returns>
     private Vector3 GetMousePosition()
     {
         Vector3 screenMousuPos = Input.mousePosition;
@@ -65,6 +88,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
         dragImage.rectTransform.sizeDelta = souceImage.rectTransform.sizeDelta;
         dragImage.color = souceImage.color;
         dragImage.material = souceImage.material;
+        dragImage.preserveAspect = true;
 
         gameObject.GetComponent<Image>().color = Vector4.one * 0.6f;
     }
