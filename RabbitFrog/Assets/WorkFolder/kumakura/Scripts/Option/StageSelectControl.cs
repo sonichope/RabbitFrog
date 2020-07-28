@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class StageSelectControl : MonoBehaviour
 {
-    private DeckManager deckManager;
-
 
     public void OnBattleFirst()
     {
@@ -34,11 +32,10 @@ public class StageSelectControl : MonoBehaviour
     /// <returns></returns>
     public bool DeckCheck()
     {
-        deckManager = FindObjectOfType<DeckManager>();
-        for (int i = 0; i < deckManager.deckObjects.Length; i++)
+        for (int i = 0; i < DeckManager.deckObjects.Length; i++)
         {
             // 一カ所でも編成していない場合はfalse
-            if (deckManager.deckObjects[i].cardPoolObject == null)
+            if (DeckManager.deckObjects[i].cardPoolObject == null)
             {
                 return false;
             }

@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c745bd35f990e14cb65ac32b080a3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckObjects:
+  getDeckObjects:
   - {fileID: 1835283329}
   - {fileID: 537100298}
   - {fileID: 151158646}

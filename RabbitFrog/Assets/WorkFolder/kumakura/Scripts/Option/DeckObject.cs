@@ -46,5 +46,4 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;
     }
-
 }
