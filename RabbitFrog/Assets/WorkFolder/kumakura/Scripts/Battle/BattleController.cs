@@ -37,10 +37,6 @@ public class BattleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             summonGageVal = Mathf.Clamp(summonGageVal + 1.0f, 0.0f, 10.0f);
-            for (int i = 0; i < DeckManager.deckObjects.Length; i++)
-            {
-                Debug.Log(DeckManager.deckObjects[i].cardPoolObject.myCardType);
-            }
         }
         
         if (Input.GetKeyDown(KeyCode.S))
