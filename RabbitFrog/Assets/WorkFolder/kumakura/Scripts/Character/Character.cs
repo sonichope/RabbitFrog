@@ -9,8 +9,35 @@ public class Character : CharacterBase
     [Header("移動速度")] public float moveSpeed;               // 移動速度
     [Header("召喚数")] public int summonVol;                   // 召喚数
     [Header("コスト")] public int cost;                        // コスト
+
+    private GameObject nearObj;
+    private GameObject homingObj;
+    private GameObject Player;
+    private GameObject atkObj;
+    //[SerializeField] private Transform enemy;
+    [SerializeField] private float speed;
+    [SerializeField] private float Distance;
+    //[SerializeField] private float moveDistance;
+    //private int health;
+    private Vector2 enemyPos;
+    private bool serchFlag = false;
+    private bool attackFlag = false;
+    private float time = 3;
+
+    void Start()
+    {
+        nearObj = serchTag(gameObject, "Enemy");
+        homingObj = GameObject.FindGameObjectWithTag("Enemy");
+        //Player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Update()
+    {
+       
+    }
+
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
-    
+
     //public enum characteristic // 特徴
     //{
     //    none,               // 無し
@@ -35,35 +62,36 @@ public class Character : CharacterBase
     /// <param name="speed"></param>
     public void CharacterMove(float speed)
     {
-        transform.Translate(-speed, 0, 0);
-    }
-
-    private GameObject nearObj;
-    private GameObject homingObj;
-    private GameObject Player;
-    public float Speed;
-
-    void Start()
-    {
-        nearObj = serchTag(gameObject, "Enemy");
-        homingObj = GameObject.FindGameObjectWithTag("Enemy");
-        Player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    //transform.Translate(0, 0, 0);
-    //    //Debug.Log("当たった!");
-    //}
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
+        if (serchFlag)
         {
+            // if (distance >= attackRenge)  ==> 下の処理を呼ぶ
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos * 0, 0.0f * Time.deltaTime);
+            if (time == 0)
+            {
+                gameObject.SetActive(false);
+                Debug.Log("bbb");
+            }
+        }
+        else
+        {
+            transform.Translate(-speed, 0, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (serchFlag) { return; }
+        //if (attackFlag) { return; }
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            //attackFlag = true;
+            serchFlag = true;
+            enemyPos = collision.transform.position;
+
             nearObj = serchTag(gameObject, "Enemy");
             Debug.Log("敵だ！！");
             Debug.Log(gameObject.transform.position);
-            //transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, Player.transform.position.y), Speed * Time.deltaTime);
+           
         }
     }
 
