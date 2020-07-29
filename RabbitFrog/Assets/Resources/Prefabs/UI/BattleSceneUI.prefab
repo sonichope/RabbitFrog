@@ -1261,18 +1261,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createCharacterList:
   - {fileID: 492544243366141499, guid: 2206d7151f701be41a9f652df96ddcbf, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6070520601760100031, guid: 8566564caeab53b41b4612b3a75f06e4, type: 3}
+  - {fileID: 9200114128632460142, guid: 3f3ef7abf9c02b2448cb71bbcd40da56, type: 3}
+  - {fileID: 6379124955803089558, guid: 9a78e851569954b47bb9d7ce68b57176, type: 3}
+  - {fileID: 1964970950590411685, guid: 818c8bb83438f5c42a203318f7c5600d, type: 3}
+  - {fileID: 498814580006076787, guid: a5516565fdc85a34b82633d38f2846c8, type: 3}
+  - {fileID: 3111250909786495990, guid: a93829a4c820fde479e6b5184207b5dc, type: 3}
+  - {fileID: 5818266423135181039, guid: 99a10614ab23486439cef2a0eef3e3aa, type: 3}
+  - {fileID: 1774422185131176323, guid: b1225043f935e954697c1169086a22cb, type: 3}
+  - {fileID: 6293821282619991116, guid: dc369c565e285bf49bfc725fe0f97379, type: 3}
+  - {fileID: 5363407481386878957, guid: 445c0428cd43f8244914aedcb10c5c2e, type: 3}
+  - {fileID: 3915729651225749827, guid: 6efa1fea6ddbe1f4d9c86184f6ecb8be, type: 3}
+  - {fileID: 6364739107273175023, guid: 7def8429ed1942147bd985c18400f845, type: 3}
   handObjects:
   - {fileID: 4421351979066372260}
   - {fileID: 4421351980237473796}

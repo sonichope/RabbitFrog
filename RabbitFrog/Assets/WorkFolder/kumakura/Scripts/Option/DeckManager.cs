@@ -13,7 +13,6 @@ public class DeckManager : MonoBehaviour
         for (int i = 0; i < deckObjects.Length; i++)
         {
             deckObjects[i] = getDeckObjects[i];
-            Debug.Log(deckObjects[i]);
         }
     }
 
