@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d90f8ed99dfdbb458b3f199441dc546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 3865661358099804113}
+  myHandNumber: 0
 --- !u!1 &4421351979475222734
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d90f8ed99dfdbb458b3f199441dc546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 3865661358099804113}
+  myHandNumber: 0
 --- !u!1 &4421351980373080327
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d90f8ed99dfdbb458b3f199441dc546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 3865661358099804113}
+  myHandNumber: 0
 --- !u!1 &4421351980519486402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d90f8ed99dfdbb458b3f199441dc546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentObject: {fileID: 3865661358099804113}
+  myHandNumber: 0
 --- !u!1 &7280378988534605327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1259,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c0bd10c78fec24f9794ba5e456133e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  createCharacterList:
+  - {fileID: 492544243366141499, guid: 2206d7151f701be41a9f652df96ddcbf, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   handObjects:
   - {fileID: 4421351979066372260}
   - {fileID: 4421351980237473796}

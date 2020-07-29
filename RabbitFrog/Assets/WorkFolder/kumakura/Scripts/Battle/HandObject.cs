@@ -9,10 +9,12 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     [SerializeField] private int myHandNumber;
     private Transform parentObject;
     private GameObject dragObject;
+    private HandManager handManager;
 
     void Awake()
     {
         parentObject = transform.parent;
+        handManager = FindObjectOfType<HandManager>();
     }
 
     void Start()
@@ -40,58 +42,12 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     {
         gameObject.GetComponent<Image>().color = Vector4.one;
         Destroy(dragObject);
-        CharacterSummon(pointerEventData.position);
+        var pos = Camera.main.ScreenToWorldPoint(pointerEventData.position);
+        pos.z += 10.0f;
+        handManager.CharacterSummon(pos, myHandNumber);
     }
 
-    /// <summary>
-    /// キャラクターの召喚
-    /// </summary>
-    public void CharacterSummon(Vector3 pos)
-    {
-        switch (DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType)
-        {
-            case CardPoolObject.CardType.infantry:
-                break;
-
-            case CardPoolObject.CardType.infantryPlatoon:
-                break;
-
-            case CardPoolObject.CardType.cavalry:
-                break;
-
-            case CardPoolObject.CardType.knight:
-                break;
-
-            case CardPoolObject.CardType.samurai:
-                break;
-
-            case CardPoolObject.CardType.archeryCorps:
-                break;
-
-            case CardPoolObject.CardType.ninja:
-                break;
-
-            case CardPoolObject.CardType.cavalryGeneral:
-                break;
-
-            case CardPoolObject.CardType.heavyKnight:
-                break;
-
-            case CardPoolObject.CardType.monster:
-                break;
-
-            case CardPoolObject.CardType.necromancer:
-                break;
-
-            case CardPoolObject.CardType.ghost:
-                break;
-
-            case CardPoolObject.CardType.thunderGod:
-                break;
-
-        }
-        Debug.Log(DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType);
-    }
+    
 
     /// <summary>
     /// Dragしたキャラクターの複製
