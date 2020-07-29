@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    [SerializeField] private DeckObject[] getDeckObjects = new DeckObject[8];
+    public DeckObject[] getDeckObjects = new DeckObject[8];
     public static DeckObject[] deckObjects = new DeckObject[8];
 
     void Start()
@@ -13,6 +13,7 @@ public class DeckManager : MonoBehaviour
         for (int i = 0; i < deckObjects.Length; i++)
         {
             deckObjects[i] = getDeckObjects[i];
+            Debug.Log(deckObjects[i]);
         }
     }
 
