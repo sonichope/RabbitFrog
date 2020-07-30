@@ -1279,6 +1279,7 @@ MonoBehaviour:
   - {fileID: 4421351980495703748}
   - {fileID: 4421351980687738412}
   nextHand: {fileID: 4421351980519486402}
+  battleController: {fileID: 4191672627597540255}
 --- !u!1 &8778693165937086267
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class HandManager : MonoBehaviour
     public GameObject[] createCharacterList = new GameObject[13];
     [SerializeField] private GameObject[] handObjects = new GameObject[4];
     [SerializeField] private GameObject nextHand;
-
+    [SerializeField] private BattleController battleController;
 
     void Start()
     {
@@ -57,6 +57,11 @@ public class HandManager : MonoBehaviour
     /// <param name="myHandNumber">手札番号</param>
     public void CharacterSummon(Vector3 summonPos, int myHandNumber)
     {
+        if (battleController.SummonGageVal - 3.0f <= 0) { return; }
+        // 後々コストに応じて召喚
+        battleController.SummonGageVal -= 3.0f;
+
+
         // ここの処理ごり押しだから近いうちになんとかしたい
         Debug.Log(DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType);
         switch (DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType)
@@ -114,5 +119,6 @@ public class HandManager : MonoBehaviour
                 break;
 
         }
+        
     }
 }
