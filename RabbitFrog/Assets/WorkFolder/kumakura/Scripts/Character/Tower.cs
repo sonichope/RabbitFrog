@@ -11,7 +11,6 @@ public class Tower : CharacterBase
 
     void Update()
     {
-        Debug.Log("Enemy" + hp);
         if (hp <= 0) { Death(); }
     }
 
@@ -30,5 +29,6 @@ public class Tower : CharacterBase
     {
         IsDeath = true;
         gameObject.SetActive(false);
+        GameSceneManager.LoadClearScene();
     }
 }

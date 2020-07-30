@@ -13,6 +13,7 @@ public class InfantryPlatoonCharacter : Character
     // Update is called once per frame
     void Update()
     {
-        
+        if (IsDeath) { return; }
+        CharacterMove(moveSpeed);
     }
 }
