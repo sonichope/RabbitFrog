@@ -16,14 +16,17 @@ public class Character : CharacterBase
     private GameObject atkObj;
     //[SerializeField] private Transform enemy;
     [SerializeField] private float speed;
-    [SerializeField] private float Distance;
+    //[SerializeField] private float distance;
     //[SerializeField] private float moveDistance;
-    //private int health;
+    //private int health;       
+    private float attackRange = 1.5f;
     private Vector2 enemyPos;
     private bool serchFlag = false;
     private bool attackFlag = false;
-    private float time = 30.0f;
- 
+    private float time = 0.0f;
+    private float interval = 1.75f;
+    public Tower enemyTower;
+
     void Start()
     {
         nearObj = serchTag(gameObject, "Enemy");
@@ -33,7 +36,7 @@ public class Character : CharacterBase
 
     private void Update()
     {
-        
+
     }
 
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
@@ -56,7 +59,7 @@ public class Character : CharacterBase
 
     }
 
-    /// <summary>
+    //g/ <summary>
     /// キャラの移動関数
     /// </summary>
     /// <param name="speed"></param>
@@ -64,8 +67,14 @@ public class Character : CharacterBase
     {
         if (serchFlag)
         {
-            // if (distance >= attackRenge)  ==> 下の処理を呼ぶ
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos * 0, 0.0f * Time.deltaTime);
+            var distance = Vector3.Distance(transform.position, enemyPos);
+            if (distance < attackRange)
+            {
+                Attack();
+                Debug.Log(enemyTower.hp);
+                return;
+            }
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos, 0.5f * Time.deltaTime);
         }
         else
         {
@@ -79,6 +88,7 @@ public class Character : CharacterBase
         //if (attackFlag) { return; }
         if (collision.gameObject.tag == "Enemy")
         {
+            enemyTower = FindObjectOfType<Tower>();
             //attackFlag = true;
             serchFlag = true;
             enemyPos = collision.transform.position;
@@ -87,7 +97,7 @@ public class Character : CharacterBase
             Debug.Log("敵だ！！");
             Debug.Log(gameObject.transform.position);
         }
-        //print(timer);
+
     }
 
     GameObject serchTag(GameObject nowObj, string tagName)
@@ -114,6 +124,13 @@ public class Character : CharacterBase
 
     public override void Attack()
     {
+        time += Time.deltaTime;
+        if (serchFlag == true && time > interval)
+        {
+            enemyTower.hp -= 1;
+            time = 0f;
+            Debug.Log("呼ばれている");
+        }
         // 攻撃
         // overrideで細かい攻撃方法追加
     }
@@ -123,10 +140,7 @@ public class Character : CharacterBase
     /// </summary>
     public override void Death()
     {
-        if (serchFlag == true && time == 0.0f)
-        {
-            IsDeath = true;
-            gameObject.SetActive(false);
-        }
+        IsDeath = true;
+        gameObject.SetActive(false);
     }
 }
