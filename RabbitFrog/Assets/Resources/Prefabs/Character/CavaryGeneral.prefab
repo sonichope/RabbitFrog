@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9076d9089a8bb5a4ebc1d16a93b440ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 21bb55b4b4f42714f91763ffe85f7428, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,9 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7df40041b4d924b8242c3b3bd15727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 9076d9089a8bb5a4ebc1d16a93b440ed, type: 3}
+  image: {fileID: 21300000, guid: 21bb55b4b4f42714f91763ffe85f7428, type: 3}
   hp: 0
   power: 0
   moveSpeed: 0
   summonVol: 0
   cost: 0
+  speed: 0
+  enemyTower: {fileID: 0}
