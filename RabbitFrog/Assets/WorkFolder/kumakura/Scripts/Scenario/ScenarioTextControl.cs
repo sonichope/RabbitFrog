@@ -46,7 +46,7 @@ public class ScenarioTextControl : MonoBehaviour
         else
         {
             // 完了していない文字をすべて表示する
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 timeUntilDisplay = 0;
             }
