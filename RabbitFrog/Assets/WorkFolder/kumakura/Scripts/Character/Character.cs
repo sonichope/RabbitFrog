@@ -22,8 +22,8 @@ public class Character : CharacterBase
     private Vector2 enemyPos;
     private bool serchFlag = false;
     private bool attackFlag = false;
-    private float time = 3;
-
+    private float time = 30.0f;
+ 
     void Start()
     {
         nearObj = serchTag(gameObject, "Enemy");
@@ -33,7 +33,7 @@ public class Character : CharacterBase
 
     private void Update()
     {
-       
+        
     }
 
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
@@ -66,11 +66,6 @@ public class Character : CharacterBase
         {
             // if (distance >= attackRenge)  ==> 下の処理を呼ぶ
             gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos * 0, 0.0f * Time.deltaTime);
-            if (time == 0)
-            {
-                gameObject.SetActive(false);
-                Debug.Log("bbb");
-            }
         }
         else
         {
@@ -82,7 +77,7 @@ public class Character : CharacterBase
     {
         if (serchFlag) { return; }
         //if (attackFlag) { return; }
-        else if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             //attackFlag = true;
             serchFlag = true;
@@ -91,8 +86,8 @@ public class Character : CharacterBase
             nearObj = serchTag(gameObject, "Enemy");
             Debug.Log("敵だ！！");
             Debug.Log(gameObject.transform.position);
-           
         }
+        //print(timer);
     }
 
     GameObject serchTag(GameObject nowObj, string tagName)
@@ -128,7 +123,10 @@ public class Character : CharacterBase
     /// </summary>
     public override void Death()
     {
-        IsDeath = true;
-        gameObject.SetActive(false);
+        if (serchFlag == true && time == 0.0f)
+        {
+            IsDeath = true;
+            gameObject.SetActive(false);
+        }
     }
 }
