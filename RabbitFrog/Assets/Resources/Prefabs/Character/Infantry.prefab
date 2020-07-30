@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 336391418416650439}
   m_Layer: 0
   m_Name: AttackRange
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1.05
 --- !u!1 &492544243366141499
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,12 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47b87bf91bffc640af2cd06eb355265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 66e02f9e8cb32394b9a2ae35bd4b75bf, type: 3}
-  hp: 0
-  power: 0
+  image: {fileID: 0}
+  hp: 5
+  power: 3
   moveSpeed: 0.01
   summonVol: 0
   cost: 0
+  speed: 1.5
+  enemyTower: {fileID: 0}
 --- !u!50 &1020412521329885864
 Rigidbody2D:
   serializedVersion: 4
@@ -213,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3428613490124818893
 Transform:
   m_ObjectHideFlags: 0
