@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WorkFolder/kumakura/Scenes/BattleFirst.unity
     guid: 34a5ad7d294824d489184c6048da64d7
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleSecond.unity
+    guid: 81e5be7a2629fac47bc27d9e5974ab74
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleThird.unity
+    guid: be65ca880eb452e448a12994433f3ccb
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleBoss.unity
+    guid: 415cf1f9e697d384495f5db5fa80f548
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/ClearScene.unity
+    guid: 737bda21152624449a8ad4b303753be3
   m_configObjects: {}

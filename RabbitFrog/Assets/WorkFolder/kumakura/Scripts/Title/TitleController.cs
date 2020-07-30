@@ -17,7 +17,7 @@ public class TitleController : MonoBehaviour
         // PCからタブレットでも動くように条件式を書き換える
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("ScenarioScene");
+            GameSceneManager.LoadScenarioScene();
         }
     }
 }
