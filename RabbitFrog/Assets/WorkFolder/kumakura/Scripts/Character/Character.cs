@@ -11,6 +11,7 @@ public class Character : CharacterBase
     private float attackRange = 1.5f;
     private Vector2 enemyPos;
     private bool serchFlag = false;
+    private float time = 0.0f;
     private float interval = 1.75f;
     public Tower enemyTower;
 
@@ -40,15 +41,18 @@ public class Character : CharacterBase
     /// <param name="speed"></param>
     public void CharacterMove(float speed)
     {
+        // 敵の索敵が出来れていれば敵に近づく処理
         if (serchFlag)
         {
+            // 敵との距離を測る
             var distance = Vector3.Distance(transform.position, enemyPos);
+            // 攻撃範囲に入れば攻撃
             if (distance < attackRange)
             {
                 Attack();
                 return;
             }
-            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos, moveSpeed);
+            gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos, speed);
         }
         else
         {
@@ -61,6 +65,7 @@ public class Character : CharacterBase
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy")
         {
+            // ここの処理を書き換える
             enemyTower = FindObjectOfType<Tower>();
             serchFlag = true;
             enemyPos = collision.transform.position;
@@ -95,10 +100,10 @@ public class Character : CharacterBase
     /// </summary>
     public override void Attack()
     {
-        float time = 0.0f;
         time += Time.deltaTime;
         if (serchFlag == true && time > interval)
         {
+            // ここの処理も書き換える
             enemyTower.hp -= 1;
             time = 0f;
         }

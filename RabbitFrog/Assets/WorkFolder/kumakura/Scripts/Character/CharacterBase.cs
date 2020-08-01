@@ -14,8 +14,4 @@ public abstract class CharacterBase : MonoBehaviour
     public abstract void Death();
     public abstract void Attack();
 
-    /// <summary>
-    /// 攻撃範囲
-    /// </summary>
-    public virtual void AttackRange() { }
 }
