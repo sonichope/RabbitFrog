@@ -14,7 +14,7 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     
     public enum CardType
     {
-        none,
+        none = -1,
         infantry,
         infantryPlatoon,
         cavalry,

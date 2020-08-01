@@ -9,7 +9,6 @@ public class DeckManager : MonoBehaviour
 
     void Start()
     {
-        //DontDestroyOnLoad(gameObject);
         for (int i = 0; i < deckObjects.Length; i++)
         {
             deckObjects[i] = getDeckObjects[i];
