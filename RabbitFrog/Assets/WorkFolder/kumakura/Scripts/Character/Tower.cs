@@ -11,6 +11,7 @@ public class Tower : CharacterBase
 
     void Update()
     {
+        if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
     }
 

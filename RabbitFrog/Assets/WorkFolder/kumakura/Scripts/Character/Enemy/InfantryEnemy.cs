@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class InfantryEnemy : Enemy
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (IsDeath) { return; }
+        if (hp <= 0) { Death(); }
     }
 }

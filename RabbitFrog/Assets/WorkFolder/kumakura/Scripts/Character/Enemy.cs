@@ -6,7 +6,6 @@ public class Enemy : CharacterBase
 {
     [Header("移動速度")] public float moveSpeed;               // 移動速度
     [Header("召喚数")] public int summonVol;                   // 召喚数
-    [Header("召喚間隔")] public int summonSpan;                // 召喚間隔
 
     private float attackRange;
     private Vector2 characterPos;

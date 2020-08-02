@@ -12,7 +12,7 @@ public class Character : CharacterBase
     private Vector2 enemyPos;
     private bool serchFlag = false;
     private float time = 0.0f;
-    private float interval = 1.75f;
+    private float atackInterval = 1.75f;
     private CharacterBase targetEnemy;
 
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
@@ -104,9 +104,10 @@ public class Character : CharacterBase
     public override void Attack()
     {
         time += Time.deltaTime;
-        if (serchFlag == true && time > interval)
+        if (serchFlag == true && time > atackInterval)
         {
             targetEnemy.hp -= 1;
+            Debug.Log("残りHP:" + targetEnemy.hp);
             time = 0f;
         }
 
