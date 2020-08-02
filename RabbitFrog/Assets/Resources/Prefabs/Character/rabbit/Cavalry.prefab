@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7683648007739628773}
   m_Layer: 0
   m_Name: Cavalry
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,8 +101,6 @@ MonoBehaviour:
   moveSpeed: 0.01
   summonVol: 0
   cost: 0
-  speed: 1.5
-  enemyTower: {fileID: 0}
 --- !u!61 &7868166922440875828
 BoxCollider2D:
   m_ObjectHideFlags: 0

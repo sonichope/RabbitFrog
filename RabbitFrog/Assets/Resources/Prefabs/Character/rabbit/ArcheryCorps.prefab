@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4445382284601848674}
   m_Layer: 0
   m_Name: ArcheryCorps
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,8 +101,6 @@ MonoBehaviour:
   moveSpeed: 0.01
   summonVol: 0
   cost: 0
-  speed: 1.5
-  enemyTower: {fileID: 0}
 --- !u!61 &2965459250437607250
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1156033582981680902}
   m_Layer: 0
   m_Name: Frog_Nija
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,4 +147,4 @@ MonoBehaviour:
   power: 0
   moveSpeed: 0
   summonVol: 0
-  cost: 0
+  summonSpan: 0
