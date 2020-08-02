@@ -56,6 +56,7 @@ public class Character : CharacterBase
         }
         else
         {
+            // 索敵状態であればひたすら歩く処理
             transform.Translate(-speed, 0, 0);
         }
     }
@@ -108,6 +109,9 @@ public class Character : CharacterBase
             targetEnemy.hp -= 1;
             time = 0f;
         }
+
+        // 攻撃している敵が死んだら再び索敵の開始
+        if (targetEnemy.IsDeath) { serchFlag = false; }
     }
 
     /// <summary>
