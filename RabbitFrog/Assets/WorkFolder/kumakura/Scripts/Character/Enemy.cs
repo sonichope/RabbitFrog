@@ -12,11 +12,12 @@ public class Enemy : CharacterBase
     private Vector2 characterPos;
     private bool serchFlag = false;
     private float time = 0.0f;
-    private float interva;
+    private float interval;
+    private CharacterBase targetCharacter;
 
     public override void Attack()
     {
-        
+        // targetCharacterのHPを減らす処理
     }
 
     public override void Death()

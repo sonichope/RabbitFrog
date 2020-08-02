@@ -13,7 +13,7 @@ public class Character : CharacterBase
     private bool serchFlag = false;
     private float time = 0.0f;
     private float interval = 1.75f;
-    public Tower enemyTower;
+    private CharacterBase targetEnemy;
 
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
 
@@ -65,9 +65,11 @@ public class Character : CharacterBase
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy")
         {
-            // ここの処理を書き換える
-            enemyTower = FindObjectOfType<Tower>();
+            // 敵のHPの情報を取得
+            targetEnemy = collision.GetComponent<CharacterBase>();
+            // 敵を発見したのでこれ以上他の敵と接触しないための処理
             serchFlag = true;
+            // 索敵した敵のPositionを格納
             enemyPos = collision.transform.position;
         }
 
@@ -103,8 +105,7 @@ public class Character : CharacterBase
         time += Time.deltaTime;
         if (serchFlag == true && time > interval)
         {
-            // ここの処理も書き換える
-            enemyTower.hp -= 1;
+            targetEnemy.hp -= 1;
             time = 0f;
         }
     }
