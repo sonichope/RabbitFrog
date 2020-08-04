@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createEnemyList:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
+  summonInterval: 5
 --- !u!4 &1672071904
 Transform:
   m_ObjectHideFlags: 0

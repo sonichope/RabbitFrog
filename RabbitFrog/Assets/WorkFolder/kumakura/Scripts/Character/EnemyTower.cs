@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : CharacterBase
+public class EnemyTower : CharacterBase
 {
     void Start()
     {
@@ -15,15 +15,21 @@ public class Tower : CharacterBase
         if (hp <= 0) { Death(); }
     }
 
+    /// <summary>
+    /// 攻撃
+    /// </summary>
     public override void Attack()
     {
         
     }
-
+    
+    /// <summary>
+    /// 死亡
+    /// </summary>
     public override void Death()
     {
         IsDeath = true;
-        // 編成画面に戻るか聞くUIの表示
         gameObject.SetActive(false);
+        GameSceneManager.LoadClearScene();
     }
 }

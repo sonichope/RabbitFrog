@@ -13,5 +13,6 @@ public class InfantryEnemy : Enemy
     {
         if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
+        EnemyMove(moveSpeed);
     }
 }

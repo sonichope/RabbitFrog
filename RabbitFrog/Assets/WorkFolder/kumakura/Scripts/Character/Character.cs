@@ -8,11 +8,11 @@ public class Character : CharacterBase
     [Header("召喚数")] public int summonVol;                   // 召喚数
     [Header("コスト")] public int cost;                        // コスト
 
-    private float attackRange = 1.5f;
+    [SerializeField, Header("攻撃範囲")] private float attackRange = 1.5f;
     private Vector2 enemyPos;
     private bool serchFlag = false;
     private float time = 0.0f;
-    private float atackInterval = 1.75f;
+    [SerializeField, Header("攻撃間隔")] private float attackInterval = 1.75f;
     private CharacterBase targetEnemy;
 
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
@@ -104,9 +104,9 @@ public class Character : CharacterBase
     public override void Attack()
     {
         time += Time.deltaTime;
-        if (serchFlag == true && time > atackInterval)
+        if (serchFlag == true && time > attackInterval)
         {
-            targetEnemy.hp -= 1;
+            targetEnemy.hp -= power;
             Debug.Log("残りHP:" + targetEnemy.hp);
             time = 0f;
         }

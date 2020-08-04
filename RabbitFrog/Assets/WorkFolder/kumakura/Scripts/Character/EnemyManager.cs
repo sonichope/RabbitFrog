@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject[] createEnemyList;
     
     private float time = 0f;
-    private float summonInterval = 3.0f;
+    [SerializeField, Header("召喚間隔")] private float summonInterval = 0.0f;
 
 
     void Start()
