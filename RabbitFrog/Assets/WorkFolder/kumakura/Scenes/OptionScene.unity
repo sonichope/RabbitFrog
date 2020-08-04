@@ -1227,6 +1227,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 521266381450659773, guid: b1225043f935e954697c1169086a22cb,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &408105789 stripped
@@ -1581,6 +1587,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 4603428676329082814, guid: 7def8429ed1942147bd985c18400f845,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &656712099 stripped
@@ -1717,6 +1729,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1471763846638635279, guid: 3f3ef7abf9c02b2448cb71bbcd40da56,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &680597514 stripped
@@ -2338,6 +2356,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 6293821282619991115, guid: dc369c565e285bf49bfc725fe0f97379,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &872499665 stripped
@@ -2409,6 +2433,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: eb8310eaae5ae5848b543cd7d63edea7,
         type: 3}
+    - target: {fileID: 3147840094910167460, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3147840094910167461, guid: 0c6a2e9ad71a1b64499916635315ed88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2519,6 +2548,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 492544243366141498, guid: 2206d7151f701be41a9f652df96ddcbf,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &891138192 stripped
@@ -2655,6 +2690,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 6070520601760100030, guid: 8566564caeab53b41b4612b3a75f06e4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &893818033 stripped
@@ -3124,6 +3165,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 5273359767572528073, guid: 818c8bb83438f5c42a203318f7c5600d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1059495303 stripped
@@ -3363,6 +3410,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 4876009923289715822, guid: 445c0428cd43f8244914aedcb10c5c2e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1103071473 stripped
@@ -3511,6 +3564,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 6943487157361465125, guid: 99a10614ab23486439cef2a0eef3e3aa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1188088923 stripped
@@ -3861,6 +3920,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 6787324522706983477, guid: a93829a4c820fde479e6b5184207b5dc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1420107220 stripped
@@ -4524,6 +4589,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 498814580006076786, guid: a5516565fdc85a34b82633d38f2846c8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1714342881 stripped
@@ -4666,6 +4737,12 @@ PrefabInstance:
       propertyPath: myCardType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
+        type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 7104759746441361709, guid: 9a78e851569954b47bb9d7ce68b57176,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6a2e9ad71a1b64499916635315ed88, type: 3}
 --- !u!224 &1792401900 stripped

@@ -36,8 +36,8 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     {
         Image dropImage = pointerEventData.pointerDrag.GetComponent<Image>();
         cardPoolObject = pointerEventData.pointerDrag.GetComponent<CardPoolObject>();
-        cardPoolObject.myCardType = pointerEventData.pointerDrag.GetComponent<CardPoolObject>().myCardType;
-        Debug.Log(cardPoolObject.myCardType);
+        cardPoolObject.character.myCardType = pointerEventData.pointerDrag.GetComponent<CardPoolObject>().character.myCardType;
+        Debug.Log(cardPoolObject.character.myCardType);
         iconImage.sprite = dropImage.sprite;
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;

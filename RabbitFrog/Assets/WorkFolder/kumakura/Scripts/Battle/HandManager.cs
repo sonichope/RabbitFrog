@@ -57,13 +57,16 @@ public class HandManager : MonoBehaviour
     /// <param name="myHandNumber">手札番号</param>
     public void CharacterSummon(Vector3 summonPos, int myHandNumber)
     {
-        if (battleController.SummonGageVal - 3.0f <= 0) { return; }
+        var cost = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.cost;
+        var myCardType = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.myCardType;
+
+        if (battleController.SummonGageVal - cost <= 0) { return; }
         // 後々コストに応じて召喚
-        battleController.SummonGageVal -= 3.0f;
+        battleController.SummonGageVal -= cost;
 
-        Debug.Log(DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType);
+        Debug.Log(myCardType);
 
-        Instantiate(createCharacterList[(int)DeckManager.deckObjects[myHandNumber].cardPoolObject.myCardType], summonPos, Quaternion.identity);
+        Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
 
         
     }

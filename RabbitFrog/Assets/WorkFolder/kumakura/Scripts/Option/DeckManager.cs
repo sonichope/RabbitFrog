@@ -22,7 +22,7 @@ public class DeckManager : MonoBehaviour
             for (int i = 0; i < deckObjects.Length; i++)
             {
                 if (deckObjects[i].cardPoolObject == null) { return; }
-                Debug.Log(deckObjects[i].cardPoolObject.myCardType);
+                Debug.Log(deckObjects[i].cardPoolObject.character.myCardType);
             }
         }
     }

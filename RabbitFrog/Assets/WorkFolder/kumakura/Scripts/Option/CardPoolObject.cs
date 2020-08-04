@@ -9,29 +9,12 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 {
     private Transform parentObject;
     private GameObject dragObject;
-
-    public CardType myCardType;
-    
-    public enum CardType
-    {
-        none = -1,
-        infantry,
-        infantryPlatoon,
-        cavalry,
-        knight,
-        samurai,
-        archeryCorps,
-        ninja,
-        cavalryGeneral,
-        heavyKnight,
-        monster,
-        necromancer,
-        ghost,
-        thunderGod,
-    }
+    public Character character;
 
     void Awake()
     {
+        GetComponent<Image>().sprite = character.image;
+        GetComponent<Image>().preserveAspect = true;
         parentObject = transform.parent.parent.parent.parent;
     }
 

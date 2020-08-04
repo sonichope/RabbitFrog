@@ -101,6 +101,9 @@ MonoBehaviour:
   moveSpeed: 0.01
   summonVol: 0
   cost: 0
+  attackRange: 1.5
+  attackInterval: 1.75
+  myCardType: 5
 --- !u!61 &2965459250437607250
 BoxCollider2D:
   m_ObjectHideFlags: 0

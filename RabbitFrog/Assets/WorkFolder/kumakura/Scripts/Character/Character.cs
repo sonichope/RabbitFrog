@@ -15,6 +15,26 @@ public class Character : CharacterBase
     [SerializeField, Header("攻撃間隔")] private float attackInterval = 1.75f;
     private CharacterBase targetEnemy;
 
+    public CardType myCardType;
+
+    public enum CardType
+    {
+        none = -1,
+        infantry,
+        infantryPlatoon,
+        cavalry,
+        knight,
+        samurai,
+        archeryCorps,
+        ninja,
+        cavalryGeneral,
+        heavyKnight,
+        monster,
+        necromancer,
+        ghost,
+        thunderGod,
+    }
+
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
 
     //public enum characteristic // 特徴
