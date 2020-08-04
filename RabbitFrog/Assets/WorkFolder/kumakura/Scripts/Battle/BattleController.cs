@@ -9,6 +9,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private float gameTime = 90;   // 残り時間
     [SerializeField] private Text timeText;
     [SerializeField] private Image summonGage;
+    [SerializeField] private Text summonGageValText;
 
     private float summonGageVal = 5.0f;     // 召喚ゲージ　: 最大は10
     public float SummonGageVal
@@ -19,13 +20,14 @@ public class BattleController : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         gameTime -= Time.deltaTime;
         timeText.text = gameTime.ToString("00");
+        summonGageValText.text = summonGageVal.ToString("0");
 
         summonGageVal = Mathf.Clamp(summonGageVal + Time.deltaTime / 3, 0.0f, 10.0f);
 
@@ -35,6 +37,7 @@ public class BattleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             summonGageVal = Mathf.Clamp(summonGageVal + 1.0f, 0.0f, 10.0f);
+
         }
         
         if (Input.GetKeyDown(KeyCode.S))

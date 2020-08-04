@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/TitleScene.unity
+    guid: 055bb1b8f143ae84c8999fc36857cfe4
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/ScenarioScene.unity
+    guid: 70b967ca8fb950a4aa4f546818214c92
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/OptionScene.unity
+    guid: 84af3f703835f7340a8d34ddcd2ff926
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleFirst.unity
+    guid: 34a5ad7d294824d489184c6048da64d7
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleSecond.unity
+    guid: 81e5be7a2629fac47bc27d9e5974ab74
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleThird.unity
+    guid: be65ca880eb452e448a12994433f3ccb
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/BattleBoss.unity
+    guid: 415cf1f9e697d384495f5db5fa80f548
+  - enabled: 1
+    path: Assets/WorkFolder/kumakura/Scenes/ClearScene.unity
+    guid: 737bda21152624449a8ad4b303753be3
   m_configObjects: {}
