@@ -12,21 +12,23 @@ public class LineController : MonoBehaviour
     //    public Vector2 Bottom_Right;   
     //}
 
-
     private Vector2 startPos;
     private Vector2 endPos;
 
     [SerializeField]
     private GameObject line_prefab;
     private GameObject obj; //生成したprefabを変数に保存
-
+    private float lineLength; //線の長さ
 
     //private GameObject newLine;
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
     private BoxCollider2D boxCollider; //生成したprefabのboxCollider
 
     private bool Draw_able = false; //ink　mode
+
+    [SerializeField]
     private Vector2 start_screenLimit = new Vector2(100.0f, 100.0f); //線を書けるScreen範囲1 
+    [SerializeField]
     private Vector2 end_screenLimit = new Vector2(430.0f, 300.0f);   //線を書けるScreen範囲2
 
     [HideInInspector]
@@ -49,14 +51,7 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-
-    }
-
-    void LateUpdate()
-    {
-        if (Draw_able == false) { return; }
+        //if (Draw_able == false) { return; }
         DrawLine();
     }
 
@@ -68,7 +63,7 @@ public class LineController : MonoBehaviour
     /// <summary>
     /// 直線を書く
     /// </summary>
-    public void DrawLine()
+    private void DrawLine()
     {
         //マウスをクリックして線が始まる地点を決める
         if (Input.GetMouseButtonDown(0))
@@ -93,6 +88,8 @@ public class LineController : MonoBehaviour
             lineRenderer.SetVertexCount(2);
             lineRenderer.SetPosition(0, startPos); // start draw position
         }
+    
+       
 
         //マウスをドラッグして線が終わる地点を決める
         if (Input.GetMouseButton(0) && is_Drawing)
@@ -120,6 +117,12 @@ public class LineController : MonoBehaviour
             //==============================================
             BoxCollider2D col = obj.AddComponent<BoxCollider2D>();　// 判定を追加
             col.isTrigger = true;
+
+            //lineLength = (endPos - startPos).magnitude;
+            lineLength = Vector2.Distance(endPos, startPos);
+            //lineLength = Mathf.Abs(endPos.y - startPos.y);
+            obj.GetComponent<Line>().lineLength = lineLength; // 
+            obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
         }
     }
 
