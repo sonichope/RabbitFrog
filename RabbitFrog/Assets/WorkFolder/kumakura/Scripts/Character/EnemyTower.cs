@@ -13,6 +13,7 @@ public class EnemyTower : CharacterBase
     {
         if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
+
     }
 
     /// <summary>

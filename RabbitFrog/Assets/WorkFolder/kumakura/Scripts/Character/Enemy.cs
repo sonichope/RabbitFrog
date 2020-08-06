@@ -58,7 +58,6 @@ public class Enemy : CharacterBase
         if (serchFlag && time > attackInterval)
         {
             targetCharacter.hp -= power;
-            Debug.Log("残り味方HP:" + targetCharacter.hp);
             time = 0f;
         }
 

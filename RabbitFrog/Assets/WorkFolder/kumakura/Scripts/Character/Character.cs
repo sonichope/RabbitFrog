@@ -66,7 +66,7 @@ public class Character : CharacterBase
     /// キャラの移動関数
     /// </summary>
     /// <param name="speed"></param>
-    public void CharacterMove(float speed)
+    public virtual void CharacterMove(float speed)
     {
         // 敵の索敵が出来れていれば敵に近づく処理
         if (serchFlag)
@@ -134,7 +134,6 @@ public class Character : CharacterBase
         if (serchFlag == true && time > attackInterval)
         {
             targetEnemy.hp -= power;
-            Debug.Log("残りHP:" + targetEnemy.hp);
             time = 0f;
         }
 
