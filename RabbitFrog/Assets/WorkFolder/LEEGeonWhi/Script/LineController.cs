@@ -14,11 +14,32 @@ public class LineController : MonoBehaviour
 
     private Vector2 startPos;
     private Vector2 endPos;
+    private Vector2 centwePos;
 
+    [SerializeField]
+    private List<Vector3> Points = new List<Vector3>();
+
+    private List<float> Points_X = new List<float>();
+    private List<float> Points_Y = new List<float>();
+
+    [SerializeField]
+    private GameObject Drawing_obj;
     [SerializeField]
     private GameObject line_prefab;
     private GameObject obj; //生成したprefabを変数に保存
     private float lineLength; //線の長さ
+    private float Angle;
+
+    [SerializeField]
+    private GameObject test_obj;
+    [SerializeField]
+    private float circumference  = 0;
+    [SerializeField]
+    private float radius = 0;
+    [SerializeField]
+    private Vector2 circle_center;
+    private Vector2 tempPos;
+
 
     //private GameObject newLine;
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
@@ -46,6 +67,9 @@ public class LineController : MonoBehaviour
         //screenLimit.Top_Right = new Vector2(430.0f, 300.0f);
         //screenLimit.Bottom_Left = new Vector2(100.0f, 100.0f);
         //screenLimit.Bottom_Right = new Vector2(430.0f, 100.0f);
+
+        Drawing_obj.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -68,28 +92,38 @@ public class LineController : MonoBehaviour
         //マウスをクリックして線が始まる地点を決める
         if (Input.GetMouseButtonDown(0))
         {
+            //StartCoroutine(DrawableTime());
+
             //SceenPositionをWorldPositionへ変換
             startPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                   Input.mousePosition.y,
                                                                  -Camera.main.transform.position.z));
-
+            //i = 0;
             if (!draw_able(Input.mousePosition)) return;
             is_Drawing = true;
-
+           
             //newLine = new GameObject("Line");
             //lineRenderer = newLine.AddComponent<LineRenderer>();
             //lineRenderer.SetVertexCount(2);
             //lineRenderer.SetPosition(0, startPos);
             //=================================================
 
+            //2020.08.03
             //Line objを生成する
-            obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
-            lineRenderer = obj.GetComponent<LineRenderer>();
-            lineRenderer.SetVertexCount(2);
-            lineRenderer.SetPosition(0, startPos); // start draw position
+            //obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
+            //lineRenderer = obj.GetComponent<LineRenderer>();
+            //lineRenderer.SetVertexCount(2);
+            //lineRenderer.SetPosition(0, startPos); // start draw position
+
+            Drawing_obj.SetActive(true);
+            Drawing_obj.transform.position = startPos;
+
+            Points.RemoveRange(0, Points.Count);
+            circumference  = 0;
+            radius = 0;
         }
-    
-       
+
+
 
         //マウスをドラッグして線が終わる地点を決める
         if (Input.GetMouseButton(0) && is_Drawing)
@@ -99,31 +133,75 @@ public class LineController : MonoBehaviour
                                                                 Input.mousePosition.y,
                                                                 -Camera.main.transform.position.z));
 
+            centwePos = endPos;
+            //linePoints[i] = endPos;
+
+            //i++;
+            //i %= 360;
+
+            Points.Add(endPos);
+            Points_X.Add(endPos.x);
+            Points_Y.Add(endPos.y);
+
             if (!draw_able(Input.mousePosition)) return;
+
             //endPos = new Vector2(startPos.x, endPos.y);
             //lineRenderer.SetPosition(1, endPos);
             //==============================================
-            endPos = new Vector2(startPos.x, endPos.y);
-            lineRenderer.SetPosition(1, endPos); // // end draw position
+            //endPos = new Vector2(startPos.x, endPos.y);
+
+            //2020.08.03
+            //endPos = new Vector2(endPos.x, endPos.y);
+            //lineRenderer.SetPosition(1, endPos); // // end draw position
+
+            Drawing_obj.transform.position = endPos;
+
+            //===========================円関連処理               
         }
 
         //線を書きを終了する。
         if (Input.GetMouseButtonUp(0) && is_Drawing)
         {
             is_Drawing = false;
+            Drawing_obj.SetActive(false);
 
-            //float pos_distance = Vector2.Distance(startPos, endPos);
-            //boxCollider = newLine.AddComponent<BoxCollider2D>();
-            //==============================================
-            BoxCollider2D col = obj.AddComponent<BoxCollider2D>();　// 判定を追加
-            col.isTrigger = true;
+            //直線生成
+            if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100)
+            {
+                obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
+                lineRenderer = obj.GetComponent<LineRenderer>();
+                lineRenderer.SetVertexCount(2);
 
-            //lineLength = (endPos - startPos).magnitude;
-            lineLength = Vector2.Distance(endPos, startPos);
-            //lineLength = Mathf.Abs(endPos.y - startPos.y);
-            obj.GetComponent<Line>().lineLength = lineLength; // 
-            obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
+                lineRenderer.SetPosition(0, startPos); // start draw position
+
+                endPos = new Vector2(startPos.x,
+                                    Drawing_obj.transform.position.y);
+                lineRenderer.SetPosition(1, endPos); // // end draw position
+
+                BoxCollider2D col = obj.AddComponent<BoxCollider2D>(); // 判定を追加
+                col.isTrigger = true;
+
+                lineLength = Mathf.Abs(endPos.y - startPos.y);
+                obj.GetComponent<Line>().lineLength = lineLength; // 
+                obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
+            }
+
+            // draw circle
+            else
+            {
+               
+                for (int i=0; i<Points.Count - 1; i++)
+                {
+                    circumference  += Vector3.Distance(Points[i], Points[i+1]);
+                }
+                radius = circumference / 6.28f;
+                circle_center = new Vector2(Points[0].x, Points[0].y);
+                var obj2  = Instantiate(test_obj, circle_center, Quaternion.identity);
+                obj2.transform.localScale = new Vector3(radius,radius,1);
+            }
+
         }
+
     }
 
     /// <summary>
@@ -178,4 +256,23 @@ public class LineController : MonoBehaviour
         //Gizmos.DrawCube(transform.position, Pos);
         //Gizmos.DrawCube(transform.position, new Vector3(10, 10, 1));
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    float GetAngle(Vector2 start, Vector2 end)
+    {
+        Vector2 v2 = end - start;
+        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
+    }
+
+   IEnumerator DrawableTime()
+    {
+        yield return new WaitForSeconds(5.0f);
+        is_Drawing = false;
+    }
+
 }
