@@ -21,7 +21,7 @@ public class DeckManager : MonoBehaviour
         {
             for (int i = 0; i < deckObjects.Length; i++)
             {
-                if (deckObjects[i].cardPoolObject == null) { return; }
+                if (deckObjects[i].cardPoolObject == null) { continue; }
                 Debug.Log(deckObjects[i].cardPoolObject.character.myCardType);
             }
         }

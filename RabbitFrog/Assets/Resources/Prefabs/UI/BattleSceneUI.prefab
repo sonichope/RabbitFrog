@@ -412,7 +412,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -5
   m_TargetDisplay: 0
 --- !u!114 &4421351979475222732
 MonoBehaviour:
@@ -1199,6 +1199,10 @@ MonoBehaviour:
   - {fileID: 4421351980687738412}
   nextHand: {fileID: 4421351980519486402}
   battleController: {fileID: 4191672627597540255}
+  minRandomPos_x: -0.5
+  maxRandomPos_x: 0.5
+  minRandomPos_y: -0.5
+  maxRandomPos_y: 0.5
 --- !u!1 &8778693165937086267
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class HandManager : MonoBehaviour
     [SerializeField] private GameObject[] handObjects = new GameObject[4];
     [SerializeField] private GameObject nextHand;
     [SerializeField] private BattleController battleController;
+    [SerializeField] private float minRandomPos_x;
+    [SerializeField] private float maxRandomPos_x;
+    [SerializeField] private float minRandomPos_y;
+    [SerializeField] private float maxRandomPos_y;
 
     void Start()
     {
@@ -60,11 +64,21 @@ public class HandManager : MonoBehaviour
         var cost = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.cost;
         var myCardType = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.myCardType;
 
-        if (battleController.SummonGageVal - cost <= 0) { return; }
-        // 後々コストに応じて召喚
+        if (battleController.SummonGageVal - cost < 0) { return; }
         battleController.SummonGageVal -= cost;
 
-        Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+        int summonVal = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.summonVol; 
+        for(int i = 0; i < summonVal; i++)
+        {
+            if (summonVal > 1)
+            {
+                float randomPos_x = Random.Range(minRandomPos_x, maxRandomPos_x);
+                float randomPos_y = Random.Range(minRandomPos_y, maxRandomPos_y);
+                summonPos.x = summonPos.x + randomPos_x;
+                summonPos.y = summonPos.y + randomPos_y;
+            }
+            Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+        }
 
         
     }

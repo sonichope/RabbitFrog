@@ -133,6 +133,7 @@ public class Character : CharacterBase
         time += Time.deltaTime;
         if (serchFlag == true && time > attackInterval)
         {
+            Debug.Log("攻撃");
             targetEnemy.hp -= power;
             time = 0f;
         }

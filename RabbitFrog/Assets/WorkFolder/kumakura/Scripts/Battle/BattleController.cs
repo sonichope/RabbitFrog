@@ -27,7 +27,7 @@ public class BattleController : MonoBehaviour
     {
         gameTime -= Time.deltaTime;
         timeText.text = gameTime.ToString("00");
-        summonGageValText.text = summonGageVal.ToString("0");
+        summonGageValText.text = Mathf.Floor(summonGageVal).ToString("0");
 
         summonGageVal = Mathf.Clamp(summonGageVal + Time.deltaTime / 3, 0.0f, 10.0f);
 

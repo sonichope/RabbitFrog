@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  hp: 10
+  hp: 1000
   power: 0
 --- !u!61 &-7333941647009370629
 BoxCollider2D:

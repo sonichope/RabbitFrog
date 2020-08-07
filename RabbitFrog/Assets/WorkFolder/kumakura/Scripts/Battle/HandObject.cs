@@ -17,16 +17,6 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         handManager = FindObjectOfType<HandManager>();
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
-
     public void OnBeginDrag(PointerEventData pointerEventData)
     {
         CreateCharacterObject();
