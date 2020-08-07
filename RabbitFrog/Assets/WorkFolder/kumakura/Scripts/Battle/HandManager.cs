@@ -64,8 +64,6 @@ public class HandManager : MonoBehaviour
         // 後々コストに応じて召喚
         battleController.SummonGageVal -= cost;
 
-        Debug.Log(myCardType);
-
         Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
 
         
