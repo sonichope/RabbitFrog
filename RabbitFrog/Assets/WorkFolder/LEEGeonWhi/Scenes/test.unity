@@ -385,7 +385,7 @@ MonoBehaviour:
   Drawing_obj: {fileID: 139053731}
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
-  test_obj: {fileID: 5669133820857739002, guid: eb6d13b190ce72b4aad4b557d970312c,
+  test_obj: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff,
     type: 3}
   circumference: 0
   radius: 0

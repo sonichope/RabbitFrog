@@ -1,72 +1,52 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LineController : MonoBehaviour
 {
-    //struct ScreenLimit
-    //{
-    //    public Vector2 Top_Left;   
-    //    public Vector2 Top_Right;   
-    //    public Vector2 Bottom_Left;   
-    //    public Vector2 Bottom_Right;   
-    //}
 
     private Vector2 startPos;
     private Vector2 endPos;
-    private Vector2 centwePos;
+    private Vector2 tempPos;
+    private Vector2 circle_center;
 
-    [SerializeField]
-    private List<Vector3> Points = new List<Vector3>();
-
-    private List<float> Points_X = new List<float>();
-    private List<float> Points_Y = new List<float>();
+    private List<Vector2> Points = new List<Vector2>();　//マウス移動経路　
+    private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
+    private List<Vector2> Points_Y = new List<Vector2>(); //Pointsをposition.Yを基準にしてlist整列
 
     [SerializeField]
     private GameObject Drawing_obj;
     [SerializeField]
     private GameObject line_prefab;
+
     private GameObject obj; //生成したprefabを変数に保存
+
     private float lineLength; //線の長さ
-    private float Angle;
+    private float Angle; //角度
 
     [SerializeField]
     private GameObject test_obj;
     [SerializeField]
-    private float circumference  = 0;
+    private float circumference = 0;//円の長さ
     [SerializeField]
-    private float radius = 0;
-    [SerializeField]
-    private Vector2 circle_center;
-    private Vector2 tempPos;
+    private float radius = 0;//円の半径
 
-
-    //private GameObject newLine;
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
     private BoxCollider2D boxCollider; //生成したprefabのboxCollider
 
-    private bool Draw_able = false; //ink　mode
+    private bool Draw_able = false; //インクモード
 
     [SerializeField]
     private Vector2 start_screenLimit = new Vector2(100.0f, 100.0f); //線を書けるScreen範囲1 
     [SerializeField]
     private Vector2 end_screenLimit = new Vector2(430.0f, 300.0f);   //線を書けるScreen範囲2
 
-    [HideInInspector]
-    public bool is_Drawing = false;　//今、線を書いてる中
-
-
-    //[SerializeField]
-    //private GameObject line_prefab;
+    private bool is_Drawing = false;　//今、線を書いてる中
 
     // Start is called before the first frame update
     void Start()
     {
-        //ScreenLimit screenLimit;
-        //screenLimit.Top_Left = new Vector2(100.0f, 300.0f);
-        //screenLimit.Top_Right = new Vector2(430.0f, 300.0f);
-        //screenLimit.Bottom_Left = new Vector2(100.0f, 100.0f);
-        //screenLimit.Bottom_Right = new Vector2(430.0f, 100.0f);
 
         Drawing_obj.SetActive(false);
 
@@ -75,13 +55,7 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Draw_able == false) { return; }
         DrawLine();
-    }
-
-    public void OnDraw_able()
-    {
-        Draw_able = !Draw_able;
     }
 
     /// <summary>
@@ -92,20 +66,16 @@ public class LineController : MonoBehaviour
         //マウスをクリックして線が始まる地点を決める
         if (Input.GetMouseButtonDown(0))
         {
-            //StartCoroutine(DrawableTime());
+
 
             //SceenPositionをWorldPositionへ変換
             startPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                   Input.mousePosition.y,
                                                                  -Camera.main.transform.position.z));
-            //i = 0;
+
             if (!draw_able(Input.mousePosition)) return;
             is_Drawing = true;
-           
-            //newLine = new GameObject("Line");
-            //lineRenderer = newLine.AddComponent<LineRenderer>();
-            //lineRenderer.SetVertexCount(2);
-            //lineRenderer.SetPosition(0, startPos);
+
             //=================================================
 
             //2020.08.03
@@ -118,9 +88,18 @@ public class LineController : MonoBehaviour
             Drawing_obj.SetActive(true);
             Drawing_obj.transform.position = startPos;
 
+            //list初期化
+            //----------------------------------------
             Points.RemoveRange(0, Points.Count);
-            circumference  = 0;
+            Points_X.RemoveRange(0, Points_X.Count);
+            Points_Y.RemoveRange(0, Points_Y.Count);
+            //----------------------------------------
+
+            //半径、長さ初期化
+            //----------------------------------------
+            circumference = 0;
             radius = 0;
+            //----------------------------------------
         }
 
 
@@ -133,17 +112,13 @@ public class LineController : MonoBehaviour
                                                                 Input.mousePosition.y,
                                                                 -Camera.main.transform.position.z));
 
-            centwePos = endPos;
-            //linePoints[i] = endPos;
-
-            //i++;
-            //i %= 360;
+            if (!draw_able(Input.mousePosition)) return;
+            //マウスを動かないとlistの追加をしない
+            if (Vector2.Distance(tempPos, endPos) < 0.5f) return;
 
             Points.Add(endPos);
-            Points_X.Add(endPos.x);
-            Points_Y.Add(endPos.y);
-
-            if (!draw_able(Input.mousePosition)) return;
+            Points_X.Add(endPos);
+            Points_Y.Add(endPos);
 
             //endPos = new Vector2(startPos.x, endPos.y);
             //lineRenderer.SetPosition(1, endPos);
@@ -155,6 +130,7 @@ public class LineController : MonoBehaviour
             //lineRenderer.SetPosition(1, endPos); // // end draw position
 
             Drawing_obj.transform.position = endPos;
+            tempPos = endPos;
 
             //===========================円関連処理               
         }
@@ -164,6 +140,11 @@ public class LineController : MonoBehaviour
         {
             is_Drawing = false;
             Drawing_obj.SetActive(false);
+
+            //--------------------
+            Points_X.Sort((s1, s2) => s1.x.CompareTo(s2.x)); //position.xを基準にして配列整列
+            Points_Y.Sort((s1, s2) => s1.y.CompareTo(s2.y)); //position.ｙを基準にして配列整列
+            //--------------------
 
             //直線生成
             if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100)
@@ -189,15 +170,21 @@ public class LineController : MonoBehaviour
             // draw circle
             else
             {
-               
-                for (int i=0; i<Points.Count - 1; i++)
+                if (Points.Count < 5 || Points.Count > 20) return;
+                if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
+
+                for (int i = 0; i < Points.Count - 1; i++)
                 {
-                    circumference  += Vector3.Distance(Points[i], Points[i+1]);
+                    circumference += Vector3.Distance(Points[i], Points[i + 1]);
                 }
                 radius = circumference / 6.28f;
-                circle_center = new Vector2(Points[0].x, Points[0].y);
-                var obj2  = Instantiate(test_obj, circle_center, Quaternion.identity);
-                obj2.transform.localScale = new Vector3(radius,radius,1);
+         
+                circle_center = new Vector2(
+                                             Points_Y[0].x,
+                                             Points_X[0].y
+                                            );
+                var obj2 = Instantiate(test_obj, circle_center, Quaternion.identity);
+                obj2.transform.localScale = new Vector3(radius, radius, 1);
             }
 
         }
@@ -242,10 +229,10 @@ public class LineController : MonoBehaviour
                                                                   end_screenLimit.y,
                                                                   -Camera.main.transform.position.z));
 
-        Vector2 Top_Left = new Vector2(sPos.x,ePos.y);   
-        Vector2 Top_Right = ePos;   
-        Vector2 Bottom_Left = sPos;   
-        Vector2 Bottom_Right = new Vector2(ePos.x, sPos.y);    
+        Vector2 Top_Left = new Vector2(sPos.x, ePos.y);
+        Vector2 Top_Right = ePos;
+        Vector2 Bottom_Left = sPos;
+        Vector2 Bottom_Right = new Vector2(ePos.x, sPos.y);
 
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawLine(Top_Left, Top_Right);
@@ -268,11 +255,4 @@ public class LineController : MonoBehaviour
         Vector2 v2 = end - start;
         return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
     }
-
-   IEnumerator DrawableTime()
-    {
-        yield return new WaitForSeconds(5.0f);
-        is_Drawing = false;
-    }
-
 }
