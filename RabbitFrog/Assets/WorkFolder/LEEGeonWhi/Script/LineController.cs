@@ -11,8 +11,11 @@ public class LineController : MonoBehaviour
     private Vector2 tempPos;
     private Vector2 circle_center;
 
-    private List<Vector2> Points = new List<Vector2>();　//マウス移動経路　
+    [SerializeField]
+    private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
+    [SerializeField]
     private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
+    [SerializeField]
     private List<Vector2> Points_Y = new List<Vector2>(); //Pointsをposition.Yを基準にしてlist整列
 
     [SerializeField]
@@ -33,7 +36,6 @@ public class LineController : MonoBehaviour
     private float radius = 0;//円の半径
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
-    private BoxCollider2D boxCollider; //生成したprefabのboxCollider
 
     private bool Draw_able = false; //インクモード
 
@@ -58,9 +60,7 @@ public class LineController : MonoBehaviour
         DrawLine();
     }
 
-    /// <summary>
-    /// 直線を書く
-    /// </summary>
+
     private void DrawLine()
     {
         //マウスをクリックして線が始まる地点を決める
@@ -132,7 +132,6 @@ public class LineController : MonoBehaviour
             Drawing_obj.transform.position = endPos;
             tempPos = endPos;
 
-            //===========================円関連処理               
         }
 
         //線を書きを終了する。
@@ -147,7 +146,7 @@ public class LineController : MonoBehaviour
             //--------------------
 
             //直線生成
-            if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100)
+            if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100 && Points.Count < 10)
             {
                 obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
                 lineRenderer = obj.GetComponent<LineRenderer>();
@@ -170,13 +169,20 @@ public class LineController : MonoBehaviour
             // draw circle
             else
             {
-                if (Points.Count < 5 || Points.Count > 20) return;
+                
+                //===========================================================================
+                if (Points.Count < 10 || Points.Count > 20) return;
                 if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
+                if (Vector2.Distance(Points_X[0], Points_X[Points.Count - 1]) > 10.0f ||
+                    Vector2.Distance(Points_Y[0], Points_Y[Points.Count - 1]) > 10.0f) return;
+                //===========================================================================
 
+                //円の長さを計算する
                 for (int i = 0; i < Points.Count - 1; i++)
                 {
                     circumference += Vector3.Distance(Points[i], Points[i + 1]);
                 }
+                //半径を計算する
                 radius = circumference / 6.28f;
          
                 circle_center = new Vector2(
@@ -185,6 +191,11 @@ public class LineController : MonoBehaviour
                                             );
                 var obj2 = Instantiate(test_obj, circle_center, Quaternion.identity);
                 obj2.transform.localScale = new Vector3(radius, radius, 1);
+
+                obj2.GetComponent<Circle>().circumference = circumference;
+                obj2.GetComponent<Circle>().HP = 1 - (circumference - 1) * 0.2f;
+                BoxCollider2D col = obj2.AddComponent<BoxCollider2D>(); // 判定を追加
+                col.isTrigger = true;
             }
 
         }
