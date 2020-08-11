@@ -14,7 +14,16 @@ public class Circle : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine(obj_destroy());
+    //    StartCoroutine(obj_destroy());
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+
+        if (col.tag == "Enemy")
+        {
+            //col.gameObject.transform.position = (vector2 - vector1).normalized;
+        }
     }
 
     /// <summary>

@@ -194,8 +194,8 @@ public class LineController : MonoBehaviour
 
                 obj2.GetComponent<Circle>().circumference = circumference;
                 obj2.GetComponent<Circle>().HP = 1 - (circumference - 1) * 0.2f;
-                BoxCollider2D col = obj2.AddComponent<BoxCollider2D>(); // 判定を追加
-                col.isTrigger = true;
+                //BoxCollider2D col = obj2.AddComponent<BoxCollider2D>(); // 判定を追加
+                //col.isTrigger = true;
             }
 
         }
