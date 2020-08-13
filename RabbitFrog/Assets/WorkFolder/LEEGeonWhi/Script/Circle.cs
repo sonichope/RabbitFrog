@@ -14,7 +14,7 @@ public class Circle : MonoBehaviour
 
     void Update()
     {
-    //    StartCoroutine(obj_destroy());
+        StartCoroutine(obj_destroy());
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -22,7 +22,10 @@ public class Circle : MonoBehaviour
 
         if (col.tag == "Enemy")
         {
-            //col.gameObject.transform.position = (vector2 - vector1).normalized;
+            
+          Vector3 direction = (transform.position - col.gameObject.transform.position).normalized;
+            if (Vector2.Distance(transform.position, col.gameObject.transform.position) < 0.1f) return;
+            col.gameObject.transform.position += direction * 0.05f;
         }
     }
 
