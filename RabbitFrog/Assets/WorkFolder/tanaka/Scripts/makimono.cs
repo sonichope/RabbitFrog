@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class makimono : MonoBehaviour
 {
-    // [SerializeField] private GameObject makimono01;
-    // Start is called before the first frame update
-    private bool vecFlag = false;
+    [SerializeField] GameObject maki;
+    private float mSpeed = 0.1f;
     void Start()
     {
-        StartCoroutine("SampleCoroutine");
+        
     }
 
     // Update is called once per frame
@@ -18,21 +17,11 @@ public class makimono : MonoBehaviour
         Test();
     }
 
-    IEnumerator SampleCoroutine()
+    private void Test()
     {
-        if (vecFlag == true)
-            yield return new WaitForSeconds(5.0f);
-        
-    }
-
-    void Test()
-    {
-        if (vecFlag) { return; }
-        vecFlag = true;
-        Transform myTransform = transform;
-        Vector2 pos = myTransform.position;
-        pos.x += -0.01f;
-        pos.y += 0;
-        myTransform.position = pos;
+        //transform.Translate(mSpeed, 0, 0);
+        transform.localPosition = new Vector2(275, 0);
+        if (localPosition.x >= 275)
+            mSpeed* x;
     }
 }
