@@ -14,6 +14,7 @@ public class NinjaCharacter : Character
     void Update()
     {
         if (IsDeath) { return; }
+        if (hp <= 0) { Death(); }
         CharacterMove(moveSpeed);
     }
 }

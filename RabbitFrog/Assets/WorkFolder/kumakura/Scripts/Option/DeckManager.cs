@@ -9,7 +9,6 @@ public class DeckManager : MonoBehaviour
 
     void Start()
     {
-        //DontDestroyOnLoad(gameObject);
         for (int i = 0; i < deckObjects.Length; i++)
         {
             deckObjects[i] = getDeckObjects[i];
@@ -22,8 +21,8 @@ public class DeckManager : MonoBehaviour
         {
             for (int i = 0; i < deckObjects.Length; i++)
             {
-                if (deckObjects[i].cardPoolObject == null) { return; }
-                Debug.Log(deckObjects[i].cardPoolObject.myCardType);
+                if (deckObjects[i].cardPoolObject == null) { continue; }
+                Debug.Log(deckObjects[i].cardPoolObject.character.myCardType);
             }
         }
     }

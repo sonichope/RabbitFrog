@@ -14,6 +14,13 @@ public class GhostCharacter : Character
     void Update()
     {
         if (IsDeath) { return; }
+        if (hp <= 0) { Death(); }
         CharacterMove(moveSpeed);
+    }
+
+    public override void Death()
+    {
+        // ここに爆発の処理
+        base.Death();
     }
 }

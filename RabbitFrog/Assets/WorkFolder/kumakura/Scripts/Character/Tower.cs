@@ -11,24 +11,19 @@ public class Tower : CharacterBase
 
     void Update()
     {
+        if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
     }
 
-    /// <summary>
-    /// 攻撃
-    /// </summary>
     public override void Attack()
     {
         
     }
-    
-    /// <summary>
-    /// 死亡
-    /// </summary>
+
     public override void Death()
     {
         IsDeath = true;
+        // 編成画面に戻るか聞くUIの表示
         gameObject.SetActive(false);
-        GameSceneManager.LoadClearScene();
     }
 }
