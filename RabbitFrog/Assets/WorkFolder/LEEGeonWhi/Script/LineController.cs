@@ -37,7 +37,7 @@ public class LineController : MonoBehaviour
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
 
-    private bool Draw_able = false; //インクモード
+    private bool is_inkMode = false; //インクモード
 
     [SerializeField]
     private Vector2 start_screenLimit = new Vector2(100.0f, 100.0f); //線を書けるScreen範囲1 
@@ -45,6 +45,10 @@ public class LineController : MonoBehaviour
     private Vector2 end_screenLimit = new Vector2(430.0f, 300.0f);   //線を書けるScreen範囲2
 
     private bool is_Drawing = false;　//今、線を書いてる中
+
+
+
+  
 
     // Start is called before the first frame update
     void Start()
@@ -57,16 +61,20 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (is_inkMode == false) return;
         DrawLine();
     }
 
+    public void OnIsDraw()
+    {
+        is_inkMode = !is_inkMode;
+    }
 
     private void DrawLine()
     {
         //マウスをクリックして線が始まる地点を決める
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && InkAmout.inkChack())
         {
-
 
             //SceenPositionをWorldPositionへ変換
             startPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
@@ -197,6 +205,8 @@ public class LineController : MonoBehaviour
                 //BoxCollider2D col = obj2.AddComponent<BoxCollider2D>(); // 判定を追加
                 //col.isTrigger = true;
             }
+
+            InkAmout.decrease_Gauge(0.1f);
 
         }
 
