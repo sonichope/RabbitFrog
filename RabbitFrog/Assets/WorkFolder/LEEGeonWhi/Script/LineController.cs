@@ -12,6 +12,9 @@ public class LineController : MonoBehaviour
     private Vector2 circle_center;
 
     [SerializeField]
+    private float width = 0.5f;
+
+    [SerializeField]
     private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
     [SerializeField]
     private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
@@ -61,7 +64,7 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (is_inkMode == false) return;
+        //if (is_inkMode == false) return;
         DrawLine();
     }
 
@@ -165,9 +168,11 @@ public class LineController : MonoBehaviour
                 endPos = new Vector2(startPos.x,
                                     Drawing_obj.transform.position.y);
                 lineRenderer.SetPosition(1, endPos); // // end draw position
+                lineRenderer.SetWidth(width, width);
 
-                BoxCollider2D col = obj.AddComponent<BoxCollider2D>(); // 判定を追加
-                col.isTrigger = true;
+                //BoxCollider2D col = obj.AddComponent<BoxCollider2D>(); // 判定を追加
+               
+                //col.isTrigger = true;
 
                 lineLength = Mathf.Abs(endPos.y - startPos.y);
                 obj.GetComponent<Line>().lineLength = lineLength; // 

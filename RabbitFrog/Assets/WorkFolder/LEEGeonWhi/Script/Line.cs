@@ -7,6 +7,8 @@ public class Line : MonoBehaviour
     public float lineLength;
     public float HP;
 
+    private BoxCollider2D Box_col;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,31 @@ public class Line : MonoBehaviour
 
     void Init()
     {
+        Box_col = gameObject.AddComponent<BoxCollider2D>();
+        Box_col.isTrigger = true;
+    }
 
+    /// <summary>
+    /// 判定用 function
+    /// </summary>
+    /// <param name="col"></param>
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.tag == "Enemy")
+        {
+            Debug.Log("判定あり test");
+        }
+    }
+
+    /// <summary>
+    /// 判定用 function
+    /// </summary>
+    /// <param name="col"></param>
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Enemy")
+        {
+            Debug.Log("判定なし test");
+        }
     }
 }
