@@ -186,8 +186,8 @@ public class LineController : MonoBehaviour
                 radius = circumference / 6.28f;
          
                 circle_center = new Vector2(
-                                             Points_Y[0].x,
-                                             Points_X[0].y
+                                             (Points_Y[0].x + Points_Y[Points_Y.Count - 1].x) / 2 ,
+                                             (Points_X[0].y + Points_X[Points_X.Count - 1].y) / 2
                                             );
                 var obj2 = Instantiate(test_obj, circle_center, Quaternion.identity);
                 obj2.transform.localScale = new Vector3(radius, radius, 1);
@@ -223,6 +223,17 @@ public class LineController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    float GetAngle(Vector2 start, Vector2 end)
+    {
+        Vector2 v2 = end - start;
+        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
+    }
 
     //=============================================================================================
     /// <summary>
@@ -255,15 +266,4 @@ public class LineController : MonoBehaviour
         //Gizmos.DrawCube(transform.position, new Vector3(10, 10, 1));
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="start"></param>
-    /// <param name="end"></param>
-    /// <returns></returns>
-    float GetAngle(Vector2 start, Vector2 end)
-    {
-        Vector2 v2 = end - start;
-        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
-    }
 }
