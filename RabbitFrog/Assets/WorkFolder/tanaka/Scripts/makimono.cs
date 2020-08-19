@@ -1,27 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class makimono : MonoBehaviour
 {
-    [SerializeField] GameObject maki;
-    private float mSpeed = 0.1f;
+    public float mSpeed = 0.1f;
+    //private Vector3 makipos;
+    int counter;
+
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        Test();
+        test();
     }
 
-    private void Test()
+    private void test()
     {
-        //transform.Translate(mSpeed, 0, 0);
-        transform.localPosition = new Vector2(275, 0);
-        if (localPosition.x >= 275)
-            mSpeed* x;
+        Vector2 tmp = transform.localPosition;
+        transform.localPosition = new Vector2(tmp.x - 75, tmp.y);
+        if (tmp.x >= -75)
+        {
+            //tmp.x == counter--;
+        }
     }
 }
