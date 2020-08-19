@@ -56,7 +56,6 @@ public class LineController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Drawing_obj.SetActive(false);
 
     }
@@ -64,7 +63,7 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (is_inkMode == false) return;
+        if (is_inkMode == false || InkAmout.inkChack() == false) return;
         DrawLine();
     }
 
@@ -76,7 +75,7 @@ public class LineController : MonoBehaviour
     private void DrawLine()
     {
         //マウスをクリックして線が始まる地点を決める
-        if (Input.GetMouseButtonDown(0) && InkAmout.inkChack())
+        if (Input.GetMouseButtonDown(0))
         {
 
             //SceenPositionをWorldPositionへ変換

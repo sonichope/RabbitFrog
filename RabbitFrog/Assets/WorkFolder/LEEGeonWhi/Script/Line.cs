@@ -13,6 +13,7 @@ public class Line : MonoBehaviour
     void Start()
     {
         Init();
+        StartCoroutine(obj_destroy());
     }
 
     // Update is called once per frame
@@ -49,5 +50,12 @@ public class Line : MonoBehaviour
         {
             Debug.Log("判定なし test");
         }
+    }
+
+    IEnumerator obj_destroy()
+    {
+        yield return new WaitForSeconds(3.0f);
+        InkAmout.increase_Gauge(0.1f);
+        Destroy(gameObject);
     }
 }

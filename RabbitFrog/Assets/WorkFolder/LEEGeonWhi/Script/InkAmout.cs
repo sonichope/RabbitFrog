@@ -38,7 +38,7 @@ public class InkAmout : MonoBehaviour
     /// <returns></returns>
     static public bool inkChack()
     {
-        if (image.fillAmount < 0) return false;
+        if (image.fillAmount <= 0) return false;
         else return true;
     }
 }
