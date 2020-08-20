@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createEnemyList:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
+  - {fileID: 6239510380242767673, guid: e02644ecc8c541c4b8a43dce57a58e62, type: 3}
   summonInterval: 5
 --- !u!4 &1672071904
 Transform:
@@ -602,7 +603,7 @@ PrefabInstance:
     - target: {fileID: 8445628619417209536, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8682315827889038814, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
