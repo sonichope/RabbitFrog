@@ -6,15 +6,18 @@ public class Circle : MonoBehaviour
 {
     public float circumference;
     public float HP;
+    public bool obj_destroyed;
 
     void Start()
     {
+        obj_destroyed = false;
         Init();
+        StartCoroutine(obj_destroy());
     }
 
     void Update()
     {
-        StartCoroutine(obj_destroy());
+
     }
 
     private void OnTriggerStay2D(Collider2D col)
@@ -45,6 +48,7 @@ public class Circle : MonoBehaviour
             HP -= 0.2f;
         }
 
+        InkAmout.increase_Gauge(0.1f);
         Destroy(gameObject);
     }
 }

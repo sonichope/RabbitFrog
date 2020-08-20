@@ -12,6 +12,9 @@ public class LineController : MonoBehaviour
     private Vector2 circle_center;
 
     [SerializeField]
+    private float width = 0.5f;
+
+    [SerializeField]
     private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
     [SerializeField]
     private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
@@ -37,7 +40,7 @@ public class LineController : MonoBehaviour
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
 
-    private bool Draw_able = false; //インクモード
+    private bool is_inkMode = false; //インクモード
 
     [SerializeField]
     private Vector2 start_screenLimit = new Vector2(100.0f, 100.0f); //線を書けるScreen範囲1 
@@ -46,10 +49,13 @@ public class LineController : MonoBehaviour
 
     private bool is_Drawing = false;　//今、線を書いてる中
 
+
+
+  
+
     // Start is called before the first frame update
     void Start()
     {
-
         Drawing_obj.SetActive(false);
 
     }
@@ -57,16 +63,20 @@ public class LineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (is_inkMode == false || InkAmout.inkChack() == false) return;
         DrawLine();
     }
 
+    public void OnIsDraw()
+    {
+        is_inkMode = !is_inkMode;
+    }
 
     private void DrawLine()
     {
         //マウスをクリックして線が始まる地点を決める
         if (Input.GetMouseButtonDown(0))
         {
-
 
             //SceenPositionをWorldPositionへ変換
             startPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
@@ -157,9 +167,11 @@ public class LineController : MonoBehaviour
                 endPos = new Vector2(startPos.x,
                                     Drawing_obj.transform.position.y);
                 lineRenderer.SetPosition(1, endPos); // // end draw position
+                lineRenderer.SetWidth(width, width);
 
-                BoxCollider2D col = obj.AddComponent<BoxCollider2D>(); // 判定を追加
-                col.isTrigger = true;
+                //BoxCollider2D col = obj.AddComponent<BoxCollider2D>(); // 判定を追加
+               
+                //col.isTrigger = true;
 
                 lineLength = Mathf.Abs(endPos.y - startPos.y);
                 obj.GetComponent<Line>().lineLength = lineLength; // 
@@ -186,8 +198,8 @@ public class LineController : MonoBehaviour
                 radius = circumference / 6.28f;
          
                 circle_center = new Vector2(
-                                             Points_Y[0].x,
-                                             Points_X[0].y
+                                             (Points_Y[0].x + Points_Y[Points_Y.Count - 1].x) / 2 ,
+                                             (Points_X[0].y + Points_X[Points_X.Count - 1].y) / 2
                                             );
                 var obj2 = Instantiate(test_obj, circle_center, Quaternion.identity);
                 obj2.transform.localScale = new Vector3(radius, radius, 1);
@@ -197,6 +209,8 @@ public class LineController : MonoBehaviour
                 //BoxCollider2D col = obj2.AddComponent<BoxCollider2D>(); // 判定を追加
                 //col.isTrigger = true;
             }
+
+            InkAmout.decrease_Gauge(0.1f);
 
         }
 
@@ -223,6 +237,17 @@ public class LineController : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <returns></returns>
+    float GetAngle(Vector2 start, Vector2 end)
+    {
+        Vector2 v2 = end - start;
+        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
+    }
 
     //=============================================================================================
     /// <summary>
@@ -255,15 +280,4 @@ public class LineController : MonoBehaviour
         //Gizmos.DrawCube(transform.position, new Vector3(10, 10, 1));
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="start"></param>
-    /// <param name="end"></param>
-    /// <returns></returns>
-    float GetAngle(Vector2 start, Vector2 end)
-    {
-        Vector2 v2 = end - start;
-        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
-    }
 }

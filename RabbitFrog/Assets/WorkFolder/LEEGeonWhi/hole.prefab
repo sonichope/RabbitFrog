@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1237459509465619511}
   m_Layer: 0
   m_Name: hole
-  m_TagString: Untagged
+  m_TagString: hole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circumference: 0
   HP: 0
+  obj_destroyed: 0
 --- !u!58 &7343570308829721171
 CircleCollider2D:
   m_ObjectHideFlags: 0
