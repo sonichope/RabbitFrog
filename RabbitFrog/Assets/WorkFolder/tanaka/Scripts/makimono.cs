@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class makimono : MonoBehaviour
 {
-    public float mSpeed = 0.1f;
+    public float mSpeed;
     //private Vector3 makipos;
     int counter;
 
@@ -26,7 +26,7 @@ public class makimono : MonoBehaviour
         transform.localPosition = new Vector2(tmp.x - 75, tmp.y);
         if (tmp.x >= -75)
         {
-            //tmp.x == counter--;
+            transform.Translate(-mSpeed, 0, 0);
         }
     }
 }
