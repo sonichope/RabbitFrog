@@ -36,6 +36,7 @@ public class Line : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
+            col.GetComponent<Enemy>().IsMove = false;
             Debug.Log("判定あり test");
         }
     }
@@ -48,6 +49,7 @@ public class Line : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
+            col.GetComponent<Enemy>().IsMove = true;
             Debug.Log("判定なし test");
         }
     }

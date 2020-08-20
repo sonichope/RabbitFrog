@@ -68,6 +68,7 @@ public class Character : CharacterBase
     /// <param name="speed"></param>
     public virtual void CharacterMove(float speed)
     {
+        if (IsMove)
         // 敵の索敵が出来れていれば敵に近づく処理
         if (serchFlag)
         {

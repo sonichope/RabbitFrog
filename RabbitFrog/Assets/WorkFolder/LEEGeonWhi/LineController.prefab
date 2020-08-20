@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42d81d9339413442894f7fe3d419ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  width: 0.5
   Points: []
   Points_X: []
   Points_Y: []
@@ -53,5 +54,5 @@ MonoBehaviour:
     type: 3}
   circumference: 0
   radius: 0
-  start_screenLimit: {x: 100, y: 100}
-  end_screenLimit: {x: 430, y: 300}
+  start_screenLimit: {x: 0, y: 100}
+  end_screenLimit: {x: 585, y: 400}
