@@ -39,6 +39,7 @@ public class LineController : MonoBehaviour
     private float radius = 0;//円の半径
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
+    private LineRenderer Pointer_linRenderer;
 
     private bool is_inkMode = false; //インクモード
 
@@ -49,15 +50,15 @@ public class LineController : MonoBehaviour
 
     private bool is_Drawing = false;　//今、線を書いてる中
 
+    GameObject test;
 
 
-  
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Drawing_obj.SetActive(false);
-
+        //Drawing_obj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -78,13 +79,17 @@ public class LineController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
+
             //SceenPositionをWorldPositionへ変換
             startPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                                   Input.mousePosition.y,
                                                                  -Camera.main.transform.position.z));
 
+
             if (!draw_able(Input.mousePosition)) return;
             is_Drawing = true;
+
+            test = Instantiate(Drawing_obj, startPos, Quaternion.identity);
 
             //=================================================
 
@@ -95,8 +100,9 @@ public class LineController : MonoBehaviour
             //lineRenderer.SetVertexCount(2);
             //lineRenderer.SetPosition(0, startPos); // start draw position
 
-            Drawing_obj.SetActive(true);
-            Drawing_obj.transform.position = startPos;
+            //Drawing_obj.SetActive(true);
+            //Drawing_obj.transform.position = startPos;
+
 
             //list初期化
             //----------------------------------------
@@ -130,6 +136,16 @@ public class LineController : MonoBehaviour
             Points_X.Add(endPos);
             Points_Y.Add(endPos);
 
+
+            //Pointer_linRenderer = Drawing_obj.GetComponent<LineRenderer>();
+
+
+            //for (int i = 0; i < Points.Count; i++)
+            //{
+            //    Pointer_linRenderer.SetPosition(i, endPos);
+            //}
+
+
             //endPos = new Vector2(startPos.x, endPos.y);
             //lineRenderer.SetPosition(1, endPos);
             //==============================================
@@ -140,6 +156,7 @@ public class LineController : MonoBehaviour
             //lineRenderer.SetPosition(1, endPos); // // end draw position
 
             Drawing_obj.transform.position = endPos;
+            test.transform.position = endPos;
             tempPos = endPos;
 
         }
@@ -147,8 +164,10 @@ public class LineController : MonoBehaviour
         //線を書きを終了する。
         if (Input.GetMouseButtonUp(0) && is_Drawing)
         {
+            Destroy(test);
+
             is_Drawing = false;
-            Drawing_obj.SetActive(false);
+            //sDrawing_obj.SetActive(false);
 
             //--------------------
             Points_X.Sort((s1, s2) => s1.x.CompareTo(s2.x)); //position.xを基準にして配列整列
