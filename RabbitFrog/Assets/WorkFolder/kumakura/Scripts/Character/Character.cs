@@ -91,7 +91,7 @@ public class Character : CharacterBase
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (serchFlag) { return; }
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵のHPの情報を取得
             targetEnemy = collision.GetComponent<CharacterBase>();

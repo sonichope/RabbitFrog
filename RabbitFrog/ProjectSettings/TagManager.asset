@@ -9,6 +9,7 @@ TagManager:
   - Attack
   - wall
   - hole
+  - EnemyTower
   layers:
   - Default
   - TransparentFX
