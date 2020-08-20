@@ -47,7 +47,8 @@ MonoBehaviour:
   Points: []
   Points_X: []
   Points_Y: []
-  Drawing_obj: {fileID: 0}
+  Drawing_obj: {fileID: 5564818422215830251, guid: 29e1bbcb318e2194da5cf8ea7975f943,
+    type: 3}
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
   test_obj: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff,
