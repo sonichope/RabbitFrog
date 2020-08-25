@@ -98,14 +98,14 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 74fa88d41fda8bf41b04141f22a05de3, type: 3}
   hp: 35
   power: 40
+  myCharacteristic: 2
+  myCardType: 8
   moveSpeed: 0.0035
   summonVol: 1
   cost: 8
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 2.25
-  myCharacteristic: 0
-  myCardType: 8
 --- !u!61 &5252207661424079549
 BoxCollider2D:
   m_ObjectHideFlags: 0

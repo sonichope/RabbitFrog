@@ -81,10 +81,6 @@ public class HandManager : MonoBehaviour
             Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
         }
 
-
-        //var handObjSprite = handObjects[myHandNumber].GetComponent<Image>().sprite;
-        //var nextHandSprite = nextHand.GetComponent<Image>().sprite;
-
         // 次手札から補充
         DeckManager.deckObjects[myHandNumber] = DeckManager.deckObjects[4];
         // 画像を次手札から参照

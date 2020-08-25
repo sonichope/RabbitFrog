@@ -6,7 +6,7 @@ public class NecromancerCharacter : Character
 {
     [SerializeField] private GameObject ghost;
     [SerializeField, Header("召喚間隔")] private float ghostSummonInterval = 2.0f;
-    private float time;
+    private float summonTime;
 
     [SerializeField] private float minRandomPos_x;
     [SerializeField] private float maxRandomPos_x;
@@ -26,10 +26,10 @@ public class NecromancerCharacter : Character
         if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
         CharacterMove(moveSpeed);
-        time += Time.deltaTime;
-        if (ghostSummonInterval < time)
+        summonTime += Time.deltaTime;
+        if (ghostSummonInterval < summonTime)
         {
-            time = 0;
+            summonTime = 0;
             SummonGhost(transform.position);
         }
     }
