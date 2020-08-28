@@ -472,7 +472,6 @@ RectTransform:
   - {fileID: 5849622469016545567}
   - {fileID: 6350691068579855655}
   - {fileID: 14000862}
-  - {fileID: 328260647}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1235,7 +1234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3865661358099804113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1292,6 +1291,8 @@ MonoBehaviour:
   maxRandomPos_x: 0.5
   minRandomPos_y: -0.5
   maxRandomPos_y: 0.5
+  start_screenLimit: {x: 250, y: 100}
+  end_screenLimit: {x: 450, y: 400}
 --- !u!1 &8778693165937086267
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,87 +1413,6 @@ MonoBehaviour:
   lineLength: 0.05
   lineWidth: 0.1
   IsDraw: 0
---- !u!1001 &5564818422424516298
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4421351979475222738}
-    m_Modifications:
-    - target: {fileID: 5564818422215830251, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_Name
-      value: Drawing
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 29e1bbcb318e2194da5cf8ea7975f943, type: 3}
---- !u!1 &328260641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5564818422215830251, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-    type: 3}
-  m_PrefabInstance: {fileID: 5564818422424516298}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &328260647 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5564818422215830253, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-    type: 3}
-  m_PrefabInstance: {fileID: 5564818422424516298}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6228810352409236606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1555,11 +1475,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6228810352406394529, guid: 0ae1796b5194c4b4abf40e8a4a85dc79,
-        type: 3}
-      propertyPath: Drawing_obj
-      value: 
-      objectReference: {fileID: 328260641}
     - target: {fileID: 6228810352406394535, guid: 0ae1796b5194c4b4abf40e8a4a85dc79,
         type: 3}
       propertyPath: m_Name

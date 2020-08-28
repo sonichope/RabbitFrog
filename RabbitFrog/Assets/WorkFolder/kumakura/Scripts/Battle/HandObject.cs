@@ -11,6 +11,9 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     private GameObject dragObject;
     private HandManager handManager;
 
+    private Image dragImage;
+    private Image souceImage;
+
     void Awake()
     {
         parentObject = transform.parent;
@@ -26,6 +29,12 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     public void OnDrag(PointerEventData pointerEventData)
     {
         dragObject.transform.position = GetMousePosition();
+
+        //＝＝＝＝＝＝＝
+        if (is_Summonable(Input.mousePosition)) { dragImage.color = new Color(souceImage.color.r, souceImage.color.g, souceImage.color.b, 1.0f); }
+        else { dragImage.color = new Color(souceImage.color.r, souceImage.color.g, souceImage.color.b, 0.25f); }
+        //イゴンヒ
+       
     }
 
     public void OnEndDrag(PointerEventData pointerEventData)
@@ -34,10 +43,10 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         Destroy(dragObject);
         var pos = Camera.main.ScreenToWorldPoint(pointerEventData.position);
         pos.z += 10.0f;
-        handManager.CharacterSummon(pos, myHandNumber);
-    }
 
-    
+        if(is_Summonable(pointerEventData.position)) handManager.CharacterSummon(pos, myHandNumber);
+       
+    }
 
     /// <summary>
     /// Dragしたキャラクターの複製
@@ -54,8 +63,8 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         CanvasGroup canvasGroup = dragObject.AddComponent<CanvasGroup>();
         canvasGroup.blocksRaycasts = false;
 
-        Image dragImage = dragObject.AddComponent<Image>();
-        Image souceImage = GetComponent<Image>();
+        dragImage = dragObject.AddComponent<Image>();
+        souceImage = GetComponent<Image>();
 
         dragImage.sprite = souceImage.sprite;
         dragImage.rectTransform.sizeDelta = souceImage.rectTransform.sizeDelta;
@@ -78,4 +87,28 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         Vector3 worldMousePos = gameCamera.ScreenToWorldPoint(screenMousuPos);
         return worldMousePos;
     }
+
+    //=======================================================
+    //=======================================================
+    /// <summary>
+    /// 青い線内に入れてるがを判断する。
+    /// </summary>
+    /// <param name="pointerEventData_pos"></param>
+    /// <returns>召喚が出来る範囲がを判断</returns>
+    private bool is_Summonable(Vector2 pointerEventData_pos)
+    {
+
+        if (pointerEventData_pos.x > handManager.start_screenLimit.x && pointerEventData_pos.x < handManager.end_screenLimit.x &&
+            pointerEventData_pos.y > handManager.start_screenLimit.y && pointerEventData_pos.y < handManager.end_screenLimit.y)
+        {
+            return true;
+        }
+        //mousePosition.y > 100.0f && mousePosition.y < 300.0f;
+        else
+        {
+            return false;
+        }
+    }
+    //イゴンヒ
+
 }
