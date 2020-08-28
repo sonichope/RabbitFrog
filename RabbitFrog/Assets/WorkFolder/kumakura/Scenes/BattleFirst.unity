@@ -466,11 +466,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 14000863, guid: c665477f90810da4990c10faf4f4d25e, type: 3}
-      propertyPath: Drawing_obj
-      value: 
-      objectReference: {fileID: 5564818422215830251, guid: 29e1bbcb318e2194da5cf8ea7975f943,
-        type: 3}
     - target: {fileID: 328260641, guid: c665477f90810da4990c10faf4f4d25e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -857,7 +852,7 @@ PrefabInstance:
     - target: {fileID: 8445628619417209536, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8682315827889038814, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}

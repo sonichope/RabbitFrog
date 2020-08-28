@@ -171,6 +171,10 @@ public class Character : CharacterBase
                     }
                     targetEnemy.hp -= 1;
                     break;
+
+                default:
+                    Debug.LogError("特徴が不適切です");
+                    break;
             }
             atackTime = 0f;
         }
