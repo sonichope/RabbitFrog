@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class makimono : MonoBehaviour
 {
-    public float mSpeed;
-    //private Vector3 makipos;
-    int counter;
+    [SerializeField] GameObject Maki;
+    [SerializeField] GameObject Peper;
 
     void Start()
     {
@@ -17,16 +16,20 @@ public class makimono : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        test();
+        
     }
 
-    private void test()
+    void scalMakimono()
     {
-        Vector2 tmp = transform.localPosition;
-        transform.localPosition = new Vector2(tmp.x - 75, tmp.y);
-        if (tmp.x >= -75)
+        if (Input.GetMouseButtonDown(0))
         {
-            transform.Translate(-mSpeed, 0, 0);
+            Maki.transform.localScale = new Vector2(0, 550);
+            Peper.transform.localScale = new Vector2(0, 550);
         }
+    }
+
+    void isCanvasEnable()
+    {
+
     }
 }
