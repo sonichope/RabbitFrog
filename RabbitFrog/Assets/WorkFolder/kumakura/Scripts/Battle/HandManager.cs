@@ -15,9 +15,9 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float maxRandomPos_y;
 
     [SerializeField]
-    public Vector2 start_screenLimit = new Vector2(250.0f, 100.0f); //線を書けるScreen範囲1 
+    public Vector2 start_screenLimit = new Vector2(0, -2.5f); //線を書けるScreen範囲1 
     [SerializeField]
-    public Vector2 end_screenLimit = new Vector2(450.0f, 400.0f);   //線を書けるScreen範囲2
+    public Vector2 end_screenLimit = new Vector2(7.0f, 5f);   //線を書けるScreen範囲2
 
     void Start()
     {
@@ -108,13 +108,9 @@ public class HandManager : MonoBehaviour
     {
         // Draw a semitransparent blue cube at the transforms position
 
-        Vector2 sPos = Camera.main.ScreenToWorldPoint(new Vector3(start_screenLimit.x,
-                                                                  start_screenLimit.y,
-                                                                  -Camera.main.transform.position.z));
+        Vector2 sPos = new Vector3(start_screenLimit.x, start_screenLimit.y, -Camera.main.transform.position.z);
 
-        Vector2 ePos = Camera.main.ScreenToWorldPoint(new Vector3(end_screenLimit.x,
-                                                                  end_screenLimit.y,
-                                                                  -Camera.main.transform.position.z));
+        Vector2 ePos = new Vector3(end_screenLimit.x, end_screenLimit.y, -Camera.main.transform.position.z);
 
         Vector2 Top_Left = new Vector2(sPos.x, ePos.y);
         Vector2 Top_Right = ePos;

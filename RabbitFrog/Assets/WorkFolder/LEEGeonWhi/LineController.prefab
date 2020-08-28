@@ -54,5 +54,5 @@ MonoBehaviour:
   circle: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff, type: 3}
   circumference: 0
   radius: 0
-  start_screenLimit: {x: 0, y: 100}
-  end_screenLimit: {x: 585, y: 400}
+  start_screenLimit: {x: -5, y: -2.5}
+  end_screenLimit: {x: 5, y: 5}

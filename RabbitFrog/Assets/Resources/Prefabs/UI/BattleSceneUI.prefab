@@ -1291,8 +1291,8 @@ MonoBehaviour:
   maxRandomPos_x: 0.5
   minRandomPos_y: -0.5
   maxRandomPos_y: 0.5
-  start_screenLimit: {x: 250, y: 100}
-  end_screenLimit: {x: 450, y: 400}
+  start_screenLimit: {x: 0, y: -2.5}
+  end_screenLimit: {x: 7, y: 5}
 --- !u!1 &8778693165937086267
 GameObject:
   m_ObjectHideFlags: 0

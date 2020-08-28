@@ -45,9 +45,9 @@ public class LineController : MonoBehaviour
     private bool is_inkMode = false; //インクモード
 
     [SerializeField]
-    private Vector2 start_screenLimit = new Vector2(100.0f, 100.0f); //線を書けるScreen範囲1 
+    private Vector2 start_screenLimit = new Vector2(-5.0f, -2.5f); //線を書けるScreen範囲1 
     [SerializeField]
-    private Vector2 end_screenLimit = new Vector2(430.0f, 300.0f);   //線を書けるScreen範囲2
+    private Vector2 end_screenLimit = new Vector2(5.0f, 5.0f);   //線を書けるScreen範囲2
 
     private bool is_Drawing = false;　//今、線を書いてる中
 
@@ -76,7 +76,7 @@ public class LineController : MonoBehaviour
                                                                  -Camera.main.transform.position.z));
 
 
-            if (!draw_able(Input.mousePosition)) return;
+            if (!draw_able()) return;
             is_Drawing = true;
 
             mouce_obj = Instantiate(Drawing_obj, startPos, Quaternion.identity);
@@ -104,7 +104,7 @@ public class LineController : MonoBehaviour
                                                                 Input.mousePosition.y,
                                                                 -Camera.main.transform.position.z));
 
-            if (!draw_able(Input.mousePosition)) return;
+            if (!draw_able()) return;
             //マウスを動かないとlistの追加をしない
             if (Vector2.Distance(tempPos, endPos) < 0.5f) return;
 
@@ -192,11 +192,12 @@ public class LineController : MonoBehaviour
     /// </summary>
     /// <param name="mousePosition"></param>
     /// <returns></returns>
-    private bool draw_able(Vector2 mousePosition)
+    private bool draw_able()
     {
+        var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (mousePosition.x > start_screenLimit.x && mousePosition.x < end_screenLimit.x &&
-            mousePosition.y > start_screenLimit.y && mousePosition.y < end_screenLimit.y)
+        if (pos.x > start_screenLimit.x && pos.x < end_screenLimit.x &&
+            pos.y > start_screenLimit.y && pos.y < end_screenLimit.y)
         {
             return true;
         }
@@ -228,13 +229,8 @@ public class LineController : MonoBehaviour
     {
         // Draw a semitransparent blue cube at the transforms position
 
-        Vector2 sPos = Camera.main.ScreenToWorldPoint(new Vector3(start_screenLimit.x,
-                                                                  start_screenLimit.y,
-                                                                  -Camera.main.transform.position.z));
-
-        Vector2 ePos = Camera.main.ScreenToWorldPoint(new Vector3(end_screenLimit.x,
-                                                                  end_screenLimit.y,
-                                                                  -Camera.main.transform.position.z));
+        Vector2 sPos = new Vector3(start_screenLimit.x, start_screenLimit.y, -Camera.main.transform.position.z);
+        Vector2 ePos = new Vector3(end_screenLimit.x, end_screenLimit.y, -Camera.main.transform.position.z);
 
         Vector2 Top_Left = new Vector2(sPos.x, ePos.y);
         Vector2 Top_Right = ePos;
