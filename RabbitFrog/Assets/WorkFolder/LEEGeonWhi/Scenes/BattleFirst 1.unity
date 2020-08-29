@@ -149,11 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42d81d9339413442894f7fe3d419ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  width: 0.5
+  Points: []
+  Points_X: []
+  Points_Y: []
+  Drawing_obj: {fileID: 0}
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
+  circle: {fileID: 0}
+  circumference: 0
+  radius: 0
   start_screenLimit: {x: 100, y: 100}
   end_screenLimit: {x: 430, y: 300}
-  is_Drawing: 0
 --- !u!4 &67684353
 Transform:
   m_ObjectHideFlags: 0
@@ -197,10 +204,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e42d81d9339413442894f7fe3d419ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  width: 0.5
+  Points: []
+  Points_X: []
+  Points_Y: []
+  Drawing_obj: {fileID: 0}
   line_prefab: {fileID: 0}
+  circle: {fileID: 0}
+  circumference: 0
+  radius: 0
   start_screenLimit: {x: 100, y: 100}
   end_screenLimit: {x: 430, y: 300}
-  is_Drawing: 0
 --- !u!4 &846630023
 Transform:
   m_ObjectHideFlags: 0
@@ -329,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createEnemyList:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
+  summonInterval: 0
 --- !u!4 &1672071904
 Transform:
   m_ObjectHideFlags: 0
