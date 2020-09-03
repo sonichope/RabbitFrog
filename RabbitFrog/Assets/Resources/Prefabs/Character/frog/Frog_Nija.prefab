@@ -145,9 +145,10 @@ MonoBehaviour:
   image: {fileID: 0}
   hp: 20
   power: 10
+  myCharacteristic: 3
+  myCardType: 6
   moveSpeed: 0.0075
   summonVol: 1
-  myAttackMethod: 0
+  myAttackMethod: 1
   attackRange: 1.5
   attackInterval: 1.5
-  myCharacteristic: 0

@@ -51,9 +51,8 @@ MonoBehaviour:
     type: 3}
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
-  test_obj: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff,
-    type: 3}
+  circle: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff, type: 3}
   circumference: 0
   radius: 0
-  start_screenLimit: {x: 0, y: 100}
-  end_screenLimit: {x: 585, y: 400}
+  start_screenLimit: {x: -5, y: -2.5}
+  end_screenLimit: {x: 5, y: 5}

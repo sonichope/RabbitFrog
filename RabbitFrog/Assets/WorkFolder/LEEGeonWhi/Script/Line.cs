@@ -8,18 +8,24 @@ public class Line : MonoBehaviour
     public float HP;
 
     private BoxCollider2D Box_col;
+    private bool Check_Overlap;
 
     // Start is called before the first frame update
     void Start()
     {
         Init();
-        StartCoroutine(obj_destroy());
+        //StartCoroutine(obj_destroy());
+        StartCoroutine(Change_Overlap());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(HP <= 0)
+        {
+            InkAmout.increase_Gauge(0.1f);
+            Destroy(gameObject);
+        }
     }
 
     void Init()
@@ -28,16 +34,31 @@ public class Line : MonoBehaviour
         Box_col.isTrigger = true;
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Enemy" && Check_Overlap == false)
+        {
+            HP -= 0.5f;
+        }
+
+    }
+
     /// <summary>
     /// 判定用 function
     /// </summary>
     /// <param name="col"></param>
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy")
+        if (col.tag == "Enemy" && Check_Overlap == true)
+        {
+            InkAmout.increase_Gauge(0.1f);
+            Destroy(gameObject);
+        }
+
+        if (col.tag == "Enemy" && Check_Overlap == false)
         {
             col.GetComponent<Enemy>().IsMove = false;
-            Debug.Log("判定あり test");
+            //HP -= Time.deltaTime;
         }
     }
 
@@ -47,6 +68,8 @@ public class Line : MonoBehaviour
     /// <param name="col"></param>
     void OnTriggerExit2D(Collider2D col)
     {
+
+
         if (col.tag == "Enemy")
         {
             col.GetComponent<Enemy>().IsMove = true;
@@ -54,10 +77,21 @@ public class Line : MonoBehaviour
         }
     }
 
-    IEnumerator obj_destroy()
+    //IEnumerator obj_destroy()
+    //{
+    //    yield return new WaitForSeconds(3.0f);
+    //    InkAmout.increase_Gauge(0.1f);
+    //    Destroy(gameObject);
+    //} 
+
+    /// <summary>ㅖ
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator Change_Overlap()
     {
-        yield return new WaitForSeconds(3.0f);
-        InkAmout.increase_Gauge(0.1f);
-        Destroy(gameObject);
+        Check_Overlap = true;
+        yield return new WaitForSeconds(0.05f);
+        Check_Overlap = false;
     }
 }

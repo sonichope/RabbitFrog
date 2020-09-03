@@ -6,11 +6,11 @@ public class Circle : MonoBehaviour
 {
     public float circumference;
     public float HP;
-    public bool obj_destroyed;
+    //public bool obj_destroyed;
 
     void Start()
     {
-        obj_destroyed = false;
+        //obj_destroyed = false;
         Init();
         StartCoroutine(obj_destroy());
     }

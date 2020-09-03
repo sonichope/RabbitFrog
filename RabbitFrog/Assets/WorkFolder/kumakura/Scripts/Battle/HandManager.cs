@@ -14,6 +14,11 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float minRandomPos_y;
     [SerializeField] private float maxRandomPos_y;
 
+    [SerializeField]
+    public Vector2 start_screenLimit = new Vector2(0, -2.5f); //線を書けるScreen範囲1 
+    [SerializeField]
+    public Vector2 end_screenLimit = new Vector2(7.0f, 5f);   //線を書けるScreen範囲2
+
     void Start()
     {
         DeckShuffle();
@@ -81,10 +86,6 @@ public class HandManager : MonoBehaviour
             Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
         }
 
-
-        //var handObjSprite = handObjects[myHandNumber].GetComponent<Image>().sprite;
-        //var nextHandSprite = nextHand.GetComponent<Image>().sprite;
-
         // 次手札から補充
         DeckManager.deckObjects[myHandNumber] = DeckManager.deckObjects[4];
         // 画像を次手札から参照
@@ -95,5 +96,30 @@ public class HandManager : MonoBehaviour
         // 次手札の画像の設定
         nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[4].iconImage.sprite;
 
+    }
+
+    //======================================================
+    //======================================================
+    void OnDrawGizmosSelected()
+    {
+        // Draw a semitransparent blue cube at the transforms position
+
+        Vector2 sPos = new Vector3(start_screenLimit.x, start_screenLimit.y, -Camera.main.transform.position.z);
+
+        Vector2 ePos = new Vector3(end_screenLimit.x, end_screenLimit.y, -Camera.main.transform.position.z);
+
+        Vector2 Top_Left = new Vector2(sPos.x, ePos.y);
+        Vector2 Top_Right = ePos;
+        Vector2 Bottom_Left = sPos;
+        Vector2 Bottom_Right = new Vector2(ePos.x, sPos.y);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(Top_Left, Top_Right);
+        Gizmos.DrawLine(Top_Right, Bottom_Right);
+        Gizmos.DrawLine(Bottom_Right, Bottom_Left);
+        Gizmos.DrawLine(Bottom_Left, Top_Left);
+
+        //Gizmos.DrawCube(transform.position, Pos);
+        //Gizmos.DrawCube(transform.position, new Vector3(10, 10, 1));
     }
 }
