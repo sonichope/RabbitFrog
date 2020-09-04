@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WorkFolder/kumakura/Scenes/ClearScene.unity
     guid: 737bda21152624449a8ad4b303753be3
+  - enabled: 1
+    path: Assets/WorkFolder/miyata/Scenes/BattleFirst 1.unity
+    guid: 2ddf7039a28b83940ad571bcb408392d
+  - enabled: 1
+    path: Assets/WorkFolder/miyata/Scenes/OptionScene 1.unity
+    guid: 33fdfc88102bfc843a42b0b34bc29e53
   m_configObjects: {}

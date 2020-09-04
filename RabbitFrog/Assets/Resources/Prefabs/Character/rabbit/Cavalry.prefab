@@ -96,13 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 401b798a0e890694e9c785d0e35b663d, type: 3}
-  hp: 5
-  power: 3
+  hp: 135
+  power: 15
   moveSpeed: 0.01
-  summonVol: 0
-  cost: 0
+  summonVol: 1
+  cost: 5
+  myAttackMethod: 0
   attackRange: 1.5
-  attackInterval: 1.75
+  attackInterval: 1.5
+  myCharacteristic: 0
   myCardType: 2
 --- !u!61 &7868166922440875828
 BoxCollider2D:

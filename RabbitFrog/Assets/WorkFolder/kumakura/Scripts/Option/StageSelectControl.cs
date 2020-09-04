@@ -11,20 +11,20 @@ public class StageSelectControl : MonoBehaviour
         if (DeckCheck()) GameSceneManager.LoadBattleFirstScene();
     }
 
-    public void OnBattleSecond()
-    {
-        if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
-    }
+    //public void OnBattleSecond()
+    //{
+    //    if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
+    //}
 
-    public void OnBattleThird()
-    {
-        if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
-    }
+    //public void OnBattleThird()
+    //{
+    //    if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
+    //}
 
-    public void OnBattleBoss()
-    {
-        if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
-    }
+    //public void OnBattleBoss()
+    //{
+    //    if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
+    //}
 
     /// <summary>
     /// デッキ編成に穴がないかチェック

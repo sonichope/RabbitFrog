@@ -143,7 +143,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  hp: 5
+  hp: 10
   power: 3
-  moveSpeed: 0.01
-  summonVol: 0
+  myCharacteristic: 4
+  myCardType: 11
+  moveSpeed: 0.005
+  summonVol: 1
+  myAttackMethod: 0
+  attackRange: 1.5
+  attackInterval: 1.75
