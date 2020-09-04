@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LineController : MonoBehaviour
 {
@@ -34,23 +35,20 @@ public class LineController : MonoBehaviour
 
     [SerializeField]
     private GameObject circle;
-    [SerializeField]
     private float circumference = 0;//円の長さ
-    [SerializeField]
     private float radius = 0;//円の半径
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
     private LineRenderer Pointer_linRenderer;
 
-    private bool is_inkMode = false; //インクモード
+    static public bool is_inkMode = false; //インクモード
 
     [SerializeField]
     private Vector2 start_screenLimit = new Vector2(-5.0f, -2.5f); //線を書けるScreen範囲1 
     [SerializeField]
     private Vector2 end_screenLimit = new Vector2(5.0f, 5.0f);   //線を書けるScreen範囲2
 
-    private bool is_Drawing = false;　//今、線を書いてる中
-
+    private bool is_Drawing = false; //今、線を書いてる中
 
     void Update()
     {
@@ -61,7 +59,9 @@ public class LineController : MonoBehaviour
     public void OnIsDraw()
     {
         is_inkMode = !is_inkMode;
-    }
+        //if(is_inkMode) test.material.SetFloat("_Width", 0);
+        //if(!is_inkMode) test.material.SetFloat("_Width", 1);
+;    }
 
     private void DrawLine()
     {
