@@ -74,8 +74,10 @@ public class HandManager : MonoBehaviour
         battleController.SummonGageVal -= cost;
 
         int summonVal = deckObj.cardPoolObject.character.summonVol; 
+        // 召喚
         for(int i = 0; i < summonVal; i++)
         {
+            // 召喚数が2以上なら複数召喚
             if (summonVal > 1)
             {
                 float randomPos_x = Random.Range(minRandomPos_x, maxRandomPos_x);
