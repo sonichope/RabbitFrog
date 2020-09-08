@@ -14,7 +14,10 @@ public class HandManager : MonoBehaviour
     [SerializeField] private float minRandomPos_y;
     [SerializeField] private float maxRandomPos_y;
 
-    [SerializeField] private Text[] text = new Text[4];
+    //----------------------------------------------------イゴンヒ　cost関連UI
+    [SerializeField] private Text[] text = new Text[4];　
+    [SerializeField] private handBackGround[] _handBackGround = new handBackGround[4];
+    //----------------------------------------------------
 
     [SerializeField]
     public Vector2 start_screenLimit = new Vector2(0, -2.5f); //線を書けるScreen範囲1 
@@ -30,6 +33,7 @@ public class HandManager : MonoBehaviour
     void Update()
     {
         
+        
     }
 
     private void SetImage()
@@ -42,7 +46,7 @@ public class HandManager : MonoBehaviour
             var deckObj = DeckManager.deckObjects[count];
             var cost = deckObj.cardPoolObject.character.cost;
             text[count].text = "" + cost;　//textにcost表示
-
+            _handBackGround[count].cost = cost;
             count++;
         }
         nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[count].iconImage.sprite;
@@ -101,6 +105,7 @@ public class HandManager : MonoBehaviour
         handObjects[myHandNumber].GetComponent<Image>().sprite = nextHand.GetComponent<Image>().sprite;
         // 画像を次手札から参照した後、Cost更新 // イゴンヒ
         text[myHandNumber].text = "" + DeckManager.deckObjects[myHandNumber].cardPoolObject.character.cost;
+        _handBackGround[myHandNumber].cost = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.cost;
         // デッキのリストからランダムに次手札に補充
         int randomHandInt = Random.Range(5, DeckManager.deckObjects.Length);
         DeckManager.deckObjects[4] = DeckManager.deckObjects[randomHandInt];
