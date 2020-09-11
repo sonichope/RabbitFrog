@@ -6,15 +6,15 @@ using UnityEngine;
 public class makimono : MonoBehaviour
 {
     [SerializeField] GameObject Makia;
-    [SerializeField] GameObject pepar;
+    //[SerializeField] GameObject pepar;
     [SerializeField] GameObject Makib;
     //public bool makiFrag = true;
     //[SerializeField] GameObject Peperb;
-    Animation anim;
+    //Animation anim;
 
     void Start()
     {
-        anim = pepar.gameObject.GetComponent<Animation>();
+        
     }
 
     // Update is called once per frame
@@ -29,7 +29,6 @@ public class makimono : MonoBehaviour
         Makia.transform.localPosition = new Vector2(260, 0);
         Makib.transform.localScale = new Vector2(1, 1);
         Makib.transform.localPosition = new Vector2(350, 0);
-        
     }
 
     public void CloseMakimono()
@@ -38,13 +37,6 @@ public class makimono : MonoBehaviour
         Makib.transform.localPosition = new Vector2(260, 0);
         Makia.transform.localScale = new Vector2(1, 1);
         Makia.transform.localPosition = new Vector2(350, 0);
-        //anim.Play();
-    }
-
-    void ShowMakimono()
-    {
-        anim = pepar.gameObject.GetComponent<Animation>();
-        anim.Play();
     }
 
     void isCanvasEnable()

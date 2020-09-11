@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class makimonoAnim : MonoBehaviour
 {
-    [SerializeField] GameObject pepar;
-    Animation anim;
+    //[SerializeField] GameObject pepar;
+    Animator anim;
 
     void Start()
     {
-        anim = pepar.gameObject.GetComponent<Animation>();
+        anim = GetComponent<Animator>();
+        //anim = GetComponent(typeof(Animator)) as Animation;
     }
 
     // Update is called once per frame
@@ -17,7 +18,13 @@ public class makimonoAnim : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            anim.Play();
+            anim.SetTrigger("StartAnim");
         }
     }
+
+    //void ShowMakimono()
+    //{
+    //    anim.!Play("MakimonoanimTest");
+    //    Debug.Log("aaa");
+    //}
 }
