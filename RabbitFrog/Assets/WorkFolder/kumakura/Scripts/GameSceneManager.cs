@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
+    [SerializeField]
+    Effect_Sketch effect_Sketch;
+
     void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -47,6 +50,13 @@ public class GameSceneManager : MonoBehaviour
     
     public static void LoadBattleBossScene()
     {
+        
         SceneManager.LoadScene("BattleBoss");
     }
+
+    //private IEnumerator NaxtScene(string SceneName)
+    //{
+    //    yield return StartCoroutine(effect_sketch.fade_Out());
+    //    SceneManager.LoadScene(SceneName);
+    //}
 }
