@@ -276,7 +276,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1971783746}
-        m_MethodName: aaa
+        m_MethodName: title
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -744,7 +744,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: "\u2716"
 --- !u!222 &888092926
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1971783745}
-        m_MethodName: ddd
+        m_MethodName: option
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76d6ceb719e46b4ba02f29a49ebea34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fff: {fileID: 1780779311}
+  optionScene: {fileID: 1780779311}
 --- !u!114 &1971783746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1709,4 +1709,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9913fc8ded440a2419bca93ae7ca6f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ccc: {fileID: 1780779311}
+  titleScene: {fileID: 1780779311}

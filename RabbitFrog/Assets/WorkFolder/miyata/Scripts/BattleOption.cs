@@ -1,33 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class BattleOption : MonoBehaviour
 {
     [SerializeField]
-    GameObject BOC;
+    GameObject BattleOptionController;
     [SerializeField]
-    GameObject BOC2;
+    GameObject BattleOptionController2;
     [SerializeField]
-    GameObject BOC3;
+    GameObject BattleOptionController3;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-   public void BOC4()
+   public void active()
     {
-        BOC.SetActive(false);
-        BOC2.SetActive(true);
+        BattleOptionController.SetActive(false);
+        BattleOptionController2.SetActive(true);
        
        
     }
 
-    public void BOC5()
+    public void timestop()
     {
-        BOC.SetActive(false);
-        BOC3.SetActive(true);
+        BattleOptionController.SetActive(false);
+        BattleOptionController3.SetActive(true);
         if(Time.timeScale != 0)
         {
             Time.timeScale = 0;
@@ -39,11 +41,11 @@ public class BattleOption : MonoBehaviour
        
     }
 
-    public void BOC6()
+    public void timestart()
     {
-        BOC.SetActive(true);
-        BOC2.SetActive(false);
-        BOC3.SetActive(false);
+        BattleOptionController.SetActive(true);
+        BattleOptionController2.SetActive(false);
+        BattleOptionController3.SetActive(false);
         if (Time.timeScale != 1)
         {
             Time.timeScale = 1.0f;
@@ -53,4 +55,7 @@ public class BattleOption : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+   
+   
 }

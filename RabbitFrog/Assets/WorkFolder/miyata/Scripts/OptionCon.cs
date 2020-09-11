@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OptionCon : MonoBehaviour
 {
     [SerializeField]
-    GameObject fff;
+    GameObject optionScene;
 
     
     void Start()
@@ -20,14 +21,15 @@ public class OptionCon : MonoBehaviour
         
     }
 
-    public void ddd()
+    public void option()
     {
-        Debug.Log("bbb");
-        fff.SetActive(true);
+        Debug.Log("移った");
+        optionScene.SetActive(true);
     }
 
-    public void eee()
+    public void OnBackOption()
     {
-        
+        SceneManager.LoadScene("OptionScene");
     }
+
 }
