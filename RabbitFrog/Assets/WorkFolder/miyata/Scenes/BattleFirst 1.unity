@@ -655,7 +655,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053855313}
-        m_MethodName: BOC6
+        m_MethodName: timestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -784,8 +784,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1262123591}
-        m_MethodName: Button
+      - m_Target: {fileID: 2053855315}
+        m_MethodName: OnBackOption
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1337,7 +1337,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2053855313}
-        m_MethodName: BOC5
+        m_MethodName: active
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1615,6 +1615,7 @@ GameObject:
   - component: {fileID: 2053855311}
   - component: {fileID: 2053855313}
   - component: {fileID: 2053855314}
+  - component: {fileID: 2053855315}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1684,9 +1685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d8f4895986dcb4f92f45eaa1635cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BOC: {fileID: 210029909}
-  BOC2: {fileID: 210029909}
-  BOC3: {fileID: 210029909}
+  BattleOptionController: {fileID: 210029909}
+  BattleOptionController2: {fileID: 210029909}
+  BattleOptionController3: {fileID: 210029909}
 --- !u!114 &2053855314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,6 +1700,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b022a457415dc648bf37f83ea00b9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2053855315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053855308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76d6ceb719e46b4ba02f29a49ebea34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionScene: {fileID: 1027751928}
 --- !u!1 &2057046667
 GameObject:
   m_ObjectHideFlags: 0

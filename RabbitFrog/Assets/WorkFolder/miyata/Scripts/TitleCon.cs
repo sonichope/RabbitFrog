@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class TitleCon : MonoBehaviour
 {
     [SerializeField]
-    GameObject ccc;
+    GameObject titleScene;
 
     void Start()
     {
@@ -17,14 +19,11 @@ public class TitleCon : MonoBehaviour
         
     }
 
-    public void aaa()
+    public void title()
     {
-        Debug.Log("aaa");
-        ccc.SetActive(false);
+        Debug.Log("移った");
+        titleScene.SetActive(false);
     }
 
-    public void bbb()
-    {
-        
-    }
+    
 }
