@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Image iconImage;
     private Sprite nowSprite;
@@ -16,6 +16,10 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         nowSprite = null;
     }
 
+    /// <summary>
+    /// マウスカーソルがオブジェクトに乗ったとき
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         if (pointerEventData.pointerDrag == null) return;
@@ -24,6 +28,10 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         iconImage.color = Vector4.one;
     }
 
+    /// <summary>
+    /// マウスカーソルがオブジェクトから離れたとき
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         if (pointerEventData.pointerDrag == null) return;
@@ -32,6 +40,10 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         else { iconImage.color = Vector4.one; }
     }
 
+    /// <summary>
+    /// ドラッグをやめたとき
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnDrop(PointerEventData pointerEventData)
     {
         Image dropImage = pointerEventData.pointerDrag.GetComponent<Image>();
@@ -40,5 +52,14 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         iconImage.sprite = dropImage.sprite;
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;
+    }
+
+    /// <summary>
+    /// クリック時
+    /// </summary>
+    /// <param name="pointerEventData"></param>
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        Debug.Log("aaa");
     }
 }
