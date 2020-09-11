@@ -68,6 +68,7 @@ public class Character : CharacterBase
     /// <param name="speed"></param>
     public virtual void CharacterMove(float speed)
     {
+        if (IsMove)
         // 敵の索敵が出来れていれば敵に近づく処理
         if (serchFlag)
         {
@@ -91,7 +92,7 @@ public class Character : CharacterBase
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (serchFlag) { return; }
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵のHPの情報を取得
             targetEnemy = collision.GetComponent<CharacterBase>();
@@ -133,6 +134,7 @@ public class Character : CharacterBase
         time += Time.deltaTime;
         if (serchFlag == true && time > attackInterval)
         {
+            Debug.Log("攻撃");
             targetEnemy.hp -= power;
             time = 0f;
         }

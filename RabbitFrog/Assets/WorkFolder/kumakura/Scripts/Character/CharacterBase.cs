@@ -9,6 +9,8 @@ public abstract class CharacterBase : MonoBehaviour
     [Header("体力")] public int hp;                            // 体力
     [Header("攻撃力")] public int power;                       // 攻撃力
 
+    public bool IsMove { get; set; } = true;
+
     public bool IsDeath { get; set; } = false;
 
     public abstract void Death();

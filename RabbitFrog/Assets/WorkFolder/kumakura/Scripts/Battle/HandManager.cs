@@ -9,6 +9,10 @@ public class HandManager : MonoBehaviour
     [SerializeField] private GameObject[] handObjects = new GameObject[4];
     [SerializeField] private GameObject nextHand;
     [SerializeField] private BattleController battleController;
+    [SerializeField] private float minRandomPos_x;
+    [SerializeField] private float maxRandomPos_x;
+    [SerializeField] private float minRandomPos_y;
+    [SerializeField] private float maxRandomPos_y;
 
     void Start()
     {
@@ -29,7 +33,7 @@ public class HandManager : MonoBehaviour
             handObjects[count].GetComponent<Image>().sprite = DeckManager.deckObjects[count].iconImage.sprite;
             count++;
         }
-        nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[count + 1].iconImage.sprite;
+        nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[count].iconImage.sprite;
     }
 
     /// <summary>
@@ -57,15 +61,39 @@ public class HandManager : MonoBehaviour
     /// <param name="myHandNumber">手札番号</param>
     public void CharacterSummon(Vector3 summonPos, int myHandNumber)
     {
-        var cost = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.cost;
-        var myCardType = DeckManager.deckObjects[myHandNumber].cardPoolObject.character.myCardType;
+        var deckObj = DeckManager.deckObjects[myHandNumber];
+        var cost = deckObj.cardPoolObject.character.cost;
+        var myCardType = deckObj.cardPoolObject.character.myCardType;
 
-        if (battleController.SummonGageVal - cost <= 0) { return; }
-        // 後々コストに応じて召喚
+        if (battleController.SummonGageVal - cost < 0) { return; }
         battleController.SummonGageVal -= cost;
 
-        Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+        int summonVal = deckObj.cardPoolObject.character.summonVol; 
+        for(int i = 0; i < summonVal; i++)
+        {
+            if (summonVal > 1)
+            {
+                float randomPos_x = Random.Range(minRandomPos_x, maxRandomPos_x);
+                float randomPos_y = Random.Range(minRandomPos_y, maxRandomPos_y);
+                summonPos.x = summonPos.x + randomPos_x;
+                summonPos.y = summonPos.y + randomPos_y;
+            }
+            Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+        }
 
-        
+
+        //var handObjSprite = handObjects[myHandNumber].GetComponent<Image>().sprite;
+        //var nextHandSprite = nextHand.GetComponent<Image>().sprite;
+
+        // 次手札から補充
+        DeckManager.deckObjects[myHandNumber] = DeckManager.deckObjects[4];
+        // 画像を次手札から参照
+        handObjects[myHandNumber].GetComponent<Image>().sprite = nextHand.GetComponent<Image>().sprite;
+        // デッキのリストからランダムに次手札に補充
+        int randomHandInt = Random.Range(5, DeckManager.deckObjects.Length);
+        DeckManager.deckObjects[4] = DeckManager.deckObjects[randomHandInt];
+        // 次手札の画像の設定
+        nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[4].iconImage.sprite;
+
     }
 }

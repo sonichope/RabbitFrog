@@ -36,6 +36,7 @@ public class Enemy : CharacterBase
 
     public void EnemyMove(float speed)
     {
+        if (IsMove)
         if (serchFlag)
         {
             var distance = Vector3.Distance(transform.position, characterPos);

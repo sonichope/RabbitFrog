@@ -96,13 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: de7880413cad8c544ba261f587160edd, type: 3}
-  hp: 5
-  power: 3
-  moveSpeed: 0.01
-  summonVol: 0
-  cost: 0
-  attackRange: 1.5
-  attackInterval: 1.75
+  hp: 200
+  power: 55
+  moveSpeed: 0.0035
+  summonVol: 1
+  cost: 9
+  myAttackMethod: 0
+  attackRange: 3.5
+  attackInterval: 2.5
+  myCharacteristic: 0
   myCardType: 12
 --- !u!61 &362925956304462999
 BoxCollider2D:
@@ -128,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 1.97}
+  m_Size: {x: 5.12, y: 3.7}
   m_EdgeRadius: 0
 --- !u!50 &3636339714402739497
 Rigidbody2D:
