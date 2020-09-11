@@ -9,11 +9,13 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     public Image iconImage;
     private Sprite nowSprite;
     public CardPoolObject cardPoolObject;
+    public PreviewManager preMana;
 
 
     void Start()
     {
         nowSprite = null;
+        preMana = FindObjectOfType<PreviewManager>();
     }
 
     /// <summary>
@@ -60,6 +62,12 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     /// <param name="pointerEventData"></param>
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        Debug.Log("aaa");
+        if (pointerEventData.pointerEnter == null) { return; }
+        preMana.DisplayPreview();
+        cardPoolObject = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
+        Debug.Log(cardPoolObject);
+        //preMana.costText.text = pointerEventData.pointerEnter.GetComponent<CardPoolObject>().character.cost.ToString();
+        
+        //Debug.Log(pointerEventData.pointerEnter.GetComponent<CardPoolObject>().character.cost);
     }
 }

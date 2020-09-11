@@ -9,6 +9,7 @@ public class OptionController : MonoBehaviour
 {
     [SerializeField] private Canvas organizationCanvas;
     [SerializeField] private Canvas stageSelectCanvas;
+    [SerializeField] private PreviewManager preMana;
 
 
 
@@ -20,12 +21,10 @@ public class OptionController : MonoBehaviour
 
     void Update()
     {
-        // 条件は後々変更する
-        // PCからタブレットでも動くように条件式を書き換える
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButtonDown(0) && preMana.isPreview)
         {
-            // 遷移するシーンはBattleシーン完成後に変更すること
-            //SceneManager.LoadScene("BattleFirst");
+            preMana.DisplayPreview();
         }
     }
 

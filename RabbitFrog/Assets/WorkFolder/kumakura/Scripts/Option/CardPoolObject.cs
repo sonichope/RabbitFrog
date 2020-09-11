@@ -10,12 +10,14 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     private Transform parentObject;
     private GameObject dragObject;
     public Character character;
+    public PreviewManager preMana;
 
     void Awake()
     {
         GetComponent<Image>().sprite = character.image;
         GetComponent<Image>().preserveAspect = true;
         parentObject = transform.parent.parent.parent.parent;
+        preMana = FindObjectOfType<PreviewManager>();
     }
 
     /// <summary>
@@ -53,7 +55,10 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     /// <param name="pointerEventData"></param>
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        Debug.Log("aaa");
+        if (pointerEventData.pointerEnter == null) { return; }
+        Debug.Log(pointerEventData.pointerEnter);
+        preMana.DisplayPreview();
+        preMana.costText.text = pointerEventData.pointerEnter.GetComponent<CardPoolObject>().character.cost.ToString();
     }
 
     /// <summary>
