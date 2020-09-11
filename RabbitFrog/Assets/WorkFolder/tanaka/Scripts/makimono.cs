@@ -10,11 +10,11 @@ public class makimono : MonoBehaviour
     [SerializeField] GameObject Makib;
     //public bool makiFrag = true;
     //[SerializeField] GameObject Peperb;
-    //Animation anim;
+    Animation anim;
 
     void Start()
     {
-        //anim = pepar.gameObject.GetComponent<Animation>();
+        anim = pepar.gameObject.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -29,8 +29,7 @@ public class makimono : MonoBehaviour
         Makia.transform.localPosition = new Vector2(260, 0);
         Makib.transform.localScale = new Vector2(1, 1);
         Makib.transform.localPosition = new Vector2(350, 0);
-        //anim = pepar.gameObject.GetComponent<Animation>();
-        //anim.Play();
+        
     }
 
     public void CloseMakimono()
@@ -40,6 +39,12 @@ public class makimono : MonoBehaviour
         Makia.transform.localScale = new Vector2(1, 1);
         Makia.transform.localPosition = new Vector2(350, 0);
         //anim.Play();
+    }
+
+    void ShowMakimono()
+    {
+        anim = pepar.gameObject.GetComponent<Animation>();
+        anim.Play();
     }
 
     void isCanvasEnable()
