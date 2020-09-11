@@ -474,6 +474,11 @@ PrefabInstance:
       propertyPath: m_Time
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 141377345932233135, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2932326222504193156, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_Positions.Array.size
@@ -719,6 +724,16 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[49].z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4420590452089438508, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421351979066372260, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4421351979475222733, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_Camera
@@ -839,6 +854,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4421351980237473796, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421351980495703748, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421351980687738412, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6058622895112345247, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6602609358995856773, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: myHandNumber
@@ -857,6 +892,11 @@ PrefabInstance:
     - target: {fileID: 8682315827889038814, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: myHandNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751732954038611174, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:

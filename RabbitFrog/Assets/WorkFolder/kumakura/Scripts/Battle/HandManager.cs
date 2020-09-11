@@ -99,6 +99,8 @@ public class HandManager : MonoBehaviour
             Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
         }
 
+        // 召喚したカードの情報を一時格納
+        var myHand = DeckManager.deckObjects[myHandNumber];
         // 次手札から補充
         DeckManager.deckObjects[myHandNumber] = DeckManager.deckObjects[4];
         // 画像を次手札から参照
@@ -111,6 +113,8 @@ public class HandManager : MonoBehaviour
         DeckManager.deckObjects[4] = DeckManager.deckObjects[randomHandInt];
         // 次手札の画像の設定
         nextHand.GetComponent<Image>().sprite = DeckManager.deckObjects[4].iconImage.sprite;
+        // 補充した枠に召喚したカードの情報を入れる
+        DeckManager.deckObjects[randomHandInt] = myHand;
 
     }
 
