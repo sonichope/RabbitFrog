@@ -56,9 +56,11 @@ public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         if (pointerEventData.pointerEnter == null) { return; }
-        Debug.Log(pointerEventData.pointerEnter);
         preMana.DisplayPreview();
-        preMana.costText.text = pointerEventData.pointerEnter.GetComponent<CardPoolObject>().character.cost.ToString();
+        var cardInfo = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
+        preMana.nameText.text = cardInfo.character.characterName;
+        preMana.costText.text = cardInfo.character.cost.ToString();
+        preMana.characterImage.sprite = cardInfo.character.image;
     }
 
     /// <summary>

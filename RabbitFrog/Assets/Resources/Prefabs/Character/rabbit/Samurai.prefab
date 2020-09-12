@@ -95,17 +95,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb4ca4202cb21d40989709fe6248520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: "\u4F8D"
   image: {fileID: 21300000, guid: 4cd8372133395f64382087ab15992b8b, type: 3}
   hp: 100
   power: 25
+  myCharacteristic: 0
+  myCardType: 4
   moveSpeed: 0.005
   summonVol: 1
   cost: 4
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.75
-  myCharacteristic: 0
-  myCardType: 4
 --- !u!61 &3224262353349109011
 BoxCollider2D:
   m_ObjectHideFlags: 0

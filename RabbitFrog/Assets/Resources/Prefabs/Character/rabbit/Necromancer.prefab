@@ -95,17 +95,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d23f1dfa224b543bb251ddad71f7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: "\u6B7B\u970A\u8853\u5E2B"
   image: {fileID: 21300000, guid: a64814932ef39bf41a8cf2aabf955c41, type: 3}
   hp: 150
   power: 15
+  myCharacteristic: 0
+  myCardType: 10
   moveSpeed: 0.005
   summonVol: 1
   cost: 7
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 2
-  myCharacteristic: 0
-  myCardType: 10
   ghost: {fileID: 3915729651225749827, guid: 6efa1fea6ddbe1f4d9c86184f6ecb8be, type: 3}
   ghostSummonInterval: 2
   minRandomPos_x: -1

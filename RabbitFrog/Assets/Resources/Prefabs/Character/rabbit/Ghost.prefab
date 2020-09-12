@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039cf322430a5514db5003b5dceee491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: "\u6B7B\u970A"
   image: {fileID: 21300000, guid: 1aca60e7452d9b947aaf0d9599808f44, type: 3}
   hp: 10
   power: 3
