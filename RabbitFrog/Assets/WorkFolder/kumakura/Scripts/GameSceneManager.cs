@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneManager : MonoBehaviour
 {
-    [SerializeField]
+    [SerializeField, Header("MainCameraにアタッチ")]
     Effect_Sketch effect_Sketch;
 
     void Start()

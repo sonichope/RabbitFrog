@@ -10,8 +10,6 @@ public class OptionController : MonoBehaviour
     [SerializeField] private Canvas organizationCanvas;
     [SerializeField] private Canvas stageSelectCanvas;
 
-
-
     void Start()
     {
         organizationCanvas.enabled = false;
