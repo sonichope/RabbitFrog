@@ -20,6 +20,14 @@ public class PreviewManager : MonoBehaviour
         preview.SetActive(false);
     }
 
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && isPreview)
+        {
+            DisplayPreview();
+        }
+    }
+
     public void DisplayPreview()
     {
         panel.enabled = !panel.enabled;

@@ -19,15 +19,6 @@ public class OptionController : MonoBehaviour
         stageSelectCanvas.enabled = false;
     }
 
-    void Update()
-    {
-        
-        if (Input.GetMouseButtonDown(0) && preMana.isPreview)
-        {
-            preMana.DisplayPreview();
-        }
-    }
-
     /// <summary>
     /// 編成画面ボタンを押した時
     /// </summary>

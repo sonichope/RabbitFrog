@@ -54,7 +54,8 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
     {
         if (pointerEventData.pointerEnter == null) { return; }
         preMana.DisplayPreview();
-        var cardInfo = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
+        var cardInfo = DeckManager.deckObjects[myHandNumber].cardPoolObject;
+        //var cardInfo = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
         preMana.nameText.text = cardInfo.character.characterName;
         preMana.costText.text = cardInfo.character.cost.ToString();
         preMana.characterImage.sprite = cardInfo.character.image;
