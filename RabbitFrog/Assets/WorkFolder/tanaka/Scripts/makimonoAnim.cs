@@ -16,11 +16,21 @@ public class makimonoAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            anim.SetTrigger("StartAnim");
-            anim.ResetTrigger("StartAnim");
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    anim.SetTrigger("StartAnim");
+        //    //anim.ResetTrigger("StartAnim");
+        //}
+    }
+
+    public void Army()
+    {
+        anim.SetTrigger("StartAnim");
+    }
+
+    public void Select()
+    {
+        anim.SetTrigger("StartAnim");
     }
 
     //void ShowMakimono()

@@ -14,16 +14,16 @@ public class makimono : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-   public void OpenMakimono()
+    public void OpenMakimono()
     {
         Makia.transform.localScale = new Vector2(1, 1.25f);
         Makia.transform.localPosition = new Vector2(260, 0);
