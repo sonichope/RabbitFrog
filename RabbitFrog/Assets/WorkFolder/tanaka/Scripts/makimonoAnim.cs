@@ -19,6 +19,7 @@ public class makimonoAnim : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("StartAnim");
+            anim.ResetTrigger("StartAnim");
         }
     }
 
