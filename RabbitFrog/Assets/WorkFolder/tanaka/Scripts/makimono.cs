@@ -10,7 +10,15 @@ public class makimono : MonoBehaviour
     [SerializeField] GameObject Makib;
     //public bool makiFrag = true;
     //[SerializeField] GameObject Peperb;
-    //Animation anim;
+
+    /*やりたい動き
+      巻物がタップされた時のアニメーションが終了した時
+      下の OpenMakimono の動きをする
+      OpenMakimono が実行される時 pepar のアニメーションを実行する
+      「この時巻物がタップされる度に pepar のアニメーションを繰り返し実行する」
+      タップされた巻物を画面の中央の方に持ってくる
+    　2つの巻物のpositionを入れ替える時(動きをプランナーに要確認する)
+    　2つの巻物を回転させるように入れ替える動きをつける(太鼓の達人の選択するところのように)*/
 
     void Start()
     {
