@@ -11,8 +11,6 @@ public class OptionController : MonoBehaviour
     [SerializeField] private Canvas stageSelectCanvas;
     [SerializeField] private PreviewManager preMana;
 
-
-
     void Start()
     {
         organizationCanvas.enabled = false;

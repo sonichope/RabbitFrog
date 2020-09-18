@@ -5,10 +5,19 @@ using UnityEngine;
 
 public class StageSelectControl : MonoBehaviour
 {
+    [SerializeField, Header("MainCameraにアタッチ")]
+    Effect_Sketch effect_Sketch;
+
+    private bool Scene_changing = false;
 
     public void OnBattleFirst()
     {
-        if (DeckCheck()) GameSceneManager.LoadBattleFirstScene();
+        //if (DeckCheck()) GameSceneManager.LoadBattleFirstScene();
+        if (DeckCheck() && !Scene_changing)
+        {
+            Scene_changing = true;
+            StartCoroutine(effect_Sketch.fade_Out("BattleFirst"));
+        }
     }
 
     //public void OnBattleSecond()

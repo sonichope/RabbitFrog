@@ -23,6 +23,11 @@ public class ScenarioTextControl : MonoBehaviour
         get { return Time.time > timeElapsed + timeUntilDisplay; }
     }
 
+    [SerializeField, Header("MainCameraにアタッチ")]
+    private Effect_Sketch effect_Sketch;
+
+    private bool Scene_changing = false;
+
 
     void Start()
     {
@@ -31,9 +36,10 @@ public class ScenarioTextControl : MonoBehaviour
 
     void Update()
     {
-        if (currentLine == sentence.Length && Input.GetMouseButtonDown(0))
+        if (currentLine == sentence.Length && Input.GetMouseButtonDown(0) && !Scene_changing)
         {
-            GameSceneManager.LoadOptionScene();
+            Scene_changing = true;
+            StartCoroutine(effect_Sketch.fade_Out("OptionScene"));
         }
 
         if (IsCompleteDisplayText)
