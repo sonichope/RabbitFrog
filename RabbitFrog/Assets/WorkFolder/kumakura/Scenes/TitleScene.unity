@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect_Sketch: {fileID: 1518953904}
-  ScrollPaper: {fileID: 0}
+  ScrollPaper: {fileID: 1291533696}
 --- !u!4 &1971783744
 Transform:
   m_ObjectHideFlags: 0
