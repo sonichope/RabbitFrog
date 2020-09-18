@@ -49,17 +49,12 @@ public class makimono : MonoBehaviour
     {
         //.transform.localPosition = new Vector2(260, 0);
         //Makia.transform.localPosition = new Vector2(350, 0);
-        if (Makib.transform.localPosition.y > 350)
+        if (Makib.transform.localPosition.x > 350)
         {
-            Makib.transform.localScale = new Vector2(1, 1.25f);
             Makia.transform.localScale = new Vector2(1, 1);
+            Makib.transform.localScale = new Vector2(1, 1.25f);
             Makia.transform.Translate(Vector2.left * 0.1f);
             Makib.transform.Translate(Vector2.right * 0.1f);
         }
-    }
-
-    void isCanvasEnable()
-    {
-
     }
 }
