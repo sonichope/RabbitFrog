@@ -10,6 +10,8 @@ public class Enemy : CharacterBase
     [SerializeField, Header("攻撃範囲")] private float attackRange = 1.5f;
     [SerializeField, Header("攻撃速度")] private float attackInterval = 1.75f;
 
+    public bool targetFlag = false;
+
     private Vector2 characterPos;
     private bool serchFlag = false;
     private float time = 0.0f;
