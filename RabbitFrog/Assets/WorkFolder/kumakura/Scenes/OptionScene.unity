@@ -2490,7 +2490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organizationCanvas: {fileID: 1707613123}
   stageSelectCanvas: {fileID: 1861672473}
-  preMana: {fileID: 0}
 --- !u!4 &882966384
 Transform:
   m_ObjectHideFlags: 0

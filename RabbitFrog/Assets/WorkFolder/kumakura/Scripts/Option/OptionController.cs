@@ -9,7 +9,6 @@ public class OptionController : MonoBehaviour
 {
     [SerializeField] private Canvas organizationCanvas;
     [SerializeField] private Canvas stageSelectCanvas;
-    [SerializeField] private PreviewManager preMana;
 
     void Start()
     {
