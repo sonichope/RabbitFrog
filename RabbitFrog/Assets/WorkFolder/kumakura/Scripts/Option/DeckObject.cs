@@ -63,11 +63,12 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     /// <param name="pointerEventData"></param>
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        var cardInfo = pointerEventData.pointerEnter.GetComponent<DeckObject>().cardPoolObject;
-        if (cardInfo == null) { return; }
-        preMana.DisplayPreview();
-        preMana.nameText.text = cardInfo.character.characterName;
-        preMana.costText.text = cardInfo.character.cost.ToString();
-        preMana.characterImage.sprite = cardInfo.character.image;
+        Debug.Log(pointerEventData.pointerEnter.GetComponent<DeckObject>());
+        //var cardInfo = pointerEventData.pointerEnter.GetComponent<DeckObject>().cardPoolObject;
+        //if (cardInfo == null) { return; }
+        //preMana.DisplayPreview();
+        //preMana.nameText.text = cardInfo.character.characterName;
+        //preMana.costText.text = cardInfo.character.cost.ToString();
+        //preMana.characterImage.sprite = cardInfo.character.image;
     }
 }
