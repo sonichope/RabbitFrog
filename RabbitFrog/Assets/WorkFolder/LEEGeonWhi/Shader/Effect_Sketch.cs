@@ -15,12 +15,14 @@ public class Effect_Sketch : MonoBehaviour
 
     [SerializeField,Range(0.0f, 3.0f)] // Scene転換速度
     float Speed = 1.0f;
-    float Alpha = 1.0f;
-   
+    float Alpha;
+
+    public bool Scene_changing;
+
     void Start()
     {
         rect = ScrollPaper.GetComponent<RectTransform>();
-        StartCoroutine(fade_In());
+        StartCoroutine(InitScene());
         Alpha = 1.0f;
         effect.SetFloat("_t", Alpha);
     }
@@ -36,7 +38,7 @@ public class Effect_Sketch : MonoBehaviour
     /// </summary>
     /// <param name="NextScene">次に移動するSceneName</param>
     /// <returns></returns>
-    public IEnumerator fade_Out(string NextScene)
+    public IEnumerator NextScene(string SceneName)
     {
         ScrollPaper.SetActive(true);
         Alpha = 0;
@@ -48,11 +50,12 @@ public class Effect_Sketch : MonoBehaviour
             rect.localScale = new Vector3(rect.localScale.x * -1, 1, 1);
         }
         ScrollPaper.SetActive(false);
-        SceneManager.LoadScene(NextScene);
+        SceneManager.LoadScene(SceneName);
     }
 
-    public  IEnumerator fade_In()
+    public  IEnumerator InitScene()
     {
+        Scene_changing = true;
         ScrollPaper.SetActive(true);
         Alpha = 0.95f;
 
@@ -64,5 +67,6 @@ public class Effect_Sketch : MonoBehaviour
             rect.localScale = new Vector3(rect.localScale.x * -1, 1, 1);
         }
         ScrollPaper.SetActive(false);
+        Scene_changing = false;
     }
 }

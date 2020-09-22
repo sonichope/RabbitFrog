@@ -16,7 +16,7 @@ public class StageSelectControl : MonoBehaviour
         if (DeckCheck() && !Scene_changing)
         {
             Scene_changing = true;
-            StartCoroutine(effect_Sketch.fade_Out("BattleFirst"));
+            StartCoroutine(effect_Sketch.NextScene("BattleFirst"));
         }
     }
 
