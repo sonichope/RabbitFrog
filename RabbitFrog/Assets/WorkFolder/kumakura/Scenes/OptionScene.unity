@@ -800,6 +800,7 @@ MonoBehaviour:
   effect: {fileID: 2100000, guid: 5a637bf83aa68474787ee19c34316d9c, type: 2}
   ScrollPaper: {fileID: 1702530164}
   Speed: 1
+  Scene_changing: 0
 --- !u!114 &271205743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5478715149971414002, guid: 911cc8000bfe9154b8054bc465fae6e3,
@@ -5697,7 +5698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.49998, y: 100.00001}
+  m_AnchoredPosition: {x: -196.49998, y: 99.99999}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2079403064

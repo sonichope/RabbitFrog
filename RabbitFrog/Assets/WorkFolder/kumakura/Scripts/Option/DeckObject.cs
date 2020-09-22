@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    [SerializeField] private Sprite uiMask;
     public Image iconImage;
     private Sprite nowSprite;
     public CardPoolObject cardPoolObject;
@@ -14,7 +15,7 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 
     void Start()
     {
-        nowSprite = null;
+        nowSprite = uiMask;
         preMana = FindObjectOfType<PreviewManager>();
     }
 

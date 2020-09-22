@@ -295,6 +295,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25980645}
   m_CullTransparentMesh: 0
+--- !u!114 &61505508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5478715149971414002, guid: 911cc8000bfe9154b8054bc465fae6e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5478715149530512864}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103771008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2771,7 +2783,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   organizationCanvas: {fileID: 1707613123}
   stageSelectCanvas: {fileID: 1861672473}
-  preMana: {fileID: 0}
 --- !u!4 &882966384
 Transform:
   m_ObjectHideFlags: 0
@@ -3440,8 +3451,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198852345}
   m_HandleRect: {fileID: 198852344}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.3571428
+  m_Value: 1.0000004
+  m_Size: 0.71428573
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6036,7 +6047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.49998, y: 100}
+  m_AnchoredPosition: {x: -196.49998, y: 99.999985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2079403064
@@ -6198,6 +6209,6 @@ PrefabInstance:
         type: 3}
       propertyPath: iconImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 61505508}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 911cc8000bfe9154b8054bc465fae6e3, type: 3}
