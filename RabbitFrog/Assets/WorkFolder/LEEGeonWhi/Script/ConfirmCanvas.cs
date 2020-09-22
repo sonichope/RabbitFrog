@@ -15,9 +15,12 @@ public class ConfirmCanvas : MonoBehaviour
         confirmCanvas = GetComponent<Canvas>();
     }
 
+    /// <summary>
+    /// Scene移動
+    /// </summary>
     public void NextScene()
     {
-         StartCoroutine(effect_sketch.NextScene(StageSelectControl.NextScene));
+        StartCoroutine(effect_sketch.NextScene(StageSelectControl.NextScene));
         confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
     }
 
