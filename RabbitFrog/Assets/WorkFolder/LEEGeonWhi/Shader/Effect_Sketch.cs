@@ -17,7 +17,7 @@ public class Effect_Sketch : MonoBehaviour
     float Speed = 1.0f;
     float Alpha;
 
-    public bool Scene_changing;
+    public bool Scene_changing = false;
 
     void Start()
     {

@@ -31,6 +31,6 @@ public class EnemyTower : CharacterBase
     {
         IsDeath = true;
         gameObject.SetActive(false);
-        GameSceneManager.LoadClearScene();
+        //WGameSceneManager.LoadClearScene();
     }
 }

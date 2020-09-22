@@ -8,32 +8,52 @@ public class StageSelectControl : MonoBehaviour
     [SerializeField, Header("MainCameraにアタッチ")]
     Effect_Sketch effect_Sketch;
 
-    private bool Scene_changing = false;
+    [SerializeField] private Canvas confirmCanvas;
+
+    static public string NextScene;
 
     public void OnBattleFirst()
     {
-        //if (DeckCheck()) GameSceneManager.LoadBattleFirstScene();
-        if (DeckCheck() && !Scene_changing)
+        //if (DeckCheck()) GameSceneManager.LdadBattleFirstScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing)
         {
-            Scene_changing = true;
-            StartCoroutine(effect_Sketch.NextScene("BattleFirst"));
+            //StartCoroutine(effect_Sketch.NextScene("BattleFirst"));
+            NextScene = "BattleFirst";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
         }
     }
 
-    //public void OnBattleSecond()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
-    //}
+    public void OnBattleSecond()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing)
+        {
+            NextScene = "BattleSecond";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+        }
+    }
 
-    //public void OnBattleThird()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
-    //}
+    public void OnBattleThird()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing)
+        {
+            NextScene = "BattleThird";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
 
-    //public void OnBattleBoss()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
-    //}
+        }
+    }
+
+    public void OnBattleBoss()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing)
+        {
+            NextScene = "BattleBoss";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+
+        }
+    }
 
     /// <summary>
     /// デッキ編成に穴がないかチェック
