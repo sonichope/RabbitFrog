@@ -17,12 +17,20 @@ public class SetDeckDebug : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return) && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Return))
         {
-            for(int i = 0; i < 8; i++)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                deckObjects[i].cardPoolObject = cardPoolObjects[i];
-                deckImage[i].sprite = deckObjects[i].cardPoolObject.character.image;
+                for(int i = 0; i < 8; i++)
+                {
+                    deckObjects[i].cardPoolObject = cardPoolObjects[i];
+                    deckImage[i].sprite = deckObjects[i].cardPoolObject.character.image;
+                }
+            }
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                if (deckObjects[0].cardPoolObject == null) { return; }
+                GameSceneManager.LoadBattleFirstScene();
             }
         }
     }

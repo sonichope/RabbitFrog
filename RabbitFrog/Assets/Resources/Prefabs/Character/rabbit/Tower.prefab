@@ -97,9 +97,12 @@ MonoBehaviour:
   characterName: "\u6AD3"
   image: {fileID: 0}
   hp: 1000
-  power: 0
+  power: 10
   myCharacteristic: 0
   myCardType: 0
+  attackRange: 3
+  attackInterval: 1.75
+  atackTime: 0
 --- !u!61 &-7333941647009370629
 BoxCollider2D:
   m_ObjectHideFlags: 0

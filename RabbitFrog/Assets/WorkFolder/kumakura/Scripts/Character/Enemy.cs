@@ -7,15 +7,15 @@ public class Enemy : CharacterBase
     [Header("移動速度")] public float moveSpeed;               // 移動速度
     [Header("召喚数")] public int summonVol;                   // 召喚数
     [Header("攻撃方法")] public AttackMethod myAttackMethod;   // 攻撃方法
-    [SerializeField, Header("攻撃範囲")] private float attackRange = 1.5f;
+    [Header("攻撃範囲")] public float attackRange = 1.5f;
     [SerializeField, Header("攻撃速度")] private float attackInterval = 1.75f;
 
     public bool targetFlag = false;
 
-    private Vector2 characterPos;
-    private bool serchFlag = false;
-    private float time = 0.0f;
-    private CharacterBase targetCharacter;
+    protected Vector2 characterPos;
+    protected bool serchFlag = false;
+    protected float time = 0.0f;
+    protected CharacterBase targetCharacter;
 
     public enum AttackMethod
     {
