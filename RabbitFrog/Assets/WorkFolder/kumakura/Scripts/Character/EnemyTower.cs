@@ -32,6 +32,6 @@ public class EnemyTower : Enemy
     {
         IsDeath = true;
         gameObject.SetActive(false);
-        GameSceneManager.LoadClearScene();
+        //WGameSceneManager.LoadClearScene();
     }
 }
