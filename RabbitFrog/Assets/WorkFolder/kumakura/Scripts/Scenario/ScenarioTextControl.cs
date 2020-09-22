@@ -6,13 +6,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
 public class ScenarioTextControl : MonoBehaviour
 {
-
-    private int name = 0;
-    private int contant = 1;
-    private int number = 2;
 
     [SerializeField] private string[] sentence; // シナリオを格納する箱
     [SerializeField] private Text uiText;       // 
@@ -40,40 +35,13 @@ public class ScenarioTextControl : MonoBehaviour
     [SerializeField, Header("MainCameraにアタッチ")]
     private Effect_Sketch effect_Sketch;
 
-    private bool Scene_changing = false;
-
-
     private List<string> TextContant = new List<string>();
     private List<string> Character_Name = new List<string>();
-    [SerializeField]
     private List<string> Character_num = new List<string>();
 
     void Awake()
     {
-
         CSVReader("loadText1", TextContant, Character_Name, Character_num);
-
-        ////===========================================
-        //data = Resources.Load("loadText", typeof(TextAsset)) as TextAsset;
-
-        //StringReader sr = new StringReader(data.text);
-
-        //string line;
-        //string[] text_split;
-        //line = sr.ReadLine();
-
-        //while (line != null)
-        //{
-        //    text_split = line.Split(',');
-        //    TextContant.Add(text_split[contant]);
-        //    Character_Name.Add(text_split[name]);
-        //    line = sr.ReadLine();
-        //}
-        //TextContant.RemoveAt(0);
-        //Character_Name.RemoveAt(0);
-
-        ////===========================================
-
     }
 
     void Start()
@@ -84,16 +52,16 @@ public class ScenarioTextControl : MonoBehaviour
     void Update()
     {
         //if (currentLine == sentence.Length && Input.GetMouseButtonDown(0) && !Scene_changing)
-        if (currentLine == TextContant.Count && Input.GetMouseButtonDown(0) && !Scene_changing)
+        if (currentLine == TextContant.Count && Input.GetMouseButtonDown(0) && !effect_Sketch.Scene_changing)
         {
-            Scene_changing = true;
-            StartCoroutine(effect_Sketch.fade_Out("OptionScene"));
+            effect_Sketch.Scene_changing = true;
+            StartCoroutine(effect_Sketch.NextScene("OptionScene"));
         }
 
         if (IsCompleteDisplayText)
         {
             //if (currentLine < sentence.Length && Input.GetMouseButtonDown(0))
-            if (currentLine < TextContant.Count && Input.GetMouseButtonDown(0))
+            if (currentLine < TextContant.Count && Input.GetMouseButtonDown(0) && !effect_Sketch.Scene_changing)
             {
                 SetNextLine();
             }
@@ -146,16 +114,6 @@ public class ScenarioTextControl : MonoBehaviour
                 break;
         }
 
-        //if (Character_Name[currentLine] == "T") 
-        //{
-        //    Character[0].color = new Color(1, 1, 1, 1.0f);
-        //}
-
-        //else if(Character_Name[currentLine] == "F")
-        //{
-        //    Character[1].color = new Color(1, 1, 1, 1.0f);
-        //}
-        //===================================
         currentLine++;
 
         // 想定表示時間と現在の時刻をキャッシュ
@@ -190,14 +148,14 @@ public class ScenarioTextControl : MonoBehaviour
         while (line != null)
         {
             text_split = line.Split(',');
-            text.Add(text_split[contant]);
-            Name.Add(text_split[name]);
-            num.Add(text_split[number]);
+            Name.Add(text_split[0]); //name, text, num
+            text.Add(text_split[1]); // 0  , 1   , 2
+            num.Add(text_split[2]);
             line = sr.ReadLine();
         }
+        //1行目を解除
         text.RemoveAt(0);
         Name.RemoveAt(0);
         num.RemoveAt(0);
     }
-    //=========================================================
 }

@@ -25,6 +25,7 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
+
         gameTime -= Time.deltaTime;
         timeText.text = gameTime.ToString("00");
         summonGageValText.text = Mathf.Floor(summonGageVal).ToString("0");
