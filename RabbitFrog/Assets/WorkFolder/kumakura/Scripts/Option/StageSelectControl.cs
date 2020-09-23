@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class StageSelectControl : MonoBehaviour
@@ -9,8 +10,31 @@ public class StageSelectControl : MonoBehaviour
     Effect_Sketch effect_Sketch;
 
     [SerializeField] private Canvas confirmCanvas;
+    [SerializeField] private Image[] StagePanel;　//BattleFirst, BattleSecond , BattleThird ,BattleBossにアタッチ
 
-    static public string NextScene;
+    public static string NextScene = null;
+
+    private void Awake()
+    {
+        
+    }
+
+    private void Start()
+    {
+        //SaveDataを呼び込んてステージに移動可能かをUIで表示
+       for(int i = 0; i < StagePanel.Length; i++)
+        {
+            if(SaveData.StageClear[i] == true)
+            {
+                StagePanel[i].color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                StagePanel[i].color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
+            }
+            
+        }
+    }
 
     public void OnBattleFirst()
     {
