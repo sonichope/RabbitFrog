@@ -35,19 +35,16 @@ public class ConfirmCanvas_Battle : MonoBehaviour
         //StartCoroutine(effect_Sketch.NextScene("TitleScene"));
         StartCoroutine(effect_Sketch.NextScene(NextSceneName()));
         GetComponent<GraphicRaycaster>().enabled = false;
-        SaveData.StageClear[0] = true;
     }
     public void MoveOption()
     {
         StartCoroutine(effect_Sketch.NextScene("OptionScene"));
         GetComponent<GraphicRaycaster>().enabled = false;
-        SaveData.StageClear[0] = true;
     }
     public void NextStage()
     {
         StartCoroutine(effect_Sketch.NextScene("BattleSecond"));
         GetComponent<GraphicRaycaster>().enabled = false;
-        SaveData.StageClear[0] = true;
     }
 
     ///========================================================
