@@ -35,6 +35,7 @@ public class Enemy : CharacterBase
     {
         hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
     }
+
     public void EnemyMove(float speed)
     {
         if (IsMove)
@@ -57,12 +58,52 @@ public class Enemy : CharacterBase
     public override void Attack()
     {
         time += Time.deltaTime;
-        if (serchFlag && time > attackInterval)
+        if (serchFlag&& time > attackInterval)
         {
-            targetCharacter.hp -= power;
+            Debug.Log("攻撃");
+            switch (targetCharacter.myCharacteristic)
+            {
+                // 敵の特徴 : 無し
+                // 敵の特徴 : 俊足
+                // 敵の特徴 : 爆発
+                // 敵の特徴 : 感電
+                case characteristic.none:
+                case characteristic.quickness:
+                case characteristic.explosion:
+                case characteristic.electricShock:
+                    targetCharacter.hp -= power;
+                    break;
+
+                // 敵の特徴 : 隠密
+                case characteristic.covert:
+                    // 自身の攻撃方法が中距離、遠距離であれば攻撃不可
+                    if (this.myAttackMethod == AttackMethod.longDistance || this.myAttackMethod == AttackMethod.middleDistance)
+                    {
+                        Debug.Log("隠密だから攻撃できないよ！");
+                        break;
+                    }
+                    targetCharacter.hp -= power;
+                    break;
+
+                // 敵の特徴 : 鉄壁
+                case characteristic.ironWall:
+                    // 自身の特徴が俊足であれば鉄壁を無視
+                    if (this.myCharacteristic == characteristic.quickness)
+                    {
+                        Debug.Log("鉄壁無視するよ！");
+                        break;
+                    }
+                    targetCharacter.hp -= 1;
+                    break;
+
+                default:
+                    Debug.LogError("特徴が不適切です");
+                    break;
+            }
             time = 0f;
         }
 
+        // 攻撃している敵が死んだら再び索敵の開始
         if (targetCharacter.IsDeath) { serchFlag = false; }
     }
 

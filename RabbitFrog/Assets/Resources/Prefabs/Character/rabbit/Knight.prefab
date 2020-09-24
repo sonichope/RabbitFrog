@@ -278,7 +278,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: c65b999a345e73d4f8b01a2bb7bf5738, type: 3}
   hp: 21
   power: 15
-  myCharacteristic: 0
+  myCharacteristic: 2
   myCardType: 3
   hpText: {fileID: 8666085437140163132}
   moveSpeed: 0.0035
