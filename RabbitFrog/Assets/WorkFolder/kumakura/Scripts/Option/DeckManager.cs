@@ -9,6 +9,7 @@ public class DeckManager : MonoBehaviour
 
     void Start()
     {
+        GetDeckObject();
         for (int i = 0; i < deckObjects.Length; i++)
         {
             deckObjects[i] = getDeckObjects[i];
@@ -19,11 +20,31 @@ public class DeckManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            for (int i = 0; i < deckObjects.Length; i++)
-            {
-                if (deckObjects[i].cardPoolObject == null) { continue; }
-                Debug.Log(deckObjects[i].cardPoolObject.character.myCardType);
-            }
+            SetDeckObject();
+        }
+    }
+
+    public static void SetDeckObject()
+    {
+        for (int i = 0; i < deckObjects.Length; i++)
+        {
+            if (deckObjects[i].cardPoolObject == null) { return; }
+            DeckData.deckObjects[i] = deckObjects[i];
+            Debug.Log(DeckData.deckObjects[i]);
+            Debug.Log(DeckData.deckObjects[i].cardPoolObject.character.characterName);
+            Debug.Log(deckObjects[i].iconImage.sprite);
+        }
+    }
+
+    public static void GetDeckObject()
+    {
+        for (int i = 0; i < deckObjects.Length; i++)
+        {
+            if (DeckData.deckObjects[i] == null) { return; }
+            Debug.Log("mnodihbneipthnbpiesnthoi");
+            deckObjects[i] = DeckData.deckObjects[i];
+            deckObjects[i].iconImage.sprite = DeckData.deckObjects[i].iconImage.sprite;
+            Debug.Log(deckObjects[i].cardPoolObject.character.characterName);
         }
     }
 }
