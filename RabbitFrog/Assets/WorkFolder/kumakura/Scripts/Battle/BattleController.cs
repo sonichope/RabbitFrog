@@ -50,11 +50,19 @@ public class BattleController : MonoBehaviour
 
         summonGage.fillAmount = summonGageVal / 10.0f;
 
-        #region シーン遷移
-        //if (gameTime <= 0)
-        //{
-            
-        //}
+        #region チートコマンド
+        if (Input.GetKey(KeyCode.Return))
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                var enemy = FindObjectOfType<EnemyTower>();
+                enemy.hp = 0;
+            }
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                
+            }
+        }
         #endregion
     }
 }

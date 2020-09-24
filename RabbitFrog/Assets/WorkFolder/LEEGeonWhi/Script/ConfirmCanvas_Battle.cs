@@ -32,8 +32,7 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     ///========================================================
     public void MoveTitle()
     {
-        //StartCoroutine(effect_Sketch.NextScene("TitleScene"));
-        StartCoroutine(effect_Sketch.NextScene(NextSceneName()));
+        StartCoroutine(effect_Sketch.NextScene("TitleScene"));
         GetComponent<GraphicRaycaster>().enabled = false;
     }
     public void MoveOption()
@@ -43,7 +42,7 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     }
     public void NextStage()
     {
-        StartCoroutine(effect_Sketch.NextScene("BattleSecond"));
+        StartCoroutine(effect_Sketch.NextScene(NextSceneName()));
         GetComponent<GraphicRaycaster>().enabled = false;
     }
 
