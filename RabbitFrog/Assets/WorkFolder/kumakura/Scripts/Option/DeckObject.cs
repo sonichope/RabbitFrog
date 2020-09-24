@@ -12,7 +12,6 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     public CardPoolObject cardPoolObject;
     public PreviewManager preMana;
 
-
     void Start()
     {
         nowSprite = uiMask;
