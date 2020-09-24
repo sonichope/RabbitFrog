@@ -6,6 +6,7 @@ public class makimonoAnim : MonoBehaviour
 {
     //[SerializeField] GameObject pepar;
     Animator anim;
+    makimono _makimono;
 
     void Start()
     {
