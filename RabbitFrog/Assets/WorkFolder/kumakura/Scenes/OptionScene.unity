@@ -383,6 +383,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConfirmCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8840495933366875683, guid: c257276f9591fff41be0f101ade50e3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8840495933366875704, guid: c257276f9591fff41be0f101ade50e3f,
         type: 3}
       propertyPath: effect_sketch
@@ -3227,8 +3232,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198852345}
   m_HandleRect: {fileID: 198852344}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.35714287
+  m_Value: 1.0000004
+  m_Size: 0.71428573
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5621,6 +5626,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect_Sketch: {fileID: 267159121}
   confirmCanvas: {fileID: 358190172}
+  StagePanel:
+  - {fileID: 842760086}
+  - {fileID: 716734323}
+  - {fileID: 816717830}
+  - {fileID: 233455158}
 --- !u!114 &1920466323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3357235503523256568, guid: 0c6a2e9ad71a1b64499916635315ed88,
@@ -5836,7 +5846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.49998, y: 100}
+  m_AnchoredPosition: {x: -196.49998, y: 99.999985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2079403064

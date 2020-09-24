@@ -17,6 +17,8 @@ public class Enemy : CharacterBase
     protected float time = 0.0f;
     protected CharacterBase targetCharacter;
 
+    private int maxHp;
+
     public enum AttackMethod
     {
         shortDistance,
@@ -24,6 +26,15 @@ public class Enemy : CharacterBase
         longDistance,
     }
 
+    void Awake()
+    {
+        maxHp = hp;
+    }
+
+    void FixedUpdate()
+    {
+        hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
+    }
     public void EnemyMove(float speed)
     {
         if (IsMove)

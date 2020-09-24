@@ -10,10 +10,16 @@ public class Tower : CharacterBase
     private Enemy targetEnemy;
     private bool serchFlag = false;
     private Vector2 enemyPos;
+    private int maxHp;
 
-    void Start()
+    void Awake()
     {
-        
+        maxHp = hp;
+    }
+
+    void FixedUpdate()
+    {
+        hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
     }
 
     void Update()
