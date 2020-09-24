@@ -95,17 +95,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47b87bf91bffc640af2cd06eb355265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: "\u6B69\u5175"
   image: {fileID: 21300000, guid: eb8310eaae5ae5848b543cd7d63edea7, type: 3}
   hp: 10
   power: 3
+  myCharacteristic: 0
+  myCardType: 0
   moveSpeed: 0.005
   summonVol: 1
   cost: 1
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.75
-  myCharacteristic: 0
-  myCardType: 0
 --- !u!50 &1020412521329885864
 Rigidbody2D:
   serializedVersion: 4

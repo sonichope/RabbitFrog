@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyTower : CharacterBase
+public class EnemyTower : Enemy
 {
     void Start()
     {
@@ -13,15 +13,16 @@ public class EnemyTower : CharacterBase
     {
         if (IsDeath) { return; }
         if (hp <= 0) { Death(); }
-
-    }
-
-    /// <summary>
-    /// 攻撃
-    /// </summary>
-    public override void Attack()
-    {
-        
+        if (serchFlag)
+        {
+            // 敵との距離を測る
+            var distance = Vector3.Distance(transform.position, characterPos);
+            // 攻撃範囲に入れば攻撃
+            if (distance < attackRange)
+            {
+                Attack();
+            }
+        }
     }
     
     /// <summary>
@@ -31,6 +32,6 @@ public class EnemyTower : CharacterBase
     {
         IsDeath = true;
         gameObject.SetActive(false);
-        GameSceneManager.LoadClearScene();
+        //WGameSceneManager.LoadClearScene();
     }
 }

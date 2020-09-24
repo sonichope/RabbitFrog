@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     [SerializeField] private int myHandNumber;
     private Transform parentObject;
@@ -13,6 +13,8 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
     private Image dragImage;
     private Image souceImage;
+
+    [SerializeField] private PreviewManager preMana;
 
     void Awake()
     {
@@ -46,6 +48,17 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
 
         if(is_Summonable()) handManager.CharacterSummon(pos, myHandNumber);
        
+    }
+
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        if (pointerEventData.pointerEnter == null) { return; }
+        preMana.DisplayPreview();
+        var cardInfo = DeckManager.deckObjects[myHandNumber].cardPoolObject;
+        //var cardInfo = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
+        preMana.nameText.text = cardInfo.character.characterName;
+        preMana.costText.text = cardInfo.character.cost.ToString();
+        preMana.characterImage.sprite = cardInfo.character.image;
     }
 
     /// <summary>

@@ -5,35 +5,62 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Image))]
-public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class CardPoolObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
     private Transform parentObject;
     private GameObject dragObject;
     public Character character;
+    public PreviewManager preMana;
 
     void Awake()
     {
         GetComponent<Image>().sprite = character.image;
         GetComponent<Image>().preserveAspect = true;
         parentObject = transform.parent.parent.parent.parent;
+        preMana = FindObjectOfType<PreviewManager>();
     }
 
+    /// <summary>
+    /// ドラッグ開始時
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnBeginDrag(PointerEventData pointerEventData)
     {
         CreateDragObject();
         dragObject.transform.position = GetMousePosition();
     }
 
+    /// <summary>
+    /// ドラッグ中
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnDrag(PointerEventData pointerEventData)
     {
         dragObject.transform.position = GetMousePosition();
     }
 
-
+    /// <summary>
+    /// ドラッグ終了時
+    /// </summary>
+    /// <param name="pointerEventData"></param>
     public void OnEndDrag(PointerEventData pointerEventData)
     {
         gameObject.GetComponent<Image>().color = Vector4.one;
         Destroy(dragObject);
+    }
+
+    /// <summary>
+    /// クリック時
+    /// </summary>
+    /// <param name="pointerEventData"></param>
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        if (pointerEventData.pointerEnter == null) { return; }
+        preMana.DisplayPreview();
+        var cardInfo = pointerEventData.pointerEnter.GetComponent<CardPoolObject>();
+        preMana.nameText.text = cardInfo.character.characterName;
+        preMana.costText.text = cardInfo.character.cost.ToString();
+        preMana.characterImage.sprite = cardInfo.character.image;
     }
 
     /// <summary>

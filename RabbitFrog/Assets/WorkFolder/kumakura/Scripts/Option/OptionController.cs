@@ -9,24 +9,15 @@ public class OptionController : MonoBehaviour
 {
     [SerializeField] private Canvas organizationCanvas;
     [SerializeField] private Canvas stageSelectCanvas;
-
-
+    [SerializeField] private Canvas confirmCanvas;
+    [SerializeField] private PreviewManager preMana;
+    
 
     void Start()
     {
         organizationCanvas.enabled = false;
         stageSelectCanvas.enabled = false;
-    }
-
-    void Update()
-    {
-        // 条件は後々変更する
-        // PCからタブレットでも動くように条件式を書き換える
-        if (Input.GetMouseButtonDown(0))
-        {
-            // 遷移するシーンはBattleシーン完成後に変更すること
-            //SceneManager.LoadScene("BattleFirst");
-        }
+        confirmCanvas.enabled = false;
     }
 
     /// <summary>
@@ -35,6 +26,7 @@ public class OptionController : MonoBehaviour
     public void OnOpenOrganization()
     {
         stageSelectCanvas.rootCanvas.enabled = false;
+        confirmCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
     }
 
@@ -44,10 +36,16 @@ public class OptionController : MonoBehaviour
     public void OnOpenStageSelect()
     {
         organizationCanvas.rootCanvas.enabled = false;
+        confirmCanvas.rootCanvas.enabled = false;
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
     }
 
-    
+    //public void OnOpenConfirm()
+    //{
+    //    stageSelectCanvas.rootCanvas.enabled = false;
+    //    organizationCanvas.rootCanvas.enabled = false;
+    //    confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+    //}
 
 
 }

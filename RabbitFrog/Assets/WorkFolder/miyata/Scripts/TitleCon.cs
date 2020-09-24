@@ -19,11 +19,19 @@ public class TitleCon : MonoBehaviour
         
     }
 
-    public void title()
+    //public void title()
+    //{
+    //    Debug.Log("移った");
+    //    titleScene.SetActive(false);
+    //}
+
+    public void OnClick()
     {
-        Debug.Log("移った");
-        titleScene.SetActive(false);
+        titleScene.SetActive(true);
     }
 
-    
+    public void OnClick2()
+    {
+        titleScene.SetActive(false);
+    }
 }

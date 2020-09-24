@@ -8,14 +8,15 @@ public class Character : CharacterBase
     [Header("召喚数")] public int summonVol;                   // 召喚数
     [Header("コスト")] public int cost;                        // コスト
     [Header("攻撃方法")] public AttackMethod myAttackMethod;   // 攻撃方法
-    [SerializeField, Header("攻撃範囲")] private float attackRange = 1.5f;
-    [SerializeField, Header("攻撃速度")] private float attackInterval = 1.75f;
+    [SerializeField, Header("攻撃範囲")] protected float attackRange = 1.5f;
+    [SerializeField, Header("攻撃速度")] protected float attackInterval = 1.75f;
     //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
 
-    private Vector2 enemyPos;
-    private bool serchFlag = false;
-    private float atackTime = 0.0f;
-    private CharacterBase targetEnemy;
+    protected Vector2 enemyPos;
+    protected bool serchFlag = false;
+    protected float atackTime = 0.0f;
+    protected Enemy targetEnemy;
+    protected List<Enemy> targetEnemies;
 
     //[Header("自身のカード名")] public CardType myCardType;
 
@@ -86,8 +87,10 @@ public class Character : CharacterBase
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
-            // 敵のHPの情報を取得
-            targetEnemy = collision.GetComponent<CharacterBase>();
+            // 敵の情報を取得
+            targetEnemy = collision.GetComponent<Enemy>();
+            //targetEnemies.Add(collision.GetComponent<Enemy>());
+            if (myCardType == CardType.thunderGod) { return; }
             // 敵を発見したのでこれ以上他の敵と接触しないための処理
             serchFlag = true;
             // 索敵した敵のPositionを格納
@@ -127,16 +130,6 @@ public class Character : CharacterBase
         if (serchFlag == true && atackTime > attackInterval)
         {
             Debug.Log("攻撃");
-
-            
-            //if (targetEnemy.myCharacteristic == characteristic.ironWall)
-            //{
-            //    targetEnemy.hp -= 1;
-            //}
-            //else
-            //{
-            //    targetEnemy.hp -= power;
-            //}
             switch (targetEnemy.myCharacteristic)
             {
                 // 敵の特徴 : 無し

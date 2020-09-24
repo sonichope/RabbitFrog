@@ -30,12 +30,6 @@ public class HandManager : MonoBehaviour
         SetImage();
     }
 
-    void Update()
-    {
-        
-        
-    }
-
     private void SetImage()
     {
         int count = 0;
