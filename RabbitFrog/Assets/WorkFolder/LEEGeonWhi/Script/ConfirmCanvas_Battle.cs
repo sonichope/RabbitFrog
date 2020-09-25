@@ -25,6 +25,7 @@ public class ConfirmCanvas_Battle : MonoBehaviour
         if(Frog_Tower.IsDeath)
         {
             confirmcanvas_battle.rootCanvas.enabled = true;
+            clear();
         }
     }
 
@@ -58,21 +59,40 @@ public class ConfirmCanvas_Battle : MonoBehaviour
         switch (name)
         {
             case "BattleFirst":
-                SaveData.StageClear[0] = true;
                 return "BattleSecond";
             case "BattleSecond":
-                SaveData.StageClear[1] = true;
                 return "BattleThird";
             case "BattleThird":
-                SaveData.StageClear[2] = true;
                 return "BattleBoss";
             case "BattleBoss":
-                SaveData.StageClear[3] = true;
                 return "ClearScene";
             default:
                 return null;
         }
 
+    }
+
+    private void clear()
+    {
+        string name = SceneManager.GetActiveScene().name;
+
+        switch (name)
+        {
+            case "BattleFirst":
+                SaveData.StageClear[0] = true;
+                break;
+            case "BattleSecond":
+                SaveData.StageClear[1] = true;
+                break;
+            case "BattleThird":
+                SaveData.StageClear[2] = true;
+                break;
+            case "BattleBoss":
+                SaveData.StageClear[3] = true;
+                break;
+            default:
+                break;
+        }
     }
 
 }
