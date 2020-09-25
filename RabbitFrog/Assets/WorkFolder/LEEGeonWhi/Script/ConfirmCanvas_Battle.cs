@@ -79,16 +79,16 @@ public class ConfirmCanvas_Battle : MonoBehaviour
         switch (name)
         {
             case "BattleFirst":
-                SaveData.StageClear[0] = true;
-                break;
-            case "BattleSecond":
                 SaveData.StageClear[1] = true;
                 break;
-            case "BattleThird":
+            case "BattleSecond":
                 SaveData.StageClear[2] = true;
                 break;
-            case "BattleBoss":
+            case "BattleThird":
                 SaveData.StageClear[3] = true;
+                break;
+            case "BattleBoss":
+                //SaveData.StageClear[3] = true;
                 break;
             default:
                 break;
