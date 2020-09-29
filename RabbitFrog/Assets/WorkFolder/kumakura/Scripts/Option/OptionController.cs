@@ -17,7 +17,7 @@ public class OptionController : MonoBehaviour
     {
         organizationCanvas.enabled = false;
         stageSelectCanvas.enabled = false;
-        confirmCanvas.enabled = false;
+        //confirmCanvas.enabled = false;
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ public class OptionController : MonoBehaviour
     public void OnOpenOrganization()
     {
         stageSelectCanvas.rootCanvas.enabled = false;
-        confirmCanvas.rootCanvas.enabled = false;
+        //confirmCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
     }
 
@@ -36,7 +36,7 @@ public class OptionController : MonoBehaviour
     public void OnOpenStageSelect()
     {
         organizationCanvas.rootCanvas.enabled = false;
-        confirmCanvas.rootCanvas.enabled = false;
+        //confirmCanvas.rootCanvas.enabled = false;
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
     }
 
