@@ -18,7 +18,7 @@ public class LineController : MonoBehaviour
     [SerializeField]
     private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
     [SerializeField]
-    private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
+    private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列   
     [SerializeField]
     private List<Vector2> Points_Y = new List<Vector2>(); //Pointsをposition.Yを基準にしてlist整列
 
@@ -37,6 +37,9 @@ public class LineController : MonoBehaviour
     private GameObject circle;
     private float circumference = 0;//円の長さ
     private float radius = 0;//円の半径
+
+    [SerializeField]
+    private GameObject Triangle;
 
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
     private LineRenderer Pointer_linRenderer;
@@ -128,10 +131,14 @@ public class LineController : MonoBehaviour
             //--------------------
             Points_X.Sort((s1, s2) => s1.x.CompareTo(s2.x)); //position.xを基準にして配列整列
             Points_Y.Sort((s1, s2) => s1.y.CompareTo(s2.y)); //position.ｙを基準にして配列整列
-            //--------------------
+                                                             //--------------------
+            //Debug.Log(GetAngle(startPos, Points_Y[Points_Y.Count - 1]) +"===" +GetAngle(Points_Y[Points_Y.Count - 1], endPos));
+            //Debug.Log(GetAngle(startPos, endPos));
+
 
             //直線生成
-            if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100 && Points.Count < 10)
+
+            if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
             {
                 obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
                 lineRenderer = obj.GetComponent<LineRenderer>();
@@ -149,10 +156,19 @@ public class LineController : MonoBehaviour
                 obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
             }
 
+            //三角形を生成
+            if(Chack_Traiangle(startPos, Points_Y[Points_Y.Count - 1],endPos) && Points.Count < 10)
+            {
+                Vector2[] Vertex[]
+                float Tri_Height = 0;
+                float Tri_Width = 0;
+                Debug.Log("triangle");
+            }
+
             // draw circle
             else
             {
-                
+
                 //===========================================================================
                 if (Points.Count < 10 || Points.Count > 15) return;
                 if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
@@ -207,7 +223,29 @@ public class LineController : MonoBehaviour
             return false;
         }
     }
+    
+    /// <summary>
+    /// 三角形を判定
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="MaxY_Pos"></param>
+    /// <param name="endPos"></param>
+    /// <returns></returns>
+    bool Chack_Traiangle(Vector2 startPos, Vector2 MaxY_Pos, Vector2 endPos)
+    {
+        if (MaxY_Pos.y - startPos.y <= 0 && GetAngle(startPos,endPos) > 0) return false;
+        if (GetAngle(startPos, MaxY_Pos) <= 70 || GetAngle(startPos, MaxY_Pos) >= 110)
+        {
+            if (GetAngle(startPos, MaxY_Pos) < 0) return false;
 
+            if (GetAngle(MaxY_Pos, endPos) >= -80 || GetAngle(MaxY_Pos, endPos) <= -120)
+            {
+                if (GetAngle(MaxY_Pos, endPos) > 0) return false;
+                return true; 
+            }
+        }
+        return false;
+    }
 
     /// <summary>
     /// 
@@ -218,7 +256,7 @@ public class LineController : MonoBehaviour
     float GetAngle(Vector2 start, Vector2 end)
     {
         Vector2 v2 = end - start;
-        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
+        return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
     }
 
     //=============================================================================================

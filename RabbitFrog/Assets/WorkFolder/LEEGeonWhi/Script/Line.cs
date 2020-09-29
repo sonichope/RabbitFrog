@@ -14,8 +14,8 @@ public class Line : MonoBehaviour
     void Start()
     {
         Init();
-        //StartCoroutine(obj_destroy());
         StartCoroutine(Change_Overlap());
+        Destroy(gameObject, 3.0f);
     }
 
     // Update is called once per frame
@@ -68,8 +68,6 @@ public class Line : MonoBehaviour
     /// <param name="col"></param>
     void OnTriggerExit2D(Collider2D col)
     {
-
-
         if (col.tag == "Enemy")
         {
             col.GetComponent<Enemy>().IsMove = true;
@@ -77,14 +75,7 @@ public class Line : MonoBehaviour
         }
     }
 
-    //IEnumerator obj_destroy()
-    //{
-    //    yield return new WaitForSeconds(3.0f);
-    //    InkAmout.increase_Gauge(0.1f);
-    //    Destroy(gameObject);
-    //} 
-
-    /// <summary>ㅖ
+    /// <summary>
     /// 
     /// </summary>
     /// <returns></returns>
