@@ -52,7 +52,9 @@ MonoBehaviour:
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
   circle: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff, type: 3}
-  circumference: 0
-  radius: 0
+  Triangle: {fileID: 6787655676766610501, guid: a94d434b726e4e94980a52957d8bc608,
+    type: 3}
+  Points_normal: []
+  MaxYPos: 0
   start_screenLimit: {x: -5, y: -2.5}
   end_screenLimit: {x: 5, y: 5}
