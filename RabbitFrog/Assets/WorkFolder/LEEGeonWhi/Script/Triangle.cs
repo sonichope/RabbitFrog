@@ -29,7 +29,7 @@ public class Triangle : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-            //col.GetComponent<Enemy>().HP -= ??;
+
         }
 
     }
@@ -42,20 +42,7 @@ public class Triangle : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-           
-
-        }
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="col"></param>
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.tag == "Enemy")
-        {
-
+            //敵のHPを減らす処理
         }
     }
 

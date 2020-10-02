@@ -8,7 +8,6 @@ public class Line : MonoBehaviour
     public float lineLength;
     public float HP;
 
-    private float Delay_Destroy = 3.0f;
     private BoxCollider2D Box_col;
     private bool Check_Overlap;
     
@@ -17,7 +16,7 @@ public class Line : MonoBehaviour
     {
         Init();
         StartCoroutine(Change_Overlap());
-        //Destroy(gameObject, Delay_Destroy);
+        Destroy(gameObject, 3.0f);
     }
 
     // Update is called once per frame
@@ -54,16 +53,15 @@ public class Line : MonoBehaviour
     /// <param name="col"></param>
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "Enemy" && Check_Overlap == true)
-        {
-            InkAmout.increase_Gauge(0.1f);
-            Destroy(gameObject);
-        }
+        //if (col.tag == "Enemy" && Check_Overlap == true)
+        //{
+        //    InkAmout.increase_Gauge(0.1f);
+        //    Destroy(gameObject);
+        //}
 
-        if (col.tag == "Enemy" && Check_Overlap == false)
+        if (col.tag == "Enemy")
         {
-            col.GetComponent<Enemy>().IsMove = false;
-            HP -= Time.deltaTime;
+            col.GetComponent<Enemy>().transform.position += new Vector3(-Time.deltaTime * 3, 0, 0); //壁に衝突するMotion
         }
     }
 
