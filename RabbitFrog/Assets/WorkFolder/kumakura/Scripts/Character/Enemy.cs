@@ -122,5 +122,6 @@ public class Enemy : CharacterBase
             serchFlag = true;
             characterPos = collision.transform.position;
         }
+
     }
 }

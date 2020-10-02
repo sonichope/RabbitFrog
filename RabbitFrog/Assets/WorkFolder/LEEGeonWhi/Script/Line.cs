@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Line : MonoBehaviour
 {
     public float lineLength;
     public float HP;
 
+    private float Delay_Destroy = 3.0f;
     private BoxCollider2D Box_col;
     private bool Check_Overlap;
+    
 
-    // Start is called before the first frame update
     void Start()
     {
         Init();
         StartCoroutine(Change_Overlap());
-        Destroy(gameObject, 3.0f);
+        //Destroy(gameObject, Delay_Destroy);
     }
 
     // Update is called once per frame
@@ -39,6 +41,9 @@ public class Line : MonoBehaviour
         if (col.tag == "Enemy" && Check_Overlap == false)
         {
             HP -= 0.5f;
+            //col.GetComponent<Enemy>().IsMove = false;
+            //Enemy_obj.Add(col.gameObject);
+            col.GetComponent<Enemy>().transform.position += new Vector3(-Time.deltaTime * 3, 0, 0); //壁に衝突するMotion
         }
 
     }
@@ -58,27 +63,24 @@ public class Line : MonoBehaviour
         if (col.tag == "Enemy" && Check_Overlap == false)
         {
             col.GetComponent<Enemy>().IsMove = false;
-            //HP -= Time.deltaTime;
+            HP -= Time.deltaTime;
         }
     }
 
-    /// <summary>
-    /// 判定用 function
-    /// </summary>
-    /// <param name="col"></param>
-    void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.tag == "Enemy")
-        {
-            col.GetComponent<Enemy>().IsMove = true;
-            Debug.Log("判定なし test");
-        }
-    }
+    ///// <summary>
+    ///// 判定用 function
+    ///// </summary>
+    ///// <param name="col"></param>
+    //void OnTriggerExit2D(Collider2D col)
+    //{
+    //    if (col.tag == "Enemy")
+    //    {
+    //        col.GetComponent<Enemy>().IsMove = true;
+    //        Debug.Log("判定なし test");
+    //    }
+    //}
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
+
     IEnumerator Change_Overlap()
     {
         Check_Overlap = true;
