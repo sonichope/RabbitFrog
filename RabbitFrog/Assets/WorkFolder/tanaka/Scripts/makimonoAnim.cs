@@ -6,7 +6,6 @@ public class makimonoAnim : MonoBehaviour
 {
     [SerializeField] GameObject pepar;
     Animator anim;
-    Animation _animation;
     makimono _makimono;
 
     private bool animFrag = true;
@@ -21,34 +20,38 @@ public class makimonoAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void Army()
+    public void StartArmy()
     {
         //_animation.Play();
         anim.SetTrigger("StartAnim");
         if (animFrag == false)
         {
-            testAnimPlay();
             animFrag = true;
-            Debug.Log("testAnimPlayを呼び出せたよ");
+            //testAnimPlay();
         }
     }
 
-    public void Select()
+    public void StartSelect()
     {
         anim.SetTrigger("StartAnim");
         if (animFrag == false)
         {
-            testAnimPlay();
             animFrag = true;
+            //testAnimPlay();
         }
     }
 
-    public void testAnimPlay()
+    public void ReturnAnim()
     {
-        anim.Play("StartAnim", 0, 0.0f);
-        animFrag = false;
+        anim.SetTrigger("ReturnAnim");
     }
+
+    //public void testAnimPlay()
+    //{
+    //    anim.Play("StartAnim", 0, 0.0f);
+    //    animFrag = false;
+    //}
 }

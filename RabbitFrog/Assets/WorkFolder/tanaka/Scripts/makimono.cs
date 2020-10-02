@@ -5,19 +5,22 @@ using UnityEngine;
 public class makimono : MonoBehaviour
 {
     [SerializeField] GameObject army;
+    [SerializeField] GameObject armyOrganization;
     [SerializeField] GameObject select;
+    [SerializeField] GameObject stageSelect;
 
     public Transform startMaker;
     public Transform endMaker;
 
-    [SerializeField]private bool testFrag = true;
-    [SerializeField]private bool markFrag = true;
+    [SerializeField] private bool testFrag = true;
+    [SerializeField] private bool markFrag = true;
 
     public float speed;
-    //public float ax;
 
     private float distance_two;
     float present_Location = 0;
+
+    private makimonoAnim makimonoAnimation;
 
     // やりたい動き
     // 巻物がタップされた時のアニメーションが終了した時
@@ -30,6 +33,7 @@ public class makimono : MonoBehaviour
         //move_Position = startMaker.transform.position;
         //toGoPoint = endMaker.transform.position;
         distance_two = Vector3.Distance(startMaker.position, endMaker.position);
+        makimonoAnimation = GetComponent<makimonoAnim>();
     }
 
     // Update is called once per frame
@@ -39,16 +43,18 @@ public class makimono : MonoBehaviour
         {
             //present_Location += (Time.time * speed) / distance_two;
             present_Location += Time.deltaTime * speed;
-            //Debug.Log(present_Location);
             army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
             select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
             if (present_Location >= 1)
             {
+                makimonoAnimation.ReturnAnim();
                 Debug.Log("aaaa");
                 // peperのAnimation再生
                 testFrag = true;
                 present_Location = 1;
+                makimonoAnimation.StartArmy();
             }
+            return;
         }
         if(markFrag == false)
         {
@@ -59,10 +65,12 @@ public class makimono : MonoBehaviour
             select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
             if (present_Location <= 0)
             {
+                makimonoAnimation.ReturnAnim(); 
                 Debug.Log("bbbb");
                 // peperのAnimation再生
                 markFrag = true;
                 present_Location = 0;
+                makimonoAnimation.StartSelect();
             }
         }
     }
@@ -72,8 +80,6 @@ public class makimono : MonoBehaviour
         //if (present_Location > 0 || present_Location < 1) { return; }
         if (!testFrag) { return; }
         testFrag = false;
-        army.transform.localScale = new Vector2(1, 1.25f);
-        select.transform.localScale = new Vector2(1, 1);
     }
 
     public void CloseMakimono()
@@ -81,7 +87,17 @@ public class makimono : MonoBehaviour
         //if (present_Location > 0 || present_Location < 1) { return; }
         if (!markFrag) { return; }
         markFrag = false;
-        army.transform.localScale = new Vector2(1, 1);
-        select.transform.localScale = new Vector2(1, 1.25f);
+    }
+
+    public void ArmyOrganizationScale()
+    {
+        armyOrganization.transform.localScale = new Vector2(1, 1.25f);
+        stageSelect.transform.localScale = new Vector2(1, 1);
+    }
+
+    public void StageSelectScale()
+    {
+        armyOrganization.transform.localScale = new Vector2(1, 1);
+        stageSelect.transform.localScale = new Vector2(1, 1.25f);
     }
 }
