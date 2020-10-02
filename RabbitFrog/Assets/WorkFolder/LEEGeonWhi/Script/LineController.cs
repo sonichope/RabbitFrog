@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UIElements;
 
 public class LineController : MonoBehaviour
@@ -18,7 +19,7 @@ public class LineController : MonoBehaviour
     [SerializeField]
     private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
     [SerializeField]
-    private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列
+    private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列   
     [SerializeField]
     private List<Vector2> Points_Y = new List<Vector2>(); //Pointsをposition.Yを基準にしてlist整列
 
@@ -38,8 +39,17 @@ public class LineController : MonoBehaviour
     private float circumference = 0;//円の長さ
     private float radius = 0;//円の半径
 
+    [SerializeField]
+    private GameObject Triangle;
+
+    [SerializeField]
+    private List<Vector3> Points_normal = new List<Vector3>();
+    [SerializeField]
+    private float MaxYPos = 0;
+
     private LineRenderer lineRenderer; //生成したprefabのLinRenderer
     private LineRenderer Pointer_linRenderer;
+    private LineRenderer Tri_linRenderer;
 
     static public bool is_inkMode = false; //インクモード
 
@@ -87,6 +97,8 @@ public class LineController : MonoBehaviour
             Points.RemoveRange(0, Points.Count);
             Points_X.RemoveRange(0, Points_X.Count);
             Points_Y.RemoveRange(0, Points_Y.Count);
+            Points_normal.RemoveRange(0, Points_normal.Count);
+
             //----------------------------------------
 
             //半径、長さ初期化
@@ -128,10 +140,13 @@ public class LineController : MonoBehaviour
             //--------------------
             Points_X.Sort((s1, s2) => s1.x.CompareTo(s2.x)); //position.xを基準にして配列整列
             Points_Y.Sort((s1, s2) => s1.y.CompareTo(s2.y)); //position.ｙを基準にして配列整列
-            //--------------------
+                                                             //--------------------
+                                                             //Debug.Log(GetAngle(startPos, Points_Y[Points_Y.Count - 1]) +"===" +GetAngle(Points_Y[Points_Y.Count - 1], endPos));
+                                                             //Debug.Log(GetAngle(startPos, endPos));
 
             //直線生成
-            if (GetAngle(startPos, endPos) >= 80 && GetAngle(startPos, endPos) <= 100 && Points.Count < 10)
+
+            if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
             {
                 obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
                 lineRenderer = obj.GetComponent<LineRenderer>();
@@ -149,12 +164,32 @@ public class LineController : MonoBehaviour
                 obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
             }
 
+            //三角形を生成
+            else if(Chack_Traiangle(startPos, Points_Y[Points_Y.Count - 1],endPos) && Points.Count < 10)
+            {
+                float Tri_Height = Mathf.Abs((Points_Y[Points_Y.Count - 1].y - startPos.y));
+                float Tri_Width = Mathf.Abs((endPos.x - startPos.x));
+                float Tri_area = Tri_Height * Tri_Width / 2;
+
+                Vector3 Center = Vector3.Lerp(startPos, endPos, 0.5f);
+                //Center.y += Tri_Height / 2;
+                var Tri_obj = Instantiate(Triangle, new Vector2(0,0) , Quaternion.identity);
+                Tri_obj.GetComponent<Triangle>().HP = 10.0f;
+                
+                Tri_linRenderer = Tri_obj.GetComponent<LineRenderer>();
+                //Tri_obj.transform.localScale = new Vector3(Tri_area, Tri_area, 1);
+                Tri_linRenderer.SetPosition(0, Center);
+                Center.y += Tri_Height;
+                Tri_linRenderer.SetPosition(1, Center);
+            }
+
             // draw circle
             else
             {
-                
+                float distance = (endPos - startPos).magnitude;
+                //Debug.Log(dis);
                 //===========================================================================
-                if (Points.Count < 10 || Points.Count > 15) return;
+                if (Points.Count < 10 || Points.Count > 15 || distance > 2.0f) return;
                 if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
                 if (Vector2.Distance(Points_X[0], Points_X[Points.Count - 1]) > 10.0f ||
                     Vector2.Distance(Points_Y[0], Points_Y[Points.Count - 1]) > 10.0f) return;
@@ -181,7 +216,7 @@ public class LineController : MonoBehaviour
                 //col.isTrigger = true;
             }
 
-            InkAmout.decrease_Gauge(0.1f);
+            //InkAmout.decrease_Gauge(0.1f);
 
         }
 
@@ -207,7 +242,53 @@ public class LineController : MonoBehaviour
             return false;
         }
     }
+    
+    /// <summary>
+    /// 三角形を判定
+    /// </summary>
+    /// <param name="startPos"></param>
+    /// <param name="MaxY_Pos"></param>
+    /// <param name="endPos"></param>
+    /// <returns></returns>
+    bool Chack_Traiangle(Vector2 startPos, Vector2 MaxY_Pos, Vector2 endPos)
+    {
+        //if (Mathf.Abs(startPos.y - endPos.y) <= 0) return false;
+        
+        if (MaxY_Pos.y - startPos.y <= 0 && GetAngle(startPos,endPos) > 0) return false;
+        Chack_Point_Normal();
+        Vector3 Dir_Chack = Vector3.Normalize(MaxY_Pos - startPos);
+        if (Dir_Chack.y <= 0) return false;
 
+            if (GetAngle(startPos, MaxY_Pos) <= 70 || GetAngle(startPos, MaxY_Pos) >= 110)
+        {
+            if (GetAngle(startPos, MaxY_Pos) < 0) return false;
+
+            if (GetAngle(MaxY_Pos, endPos) >= -80 || GetAngle(MaxY_Pos, endPos) <= -120)
+            {
+                if (GetAngle(MaxY_Pos, endPos) > 0) return false;
+                return true; 
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    void Chack_Point_Normal()
+    {
+        float temp = 0;
+        for (int i = 0; i < Points.Count - 1; i++)
+        {   
+            Points_normal.Add(Vector3.Normalize(Points[i + 1] - Points[i]));
+            if (Points_normal[i].y < 0 && temp > 0)
+            {
+                MaxYPos = Points[i].y;
+                return;
+            }
+            temp = Points_normal[i].y;
+        }
+    }
 
     /// <summary>
     /// 
@@ -218,7 +299,7 @@ public class LineController : MonoBehaviour
     float GetAngle(Vector2 start, Vector2 end)
     {
         Vector2 v2 = end - start;
-        return Mathf.Abs(Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg);
+        return Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
     }
 
     //=============================================================================================
