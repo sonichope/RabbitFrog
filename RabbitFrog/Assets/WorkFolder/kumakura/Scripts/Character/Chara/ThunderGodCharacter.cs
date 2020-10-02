@@ -18,8 +18,32 @@ public class ThunderGodCharacter : Character
         CharacterMove(moveSpeed);
     }
 
+    public override void CharacterMove(float speed)
+    {
+        if (IsMove)
+            // 敵の索敵が出来れていれば敵に近づく処理
+            if (serchFlag)
+            {
+                // 敵との距離を測る
+                var distance = Vector3.Distance(transform.position, enemyPos);
+                // 攻撃範囲に入れば攻撃
+                if (distance < attackRange)
+                {
+                    Attack();
+                    return;
+                }
+                gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, enemyPos, speed);
+            }
+            else
+            {
+                // 索敵状態であればひたすら歩く処理
+                transform.Translate(-speed, 0, 0);
+            }
+    }
+
     public override void Attack()
     {
+        Debug.Log("aaaaa");
         atackTime += Time.deltaTime;
         if (serchFlag == true && atackTime > attackInterval)
         {
