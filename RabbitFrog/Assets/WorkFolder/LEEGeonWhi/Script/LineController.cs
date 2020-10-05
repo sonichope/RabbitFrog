@@ -146,7 +146,8 @@ public class LineController : MonoBehaviour
 
             //直線生成
 
-            if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
+            //if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
+            if (Chack_Line() && Points.Count < 10)
             {
                 obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
                 lineRenderer = obj.GetComponent<LineRenderer>();
@@ -275,6 +276,23 @@ public class LineController : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    /// <returns></returns>
+    bool Chack_Line()
+    {
+        for(int i = 0; i < Points.Count - 1; i++)
+        {
+            if(Mathf.Abs(GetAngle(Points[i], Points[i + 1])) <= 80 || Mathf.Abs(GetAngle(startPos, endPos)) >= 100)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
     void Chack_Point_Normal()
     {
         float temp = 0;
@@ -289,7 +307,6 @@ public class LineController : MonoBehaviour
             temp = Points_normal[i].y;
         }
     }
-
     /// <summary>
     /// 
     /// </summary>
