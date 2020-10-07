@@ -15,7 +15,6 @@ public class Character : CharacterBase
     protected bool serchFlag = false;
     protected float atackTime = 0.0f;
     protected Enemy targetEnemy;
-    protected List<Enemy> targetEnemies;
 
     private int maxHp;
 
@@ -65,13 +64,13 @@ public class Character : CharacterBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (myCardType == CardType.thunderGod) { return; }
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵の情報を取得
             targetEnemy = collision.GetComponent<Enemy>();
             //targetEnemies.Add(collision.GetComponent<Enemy>());
-            if (myCardType == CardType.thunderGod) { return; }
             // 敵を発見したのでこれ以上他の敵と接触しないための処理
             serchFlag = true;
             // 索敵した敵のPositionを格納
