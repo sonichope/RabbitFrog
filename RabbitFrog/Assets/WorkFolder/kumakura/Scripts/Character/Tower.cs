@@ -68,8 +68,17 @@ public class Tower : CharacterBase
             targetEnemy = collision.GetComponent<Enemy>();
             serchFlag = true;
             enemyPos = collision.transform.position;
+            collision.transform.position -= new Vector3(Time.deltaTime *4 ,0 ,0);
             Debug.Log(targetEnemy + " : " + enemyPos);
         }
 
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
+        {
+            collision.transform.position -= new Vector3(Time.deltaTime * 4, 0, 0);
+        }
     }
 }

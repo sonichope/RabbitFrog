@@ -144,9 +144,12 @@ public class LineController : MonoBehaviour
                                                              //Debug.Log(GetAngle(startPos, Points_Y[Points_Y.Count - 1]) +"===" +GetAngle(Points_Y[Points_Y.Count - 1], endPos));
                                                              //Debug.Log(GetAngle(startPos, endPos));
 
+
+            Chack_Point_Normal();
             //直線生成
 
-            if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
+            //if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
+            if (Chack_Line() && Points.Count < 10)
             {
                 obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
                 lineRenderer = obj.GetComponent<LineRenderer>();
@@ -184,16 +187,17 @@ public class LineController : MonoBehaviour
             }
 
             // draw circle
-            else
+            else if(Chack_Circle())
             {
-                float distance = (endPos - startPos).magnitude;
+                //float distance = (endPos - startPos).magnitude;
                 //Debug.Log(dis);
                 //===========================================================================
-                if (Points.Count < 10 || Points.Count > 15 || distance > 2.0f) return;
-                if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
-                if (Vector2.Distance(Points_X[0], Points_X[Points.Count - 1]) > 10.0f ||
-                    Vector2.Distance(Points_Y[0], Points_Y[Points.Count - 1]) > 10.0f) return;
+                //if (Vector3.Distance(Points[0], Points[Points.Count - 1]) > 5.0f) return;
+                //if (Vector2.Distance(Points_X[0], Points_X[Points.Count - 1]) > 10.0f ||
+                //    Vector2.Distance(Points_Y[0], Points_Y[Points.Count - 1]) > 10.0f) return;
                 //===========================================================================
+
+                if (Points.Count < 10 || Points.Count > 20) return;
 
                 //円の長さを計算する
                 for (int i = 0; i < Points.Count - 1; i++)
@@ -255,7 +259,6 @@ public class LineController : MonoBehaviour
         //if (Mathf.Abs(startPos.y - endPos.y) <= 0) return false;
         
         if (MaxY_Pos.y - startPos.y <= 0 && GetAngle(startPos,endPos) > 0) return false;
-        Chack_Point_Normal();
         Vector3 Dir_Chack = Vector3.Normalize(MaxY_Pos - startPos);
         if (Dir_Chack.y <= 0) return false;
 
@@ -275,6 +278,55 @@ public class LineController : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
+    /// <returns></returns>
+    bool Chack_Line()
+    {
+        for(int i = 0; i < Points.Count - 1; i++)
+        {
+            if(Mathf.Abs(GetAngle(Points[i], Points[i + 1])) <= 80 || Mathf.Abs(GetAngle(startPos, endPos)) >= 100)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool Chack_Circle()
+    {
+        bool ChangeDir_X = false;
+        bool ChangeDir_Y = false;
+        float temp = 0;
+
+        for (int i = 0; i < Points_normal.Count - 1; i++)
+        {
+            if (Points_normal[i].x < 0 && temp > 0) ChangeDir_X = true;
+            if (Points_normal[i].x > 0 && temp < 0) ChangeDir_X = true;
+            temp = Points_normal[i].x;
+        }
+
+
+        for (int i = 0; i < Points_normal.Count - 1; i++)
+        {
+            if (Points_normal[i].y - Points_normal[i + 1].y < 0 && temp > 0) ChangeDir_Y = true;
+            if (Points_normal[i].y - Points_normal[i + 1].y > 0 && temp < 0) ChangeDir_Y = true;
+            temp = Points_normal[i].y - Points_normal[i + 1].y;
+        }
+
+        if(ChangeDir_X && ChangeDir_Y)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+
+    /// <summary>
+    /// 
+    /// </summary>
     void Chack_Point_Normal()
     {
         float temp = 0;
@@ -284,12 +336,11 @@ public class LineController : MonoBehaviour
             if (Points_normal[i].y < 0 && temp > 0)
             {
                 MaxYPos = Points[i].y;
-                return;
+                //return;
             }
             temp = Points_normal[i].y;
         }
     }
-
     /// <summary>
     /// 
     /// </summary>
