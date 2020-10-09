@@ -471,6 +471,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6787655676766610501, guid: a94d434b726e4e94980a52957d8bc608,
         type: 3}
+    - target: {fileID: 14000863, guid: c665477f90810da4990c10faf4f4d25e, type: 3}
+      propertyPath: Cube
+      value: 
+      objectReference: {fileID: 3642270579253420421, guid: ee8e8295bd66d4444aa52dfebe1064a7,
+        type: 3}
     - target: {fileID: 328260641, guid: c665477f90810da4990c10faf4f4d25e, type: 3}
       propertyPath: m_IsActive
       value: 1

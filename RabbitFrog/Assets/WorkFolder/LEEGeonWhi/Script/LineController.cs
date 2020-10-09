@@ -27,6 +27,9 @@ public class LineController : MonoBehaviour
     private GameObject Drawing_obj;
     [SerializeField]
     private GameObject line_prefab;
+    [SerializeField]
+    private GameObject Cube;
+
 
     private GameObject obj; //生成したprefabを変数に保存
     private GameObject mouce_obj;
@@ -151,20 +154,50 @@ public class LineController : MonoBehaviour
             //if (Mathf.Abs(GetAngle(startPos, endPos)) >= 80 && Mathf.Abs(GetAngle(startPos, endPos)) <= 100 && Points.Count < 10)
             if (Chack_Line() && Points.Count < 10)
             {
-                obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
-                lineRenderer = obj.GetComponent<LineRenderer>();
-                lineRenderer.SetVertexCount(2);
+                //obj = Instantiate(line_prefab, new Vector2(0, 0), Quaternion.identity);
+                //lineRenderer = obj.GetComponent<LineRenderer>();
+                //lineRenderer.SetVertexCount(2);
 
-                lineRenderer.SetPosition(0, startPos); // start draw position
+                //lineRenderer.SetPosition(0, startPos); // start draw position
 
-                endPos = new Vector2(startPos.x,
-                                    Drawing_obj.transform.position.y);
-                lineRenderer.SetPosition(1, endPos); // // end draw position
-                lineRenderer.SetWidth(width, width);;
+                //endPos = new Vector2(startPos.x,
+                //                    Drawing_obj.transform.position.y);
+                //lineRenderer.SetPosition(1, endPos); // // end draw position
+                //lineRenderer.SetWidth(width, width);;
 
-                lineLength = Mathf.Abs(endPos.y - startPos.y);
-                obj.GetComponent<Line>().lineLength = lineLength; // 
-                obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
+                //lineLength = Mathf.Abs(endPos.y - startPos.y);
+                //obj.GetComponent<Line>().lineLength = lineLength; // 
+                //obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
+
+                //===============================================
+
+                List<Vector2> respawn = new List<Vector2>();
+                respawn.Add(startPos);
+
+                Vector3 Dir = Vector3.Normalize(startPos - endPos);
+
+
+                //var test = Instantiate(new GameObject(), startPos, Quaternion.identity);
+                GameObject test = new GameObject();
+                test.name = "WallManager";
+
+               for (int i = 0; i < Points.Count - 1; i++)
+                {
+                    obj = Instantiate(Cube, startPos, Quaternion.identity);
+                    obj.transform.parent = test.transform;
+                    if(Dir.y < 0)
+                    {
+                        startPos.x -= 0.2f;
+                        startPos.y += 0.3f;
+                    }
+                    
+                    else if (Dir.y > 0)
+                    {
+                        startPos.x += 0.2f;
+                        startPos.y -= 0.3f;
+                    }
+                }
+
             }
 
             //三角形を生成
