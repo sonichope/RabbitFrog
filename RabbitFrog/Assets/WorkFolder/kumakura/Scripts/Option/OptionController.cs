@@ -46,6 +46,5 @@ public class OptionController : MonoBehaviour
     //    organizationCanvas.rootCanvas.enabled = false;
     //    confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
     //}
-
-
+    
 }

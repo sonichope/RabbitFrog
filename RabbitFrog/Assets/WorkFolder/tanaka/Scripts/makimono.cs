@@ -17,7 +17,7 @@ public class makimono : MonoBehaviour
 
     public float speed;
 
-    private float distance_two;
+    //private float distance_two;
     float present_Location = 0;
 
     private makimonoAnim makimonoAnimation;
@@ -32,7 +32,7 @@ public class makimono : MonoBehaviour
     {
         //move_Position = startMaker.transform.position;
         //toGoPoint = endMaker.transform.position;
-        distance_two = Vector3.Distance(startMaker.position, endMaker.position);
+        //distance_two = Vector3.Distance(startMaker.position, endMaker.position);
         makimonoAnimation = GetComponent<makimonoAnim>();
     }
 
@@ -48,11 +48,13 @@ public class makimono : MonoBehaviour
             if (present_Location >= 1)
             {
                 makimonoAnimation.ReturnAnim();
+                makimonoAnimation.EndAnim();
                 Debug.Log("aaaa");
                 // peperのAnimation再生
                 testFrag = true;
                 present_Location = 1;
-                makimonoAnimation.StartArmy();
+                //makimonoAnimation.StartArmy();
+                makimonoAnimation.ClickArmy();
             }
             return;
         }
@@ -65,12 +67,14 @@ public class makimono : MonoBehaviour
             select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
             if (present_Location <= 0)
             {
-                makimonoAnimation.ReturnAnim(); 
+                makimonoAnimation.ReturnAnim();
+                makimonoAnimation.EndAnim();
                 Debug.Log("bbbb");
                 // peperのAnimation再生
                 markFrag = true;
                 present_Location = 0;
-                makimonoAnimation.StartSelect();
+                //makimonoAnimation.StartSelect();
+                makimonoAnimation.ClickSelect();
             }
         }
     }
