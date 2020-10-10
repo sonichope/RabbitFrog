@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class LineController : MonoBehaviour
 {
 
-    private Vector2 startPos;
-    private Vector2 endPos;
+    static public Vector2 startPos;
+    static public Vector2 endPos;
     private Vector2 tempPos;
     private Vector2 circle_center;
 
@@ -17,7 +17,7 @@ public class LineController : MonoBehaviour
     private float width = 0.5f;
 
     [SerializeField]
-    private List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
+    static public List<Vector2> Points = new List<Vector2>(); //マウス移動経路　
     [SerializeField]
     private List<Vector2> Points_X = new List<Vector2>(); //Pointsをposition.xを基準にしてlist整列   
     [SerializeField]
@@ -28,7 +28,7 @@ public class LineController : MonoBehaviour
     [SerializeField]
     private GameObject line_prefab;
     [SerializeField]
-    private GameObject Cube;
+    private GameObject Wallparent;
 
 
     private GameObject obj; //生成したprefabを変数に保存
@@ -170,34 +170,7 @@ public class LineController : MonoBehaviour
                 //obj.GetComponent<Line>().HP = 1 + 0.2f * (lineLength - 1); // HPを初期化
 
                 //===============================================
-
-                List<Vector2> respawn = new List<Vector2>();
-                respawn.Add(startPos);
-
-                Vector3 Dir = Vector3.Normalize(startPos - endPos);
-
-
-                //var test = Instantiate(new GameObject(), startPos, Quaternion.identity);
-                GameObject test = new GameObject();
-                test.name = "WallManager";
-
-               for (int i = 0; i < Points.Count - 1; i++)
-                {
-                    obj = Instantiate(Cube, startPos, Quaternion.identity);
-                    obj.transform.parent = test.transform;
-                    if(Dir.y < 0)
-                    {
-                        startPos.x -= 0.2f;
-                        startPos.y += 0.3f;
-                    }
-                    
-                    else if (Dir.y > 0)
-                    {
-                        startPos.x += 0.2f;
-                        startPos.y -= 0.3f;
-                    }
-                }
-
+                Instantiate(Wallparent ,startPos, Quaternion.identity);
             }
 
             //三角形を生成

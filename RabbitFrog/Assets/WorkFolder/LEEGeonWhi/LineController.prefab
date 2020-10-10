@@ -51,6 +51,10 @@ MonoBehaviour:
     type: 3}
   line_prefab: {fileID: 5300381791294672863, guid: 74557812995a2b540a0ee195f4e39e31,
     type: 3}
+  Wall_prefab: {fileID: 3642270579253420421, guid: ee8e8295bd66d4444aa52dfebe1064a7,
+    type: 3}
+  Wallparent: {fileID: 6944632311304482929, guid: b04d3a224b7fd194b978187084c7d619,
+    type: 3}
   circle: {fileID: 6267493941439361012, guid: 0b334cd23ebca2c4bb6e45ae9fd5eeff, type: 3}
   Triangle: {fileID: 6787655676766610501, guid: a94d434b726e4e94980a52957d8bc608,
     type: 3}
