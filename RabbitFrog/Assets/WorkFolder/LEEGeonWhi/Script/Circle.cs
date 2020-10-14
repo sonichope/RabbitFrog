@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Circle : MonoBehaviour
 {
-    public float circumference;
-    public float HP;
-    //public bool obj_destroyed;
+    private float circumference;
+    private float HP;
+    private float radius;
+    private Vector2 circle_center;
 
     void Start()
     {
-        //obj_destroyed = false;
         Init();
         StartCoroutine(obj_destroy());
     }
@@ -37,6 +37,22 @@ public class Circle : MonoBehaviour
     /// </summary>
     void Init()
     {
+        circumference = 0;
+        radius = 0;
+        //円の長さを計算する
+        for (int i = 0; i < LineController.Points.Count - 1; i++)
+        {
+            circumference += Vector3.Distance(LineController.Points[i], LineController.Points[i + 1]);
+        }
+        //半径を計算する
+        radius = circumference / 6.28f;
+
+        transform.localScale = new Vector3(radius, radius, 1);
+
+        GetComponent<Circle>().circumference = circumference;
+        GetComponent<Circle>().HP = 1 - (circumference - 1) * 0.2f;
+
+
         if (HP < 0) HP=0.1f;
     }
 
