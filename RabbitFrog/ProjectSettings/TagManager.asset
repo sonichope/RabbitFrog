@@ -10,6 +10,7 @@ TagManager:
   - wall
   - hole
   - EnemyTower
+  - CardPool
   layers:
   - Default
   - TransparentFX
