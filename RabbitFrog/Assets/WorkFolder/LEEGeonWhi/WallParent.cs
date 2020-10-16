@@ -64,6 +64,8 @@ public class WallParent : MonoBehaviour
         if(HP <= 0)
         {
             Destroy(gameObject);
+            LineController.MaxLine--;
+            //InkAmout.increase_Gauge(0.1f);
         }
     }
 }

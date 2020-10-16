@@ -11,6 +11,7 @@ public class Wall : MonoBehaviour
     void Start()
     {
         Parent_obj = transform.parent.gameObject;
+        this.gameObject.transform.Rotate(0,180.0f, 0);
     }
 
     // Update is called once per frame
@@ -22,8 +23,8 @@ public class Wall : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            col.transform.position -= new Vector3(Time.deltaTime * 2.0f, 0, 0);
-            Parent_obj.GetComponent<WallParent>().HP -= Time.deltaTime * 5;
+            col.transform.position -= new Vector3(Time.deltaTime * 5.0f, 0, 0);
+            Parent_obj.GetComponent<WallParent>().HP -= Time.deltaTime * 2;
         }
     }
 }
