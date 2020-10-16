@@ -54,6 +54,12 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         iconImage.sprite = dropImage.sprite;
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;
+
+        
+        //==============
+        int index  = this.gameObject.name.IndexOf("(") + 1;
+        Debug.Log(this.gameObject.name[index]);
+        //==============
     }
 
     /// <summary>
