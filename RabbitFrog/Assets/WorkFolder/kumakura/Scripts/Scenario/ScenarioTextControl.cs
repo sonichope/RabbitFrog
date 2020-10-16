@@ -16,7 +16,11 @@ public class ScenarioTextControl : MonoBehaviour
     float intervalForCharacterDisplay = 0.05f;  // １文字の表示にかかる時間
 
     [SerializeField]
-    Image[] Character;
+    Image[] CharPos;
+    [SerializeField]
+    Sprite[] CharImage;
+
+    Image[] CharPosTemp = new Image[2];
 
 
     private int currentLine = 0;
@@ -41,7 +45,7 @@ public class ScenarioTextControl : MonoBehaviour
 
     void Awake()
     {
-        CSVReader("loadText1", TextContant, Character_Name, Character_num);
+        CSVReader("story_01", TextContant, Character_Name, Character_num);
     }
 
     void Start()
@@ -94,26 +98,34 @@ public class ScenarioTextControl : MonoBehaviour
         currentText = TextContant[currentLine];
 
         string name = Character_Name[currentLine];
+        int num = int.Parse(Character_num[currentLine]);
 
-        for (int i = 0; i < Character.Length; i++)
+        for (int i = 0; i < CharPos.Length; i++)
         {
-            Character[i].color = new Color(1, 1, 1, 0.5f);
+            CharPos[i].color = new Color(1, 1, 1, 0.1f);
         }
 
         switch (name)
         {
             case "歩兵":
-                Character[0].color = new Color(1, 1, 1, 1.0f);
+                //CharPos[1].sprite = CharImage[0];
+                CharPos[0].color = new Color(1, 1, 1, 1.0f);
                 break;
-
-            case "歩兵小隊":
-                Character[1].color = new Color(1, 1, 1, 1.0f);
+            
+            case "群兵":
+                //CharPos[1].sprite = CharImage[2];
+                CharPos[1].color = new Color(1, 1, 1, 1.0f);
                 break;
-
+            
+            case "侍":
+                //CharPos[2].sprite = CharImage[4];
+                CharPos[2].color = new Color(1, 1, 1, 1.0f);
+                break;
             default:
                 break;
         }
 
+        
         currentLine++;
 
         // 想定表示時間と現在の時刻をキャッシュ
