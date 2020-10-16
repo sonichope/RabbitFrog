@@ -17,22 +17,12 @@ public class makimono : MonoBehaviour
 
     public float speed;
 
-    //private float distance_two;
     float present_Location = 0;
 
     private makimonoAnim makimonoAnimation;
 
-    // やりたい動き
-    // 巻物がタップされた時のアニメーションが終了した時
-    // 下の OpenMakimono(CloseMakimono) の動きをする
-    // OpenMakimono が実行される時 pepar のアニメーションを実行する
-    // 「この時巻物がタップされる度に pepar のアニメーションを繰り返し実行する」
-   
     void Start()
     {
-        //move_Position = startMaker.transform.position;
-        //toGoPoint = endMaker.transform.position;
-        //distance_two = Vector3.Distance(startMaker.position, endMaker.position);
         makimonoAnimation = GetComponent<makimonoAnim>();
     }
 
@@ -41,7 +31,6 @@ public class makimono : MonoBehaviour
     {
         if(testFrag == false)
         {
-            //present_Location += (Time.time * speed) / distance_two;
             present_Location += Time.deltaTime * speed;
             army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
             select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
@@ -53,7 +42,6 @@ public class makimono : MonoBehaviour
                 // peperのAnimation再生
                 testFrag = true;
                 present_Location = 1;
-                //makimonoAnimation.StartArmy();
                 makimonoAnimation.ClickArmy();
             }
             return;
@@ -73,20 +61,19 @@ public class makimono : MonoBehaviour
                 // peperのAnimation再生
                 markFrag = true;
                 present_Location = 0;
-                //makimonoAnimation.StartSelect();
                 makimonoAnimation.ClickSelect();
             }
         }
     }
 
-    public void OpenMakimono()
+    public void ArmyMakimono()
     {
         //if (present_Location > 0 || present_Location < 1) { return; }
         if (!testFrag) { return; }
         testFrag = false;
     }
 
-    public void CloseMakimono()
+    public void SelectMakimono()
     {
         //if (present_Location > 0 || present_Location < 1) { return; }
         if (!markFrag) { return; }

@@ -1,115 +1,96 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class makimonoAnim : MonoBehaviour
 {
     [SerializeField] GameObject startPepar;
     [SerializeField] GameObject endPepar;
+    
+    public new Animation animation;
+    
     Animator anim;
-    [SerializeField] private new Animation animation;
     makimono _makimono;
 
-    //private bool animFrag = true;
-    [SerializeField] private bool armyFrag = true;
-    [SerializeField] private bool selectFrag = true;
+    [SerializeField] private bool armyFlag = true;
+    [SerializeField] private bool selectFlag = true;
 
-    // 一回タップ、広げるアニメーション
-    // 二回目タップ仕舞うアニメーション(同じ巻物をタップした時)
-    // 違う巻物をクリックした時、仕舞うアニメーションは経由せずそのままタップしたほうの巻物を広げる
+    // FirstAnim ::開くアニメーションへのトリガー
+    // ReturnAnim::開くアニメーションから空のstateに戻ってくるトリガー
+    // StartAnim ::閉じるアニメーションへのトリガー
+    // EndAnim   ::閉じるアニメーションから空のstateに戻ってくるトリガー
+    // TransitionFirst::開くと、閉じるのアニメーションへのトリガー
+    // TransitionEnd  ::開くと、閉じるのアニメーションから空のstateに戻ってくるトリガー
 
     void Start()
     {
         Debug.Log("aaa");
         anim = startPepar.GetComponent<Animator>();
         anim = endPepar.GetComponent<Animator>();
-        //animation = endPepar.GetComponent<Animation>();
-        //animation = startPepar.GetComponent<Animation>();
-        endPepar.SetActive(false);
-        //anim = GetComponent(typeof(Animator)) as Animation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // アニメーションが終わったら
-        //if (!animation.IsPlaying("MakimonoStartAnim"))
-        //{
-        //    endPepar.SetActive(true);
-        //    startPepar.SetActive(false);
-        //}
-        //else if (!animation.IsPlaying("MakimonoEndAnim"))
-        //{
-        //    startPepar.SetActive(true);
-        //    endPepar.SetActive(false);
-        //}
+      
     }
 
+    /// <summary>
+    /// 軍編成をタップした時
+    /// </summary>
     public void ClickArmy()
     {
-        if (armyFrag == false)
+        if (armyFlag == false)
         {
-            startPepar.SetActive(true);
-            anim.SetTrigger("startanim");
-            //StartArmy();
-        }
-        else if (armyFrag == true)
-        {
-            // 条件か何か付け足さないと一瞬で呼ばれてしまう
-            endPepar.SetActive(true);
-            startPepar.SetActive(false);
-            anim.SetTrigger("FirstAnim");
-            //if (!animation.IsPlaying("MakimonoStartAnim"))
-            //{
-            //}
+            anim.SetTrigger("StartAnim");
         }
     }
 
+    /// <summary>
+    /// 戦場選択をタップした時
+    /// </summary>
     public void ClickSelect()
     {
-        if (selectFrag == false)
+        if(selectFlag == false)
         {
-            startPepar.SetActive(true);
-            anim.SetTrigger("startanim");
-            //StartSelect();
-        }
-        else if (selectFrag == true)
-        {
-            endPepar.SetActive(true);
-            startPepar.SetActive(false);
-            anim.SetTrigger("FirstAnim");
+            anim.SetTrigger("StartAnim");
         }
     }
 
-    public void ArmyFlag()
-    {
-        if (!armyFrag) { return; }
-        armyFrag = false;
-    }
-
-    public void SelectFlag()
-    {
-        if (!selectFrag) { return; }
-        selectFrag = false;
-    }
-
+    /// <summary>
+    /// どちらかがタップされている時そのままの状態で空のstateへ行く
+    /// </summary>
     public void ReturnAnim()
     {
         anim.SetTrigger("ReturnAnim");
     }
-    
+
+    /// <summary>
+    /// どちらかがタップされている状態で一度タップしたものと同じものをタップされた時
+    /// </summary>
     public void EndAnim()
     {
         anim.SetTrigger("EndAnim");
     }
 
-    //public void StartArmy()
-    //{
-    //    anim.SetTrigger("startanim");
-    //}
+    /// <summary>
+    /// 軍編成がタップされた時 armyFlag = false
+    /// </summary>
+    public void ArmyFlag()
+    {
+        anim.SetTrigger("FirstAnim");
+        if (!armyFlag) { return; }
+        armyFlag = false;
+    }
 
-    //public void StartSelect()
-    //{
-    //    anim.SetTrigger("StartAnim");
-    //}
+    /// <summary>
+    /// 戦場選択がタップされた時 selectFlag = false
+    /// </summary>
+    public void SelectFrag()
+    {
+        anim.SetTrigger("FirstAnim");
+        if (!selectFlag) { return; }
+        selectFlag = false;
+    }
 }
