@@ -115,6 +115,7 @@ public class ThunderGodCharacter : Character
         {
             // 敵の情報を取得
             //targetEnemy = collision.GetComponent<Enemy>();
+            if (collision.GetComponent<Enemy>().myCharacteristic == characteristic.covert) { return; }
             targetEnemies.Add(collision.GetComponent<Enemy>());
             serchFlag = true;
             // 索敵した敵のPositionを格納
