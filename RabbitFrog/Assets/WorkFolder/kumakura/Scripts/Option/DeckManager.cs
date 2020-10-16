@@ -35,7 +35,8 @@ public class DeckManager : MonoBehaviour
 
         //イゴンヒ
         //===============
-        if(DeckSave.cardPoolObject != null)
+        //if(DeckSave.cardPoolObject[0] != null)
+        if (DeckSave.DeckChack() == false)
         {
             for (int i = 0; i < deckObjects.Length; i++)
             {
