@@ -24,7 +24,13 @@ public class Wall : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             col.transform.position -= new Vector3(Time.deltaTime * 5.0f, 0, 0);
-            Parent_obj.GetComponent<WallParent>().HP -= Time.deltaTime * 2;
+            Parent_obj.GetComponent<WallParent>().HP -= Time.deltaTime * 5;
+        }
+
+        if (col.gameObject.tag == "Character")
+        {
+            col.transform.position += new Vector3(Time.deltaTime * 5.0f, 0, 0);
+            Parent_obj.GetComponent<WallParent>().HP -= Time.deltaTime * 5;
         }
     }
 }

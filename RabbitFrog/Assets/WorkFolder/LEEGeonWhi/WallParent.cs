@@ -41,15 +41,15 @@ public class WallParent : MonoBehaviour
         {
             if (Dir.y < 0)
             {
-                _startPos.x -= 0.2f;
-                _startPos.y += 0.3f;
+                _startPos.x -= 0.1f;
+                _startPos.y += 0.2f;
                 temp = offset;
             }
 
             else if (Dir.y > 0)
             {
-                _startPos.x += 0.2f;
-                _startPos.y -= 0.3f;
+                _startPos.x += 0.1f;
+                _startPos.y -= 0.2f;
                 temp = -offset;
             }
 
