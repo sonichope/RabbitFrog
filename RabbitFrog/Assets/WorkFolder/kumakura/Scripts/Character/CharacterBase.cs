@@ -41,6 +41,7 @@ public abstract class CharacterBase : MonoBehaviour
         electricShock,      // 感電
     }
 
+    // 動けるかどうかのFlag(感電用)
     public bool IsMove { get; set; } = true;
 
     public bool IsDeath { get; set; } = false;

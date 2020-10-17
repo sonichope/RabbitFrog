@@ -74,8 +74,10 @@ public class ThunderGodCharacter : Character
                     case characteristic.explosion:
                     case characteristic.electricShock:
                         enemy.hp -= power;
-                        // ここに感電の処理
-
+                        // 感電の処理
+                        enemy.IsMove = false;
+                        Debug.Log("感電！");
+                        enemy.Invoke("IsMoveHealing", 1f);
                         break;
 
                     // 敵の特徴 : 隠密
