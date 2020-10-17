@@ -53,6 +53,7 @@ public class BattleController : MonoBehaviour
         #region チートコマンド
         if (Input.GetKey(KeyCode.Return))
         {
+            // ボス即死
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 var enemy = FindObjectOfType<EnemyTower>();

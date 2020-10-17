@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   confirmcanvas_battle: {fileID: 3113985937918969124}
+  nextStage: {fileID: 3113985938398055639}
+  Rabbit_Tower: {fileID: 0}
   Frog_Tower: {fileID: 0}
   effect_Sketch: {fileID: 0}
 --- !u!1 &3113985938129943711
