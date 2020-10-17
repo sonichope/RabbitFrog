@@ -432,6 +432,16 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[49].z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: enemyTower
+      value: 
+      objectReference: {fileID: 678950586}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: rabbitTower
+      value: 
+      objectReference: {fileID: 1165719458}
     - target: {fileID: 4420590452089438508, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive

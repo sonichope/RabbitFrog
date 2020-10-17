@@ -10,6 +10,8 @@ public class BattleController : MonoBehaviour
     [SerializeField] private Text timeText;
     [SerializeField] private Image summonGage;
     [SerializeField] private Text summonGageValText;
+    [SerializeField] Enemy enemyTower;
+    [SerializeField] Tower rabbitTower;
 
     private float summonGageVal = 5.0f;     // 召喚ゲージ　: 最大は10
     public float SummonGageVal
@@ -25,7 +27,19 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
-
+        if (gameTime <= 0)
+        {
+            // 勝敗判定
+            if (enemyTower.hp <= rabbitTower.hp)
+            {
+                // 勝利判定
+            }
+            if (rabbitTower.hp <= enemyTower.hp)
+            {
+                // 敗北判定
+            }
+            return;
+        }
         gameTime -= Time.deltaTime;
         timeText.text = gameTime.ToString("00");
         summonGageValText.text = Mathf.Floor(summonGageVal).ToString("0");
