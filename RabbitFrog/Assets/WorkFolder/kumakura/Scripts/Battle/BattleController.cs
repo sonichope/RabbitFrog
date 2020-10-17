@@ -27,6 +27,7 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
+        // 制限時間の処理
         if (gameTime <= 0)
         {
             // 勝敗判定
