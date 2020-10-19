@@ -140,7 +140,7 @@ public class Character : CharacterBase
     public override void Death()
     {
         // 特徴が爆発ならばここで爆発をする
-
+        if (myCharacteristic == characteristic.explosion) { Explosion(); }
         IsDeath = true;
         gameObject.SetActive(false);
     }
@@ -150,7 +150,9 @@ public class Character : CharacterBase
     /// </summary>
     public void Explosion()
     {
-
+        // キャラクターの周囲の敵味方をすべて取得
+        // 取得したキャラクターのHPを減らす処理
+        // 
     }
 
     /// <summary>

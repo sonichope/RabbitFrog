@@ -116,7 +116,6 @@ public class ThunderGodCharacter : Character
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵の情報を取得
-            //targetEnemy = collision.GetComponent<Enemy>();
             if (collision.GetComponent<Enemy>().myCharacteristic == characteristic.covert) { return; }
             targetEnemies.Add(collision.GetComponent<Enemy>());
             serchFlag = true;
