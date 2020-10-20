@@ -15,7 +15,6 @@ public class Character : CharacterBase
     protected bool serchFlag = false;
     protected float atackTime = 0.0f;
     protected Enemy targetEnemy;
-    protected List<Enemy> targetEnemies;
 
     private int maxHp;
 
@@ -65,13 +64,13 @@ public class Character : CharacterBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (myCardType == CardType.thunderGod) { return; }
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵の情報を取得
             targetEnemy = collision.GetComponent<Enemy>();
             //targetEnemies.Add(collision.GetComponent<Enemy>());
-            if (myCardType == CardType.thunderGod) { return; }
             // 敵を発見したのでこれ以上他の敵と接触しないための処理
             serchFlag = true;
             // 索敵した敵のPositionを格納
@@ -79,28 +78,6 @@ public class Character : CharacterBase
         }
 
     }
-
-    /*GameObject serchTag(GameObject nowObj, string tagName)
-    {
-        float tmpDis = 0;           
-        float nearDis = 0;          
-          
-        GameObject targetObj = null;
-
-        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
-        {
-            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
-
-            if (nearDis == 0 || nearDis > tmpDis)
-            {
-                nearDis = tmpDis;
-                //nearObjName = obs.name;
-                targetObj = obs;
-            }
-        }
-        Debug.Log("aaa");
-        return targetObj;
-    }*/
 
     /// <summary>
     /// 攻撃
@@ -174,5 +151,14 @@ public class Character : CharacterBase
     public void Explosion()
     {
 
+    }
+
+    /// <summary>
+    /// 感電からの回復
+    /// </summary>
+    public void IsMoveHealing()
+    {
+        IsMove = true;
+        Debug.Log("感電から回復");
     }
 }

@@ -432,6 +432,16 @@ PrefabInstance:
       propertyPath: m_Positions.Array.data[49].z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: enemyTower
+      value: 
+      objectReference: {fileID: 678950586}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: rabbitTower
+      value: 
+      objectReference: {fileID: 1165719458}
     - target: {fileID: 4420590452089438508, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive
@@ -1056,6 +1066,11 @@ PrefabInstance:
       propertyPath: Frog_Tower
       value: 
       objectReference: {fileID: 678950586}
+    - target: {fileID: 3113985937918969127, guid: 04a9c7de82329fc4490f609d4cd2b59b,
+        type: 3}
+      propertyPath: Rabbit_Tower
+      value: 
+      objectReference: {fileID: 1165719458}
     - target: {fileID: 3113985937918969131, guid: 04a9c7de82329fc4490f609d4cd2b59b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1237,3 +1252,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1524616025204da4a824c7b1cf2cb022, type: 3}
+--- !u!114 &1165719458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9157451966843787014, guid: 1524616025204da4a824c7b1cf2cb022,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165719457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fc29abc4c3140a4e9b43bc45968eae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

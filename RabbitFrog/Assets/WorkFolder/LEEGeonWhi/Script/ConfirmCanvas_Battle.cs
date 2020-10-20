@@ -10,6 +10,12 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     Canvas confirmcanvas_battle;
 
     [SerializeField]
+    Image nextStage;
+
+    [SerializeField]
+    Tower Rabbit_Tower;
+
+    [SerializeField]
     EnemyTower Frog_Tower;
 
     [SerializeField]
@@ -22,6 +28,12 @@ public class ConfirmCanvas_Battle : MonoBehaviour
 
     void Update()
     {
+        if (Rabbit_Tower.IsDeath)
+        {
+            confirmcanvas_battle.rootCanvas.enabled = true;
+            nextStage.gameObject.SetActive(false);
+        }
+
         if(Frog_Tower.IsDeath)
         {
             confirmcanvas_battle.rootCanvas.enabled = true;

@@ -34,4 +34,9 @@ public class TitleCon : MonoBehaviour
     {
         titleScene.SetActive(false);
     }
+
+    public void OnBackTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
 }

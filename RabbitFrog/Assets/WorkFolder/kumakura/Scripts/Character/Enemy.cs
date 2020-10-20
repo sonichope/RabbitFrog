@@ -124,4 +124,13 @@ public class Enemy : CharacterBase
         }
 
     }
+
+    /// <summary>
+    /// 感電からの回復
+    /// </summary>
+    public void IsMoveHealing()
+    {
+        IsMove = true;
+        Debug.Log("感電から回復");
+    }
 }
