@@ -20,6 +20,8 @@ public class BattleController : MonoBehaviour
         set { summonGageVal = value; }
     }
 
+    public List<GameObject> characterList = new List<GameObject>();
+
     void Start()
     {
 
@@ -27,6 +29,7 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) { return; }
         // 制限時間の処理
         if (gameTime <= 0)
         {
@@ -39,6 +42,12 @@ public class BattleController : MonoBehaviour
             {
                 // 敗北判定
             }
+
+            foreach (var chara in characterList)
+            {
+                chara.GetComponent<CharacterBase>().IsMove = false;
+            }
+            Time.timeScale = 0;
             return;
         }
         gameTime -= Time.deltaTime;

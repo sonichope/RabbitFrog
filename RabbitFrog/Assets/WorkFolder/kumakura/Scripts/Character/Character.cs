@@ -18,6 +18,11 @@ public class Character : CharacterBase
 
     private int maxHp;
 
+    // 爆発の為の変数
+    [SerializeField] private Collider2D explosionCol;
+    private List<CharacterBase> targetCharacter = new List<CharacterBase>();
+    private bool explosionFlag;
+
     public enum AttackMethod
     {
         shortDistance,
@@ -65,6 +70,12 @@ public class Character : CharacterBase
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (myCardType == CardType.thunderGod) { return; }
+        if (explosionFlag)
+        {
+            targetCharacter.Add(GetComponent<CharacterBase>());
+            Debug.Log("取得");
+            Explosion();
+        }
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
@@ -76,7 +87,17 @@ public class Character : CharacterBase
             // 索敵した敵のPositionを格納
             enemyPos = collision.transform.position;
         }
+    }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if (explosionFlag)
+        //{
+        //    Debug.Log("Flag true");
+        //    targetCharacter.Add(GetComponent<CharacterBase>());
+        //    Debug.Log("取得");
+        //    Explosion();
+        //}
     }
 
     /// <summary>
@@ -140,7 +161,7 @@ public class Character : CharacterBase
     public override void Death()
     {
         // 特徴が爆発ならばここで爆発をする
-        if (myCharacteristic == characteristic.explosion) { Explosion(); }
+        if (myCharacteristic == characteristic.explosion) { explosionFlag = true;}
         IsDeath = true;
         gameObject.SetActive(false);
     }
@@ -150,10 +171,24 @@ public class Character : CharacterBase
     /// </summary>
     public void Explosion()
     {
-        // キャラクターの周囲の敵味方をすべて取得
         // 取得したキャラクターのHPを減らす処理
-        // 
+        foreach (var chara in targetCharacter)
+        {
+            chara.hp -= 10;
+            Debug.Log("どかん");
+        }
+        IsDeath = true;
+        gameObject.SetActive(false);
+    }
 
+    /// <summary>
+    /// 感電
+    /// </summary>
+    /// <param name="enemy">対象の敵</param>
+    public void ElectricShock(Enemy enemy)
+    {
+        enemy.IsMove = false;
+        enemy.Invoke("IsMoveHealing", 3f);
     }
 
     /// <summary>
@@ -162,6 +197,5 @@ public class Character : CharacterBase
     public void IsMoveHealing()
     {
         IsMove = true;
-        Debug.Log("感電から回復");
     }
 }

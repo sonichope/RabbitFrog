@@ -75,9 +75,7 @@ public class ThunderGodCharacter : Character
                     case characteristic.electricShock:
                         enemy.hp -= power;
                         // 感電の処理
-                        enemy.IsMove = false;
-                        Debug.Log("感電！");
-                        enemy.Invoke("IsMoveHealing", 1f);
+                        ElectricShock(enemy);
                         break;
 
                     // 敵の特徴 : 隠密
@@ -89,6 +87,7 @@ public class ThunderGodCharacter : Character
                     // 敵の特徴 : 鉄壁
                     case characteristic.ironWall:
                         enemy.hp -= 1;
+                        ElectricShock(enemy);
                         break;
 
                     default:

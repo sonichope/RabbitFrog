@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &209625939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4421351978691491170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba00341d8c9b265408b33da1a4697700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &853198259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920f19686f4c1a04b81e10bcf3956607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleController: {fileID: 209625939}
   createEnemyList:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
   - {fileID: 6239510380242767673, guid: e02644ecc8c541c4b8a43dce57a58e62, type: 3}

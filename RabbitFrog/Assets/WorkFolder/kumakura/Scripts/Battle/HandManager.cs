@@ -90,7 +90,8 @@ public class HandManager : MonoBehaviour
                 summonPos.x = summonPos.x + randomPos_x;
                 summonPos.y = summonPos.y + randomPos_y;
             }
-            Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+            var character = Instantiate(createCharacterList[(int)myCardType], summonPos, Quaternion.identity);
+            battleController.characterList.Add(character);
         }
 
         // 召喚したカードの情報を一時格納
