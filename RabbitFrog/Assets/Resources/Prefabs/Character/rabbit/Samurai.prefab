@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5273359767572528073}
   - component: {fileID: 3224262353349109011}
   - component: {fileID: 3609178734311400540}
+  - component: {fileID: 1387969452781526776}
   m_Layer: 0
   m_Name: Samurai
   m_TagString: Character
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4cd8372133395f64382087ab15992b8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8094fdc7f963a534cae15f061c44ede0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: "\u4F8D"
-  image: {fileID: 21300000, guid: 4cd8372133395f64382087ab15992b8b, type: 3}
+  image: {fileID: 21300000, guid: 8094fdc7f963a534cae15f061c44ede0, type: 3}
   hp: 100
   power: 25
   myCharacteristic: 0
@@ -109,6 +110,7 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.75
+  explosionCol: {fileID: 0}
 --- !u!61 &3224262353349109011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.14, y: 1.28}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 4.54, y: 5.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -156,6 +158,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1387969452781526776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964970950590411685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 158d51487d0de31459de8a28c5743300, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6685718465012446612
 GameObject:
   m_ObjectHideFlags: 0

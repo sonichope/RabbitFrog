@@ -23,6 +23,11 @@ public class Character : CharacterBase
     private List<CharacterBase> targetCharacter = new List<CharacterBase>();
     private bool explosionFlag;
 
+    // Animation変数
+    protected Animator characterAnim;
+    protected string attackTrigger = "AttackTrigger";
+    protected string isMove = "IsMove";
+
     public enum AttackMethod
     {
         shortDistance,
@@ -32,6 +37,10 @@ public class Character : CharacterBase
 
     void Awake()
     {
+        if (GetComponent<Animator>() != null)
+        {
+            characterAnim = GetComponent<Animator>();
+        }
         maxHp = hp;
     }
 
@@ -64,6 +73,7 @@ public class Character : CharacterBase
         {
             // 索敵状態であればひたすら歩く処理
             transform.Translate(-speed, 0, 0);
+            if (characterAnim != null) { characterAnim.SetBool(isMove, true); }
         }
     }
 
@@ -105,6 +115,7 @@ public class Character : CharacterBase
     /// </summary>
     public override void Attack()
     {
+        if (characterAnim != null) { characterAnim.SetBool(isMove, false); }
         atackTime += Time.deltaTime;
         if (serchFlag == true && atackTime > attackInterval)
         {
@@ -148,6 +159,7 @@ public class Character : CharacterBase
                     Debug.LogError("特徴が不適切です");
                     break;
             }
+            if (characterAnim != null) { characterAnim.SetTrigger(attackTrigger); }
             atackTime = 0f;
         }
 

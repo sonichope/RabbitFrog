@@ -50,11 +50,13 @@ public class ThunderGodCharacter : Character
             {
                 // 索敵状態であればひたすら歩く処理
                 transform.Translate(-speed, 0, 0);
+                if (characterAnim != null) { characterAnim.SetBool(isMove, true); }
             }
     }
 
     public override void Attack()
     {
+        if (characterAnim != null) { characterAnim.SetBool(isMove, false); }
         atackTime += Time.deltaTime;
         if (serchFlag == true && atackTime > attackInterval)
         {
@@ -95,6 +97,7 @@ public class ThunderGodCharacter : Character
                         break;
                 }
             }
+            if (characterAnim != null) { characterAnim.SetTrigger(attackTrigger); }
             atackTime = 0f;
         }
         // リストの中身のIsDeathが全部trueになったら移動再開
