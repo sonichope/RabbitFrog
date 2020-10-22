@@ -59,6 +59,7 @@ public class HandObject : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         preMana.nameText.text = cardInfo.character.characterName;
         preMana.costText.text = cardInfo.character.cost.ToString();
         preMana.characterImage.sprite = cardInfo.character.image;
+        preMana.explanationText.text = preMana.data.GetExplanation((int)cardInfo.character.myCardType);
     }
 
     /// <summary>
