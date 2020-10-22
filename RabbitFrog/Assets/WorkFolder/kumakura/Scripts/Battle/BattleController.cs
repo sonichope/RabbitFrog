@@ -13,6 +13,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] Enemy enemyTower;
     [SerializeField] Tower rabbitTower;
     [SerializeField] EnemyManager enemyManager;
+    [SerializeField] ConfirmCanvas_Battle battleCanvas;
 
     private float summonGageVal = 5.0f;     // 召喚ゲージ　: 最大は10
     public float SummonGageVal
@@ -30,17 +31,19 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
-        // 制限時間の処理
-        if (gameTime <= 0)
+        // 時間処理
+        if (gameTime <= 0 || enemyTower.hp <= 0 || rabbitTower.hp <= 0)
         {
             // 勝敗判定
             if (enemyTower.hp <= rabbitTower.hp)
             {
                 // 勝利判定
+                battleCanvas.FlogDeath();
             }
             if (rabbitTower.hp <= enemyTower.hp)
             {
                 // 敗北判定
+                battleCanvas.RabbitDeath();
             }
 
             foreach (var chara in characterList)

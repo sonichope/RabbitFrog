@@ -21,6 +21,9 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     [SerializeField]
     Effect_Sketch effect_Sketch;
 
+    [SerializeField]
+    Image win;
+
     void Start()
     {
         confirmcanvas_battle.rootCanvas.enabled = false;
@@ -30,15 +33,26 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     {
         if (Rabbit_Tower.IsDeath)
         {
-            confirmcanvas_battle.rootCanvas.enabled = true;
-            nextStage.gameObject.SetActive(false);
+            RabbitDeath();
         }
 
         if(Frog_Tower.IsDeath)
         {
-            confirmcanvas_battle.rootCanvas.enabled = true;
-            clear();
+            FlogDeath();
         }
+    }
+
+    public void RabbitDeath()
+    {
+        confirmcanvas_battle.rootCanvas.enabled = true;
+        nextStage.gameObject.SetActive(false);
+        win.enabled = false;
+    }
+
+    public void FlogDeath()
+    {
+        confirmcanvas_battle.rootCanvas.enabled = true;
+        clear();
     }
 
     //実行関数、EnventTrigger
