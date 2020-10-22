@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920f19686f4c1a04b81e10bcf3956607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleController: {fileID: 0}
   createEnemyList:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
   - {fileID: 6239510380242767673, guid: e02644ecc8c541c4b8a43dce57a58e62, type: 3}
@@ -699,6 +700,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04a9c7de82329fc4490f609d4cd2b59b, type: 3}
+--- !u!114 &1279968592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3113985937918969127, guid: 04a9c7de82329fc4490f609d4cd2b59b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1279968591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4297201210ddf49b82ac67c3e1a1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1692839029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -974,6 +987,16 @@ PrefabInstance:
       propertyPath: enemyTower
       value: 
       objectReference: {fileID: 831053703}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 225821845}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: battleCanvas
+      value: 
+      objectReference: {fileID: 1279968592}
     - target: {fileID: 4420590452089438508, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive
