@@ -12,6 +12,7 @@ public class BattleController : MonoBehaviour
     [SerializeField] private Text summonGageValText;
     [SerializeField] Enemy enemyTower;
     [SerializeField] Tower rabbitTower;
+    [SerializeField] EnemyManager enemyManager;
 
     private float summonGageVal = 5.0f;     // 召喚ゲージ　: 最大は10
     public float SummonGageVal
@@ -29,7 +30,6 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale == 0) { return; }
         // 制限時間の処理
         if (gameTime <= 0)
         {
@@ -47,7 +47,7 @@ public class BattleController : MonoBehaviour
             {
                 chara.GetComponent<CharacterBase>().IsMove = false;
             }
-            Time.timeScale = 0;
+            enemyManager.enabled = false;
             return;
         }
         gameTime -= Time.deltaTime;

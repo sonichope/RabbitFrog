@@ -1079,6 +1079,11 @@ PrefabInstance:
       propertyPath: enemyTower
       value: 
       objectReference: {fileID: 2121669971}
+    - target: {fileID: 4191672627597540255, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1672071903}
     - target: {fileID: 4420590452089438508, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: m_IsActive
