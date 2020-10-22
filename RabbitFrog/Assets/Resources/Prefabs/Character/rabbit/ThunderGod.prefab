@@ -201,7 +201,7 @@ MonoBehaviour:
   hp: 200
   power: 55
   myCharacteristic: 5
-  myCardType: 12
+  myCardType: 11
   hpText: {fileID: 7768324700832311910}
   moveSpeed: 0.0035
   summonVol: 1

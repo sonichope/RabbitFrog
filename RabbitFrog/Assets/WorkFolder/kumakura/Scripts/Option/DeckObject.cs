@@ -65,7 +65,7 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     }
 
     /// <summary>
-    /// クリック時
+    /// クリック時 Previwe用
     /// </summary>
     /// <param name="pointerEventData"></param>
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -76,5 +76,6 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         preMana.nameText.text = cardInfo.character.characterName;
         preMana.costText.text = cardInfo.character.cost.ToString();
         preMana.characterImage.sprite = cardInfo.character.image;
+        preMana.explanationText.text = preMana.data.GetExplanation((int)cardInfo.character.myCardType);
     }
 }

@@ -27,8 +27,8 @@ public abstract class CharacterBase : MonoBehaviour
         heavyKnight,
         monster,
         necromancer,
-        ghost,
         thunderGod,
+        ghost,
     }
 
     public enum characteristic // 特徴
