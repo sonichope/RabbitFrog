@@ -2043,6 +2043,9 @@ MonoBehaviour:
   summonGageValText: {fileID: 2439298683709726743}
   enemyTower: {fileID: 0}
   rabbitTower: {fileID: 0}
+  enemyManager: {fileID: 0}
+  battleCanvas: {fileID: 0}
+  characterList: []
 --- !u!1 &8199803344186308416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,8 +2252,8 @@ MonoBehaviour:
   - {fileID: 1774422185131176323, guid: b1225043f935e954697c1169086a22cb, type: 3}
   - {fileID: 6293821282619991116, guid: dc369c565e285bf49bfc725fe0f97379, type: 3}
   - {fileID: 5363407481386878957, guid: 445c0428cd43f8244914aedcb10c5c2e, type: 3}
-  - {fileID: 3915729651225749827, guid: 6efa1fea6ddbe1f4d9c86184f6ecb8be, type: 3}
   - {fileID: 6364739107273175023, guid: 7def8429ed1942147bd985c18400f845, type: 3}
+  - {fileID: 3915729651225749827, guid: 6efa1fea6ddbe1f4d9c86184f6ecb8be, type: 3}
   handObjects:
   - {fileID: 4421351979066372260}
   - {fileID: 4421351980237473796}
