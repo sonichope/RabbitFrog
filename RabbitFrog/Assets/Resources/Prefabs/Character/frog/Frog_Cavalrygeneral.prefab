@@ -153,9 +153,10 @@ MonoBehaviour:
   moveSpeed: 0.01
   summonVol: 1
   myAttackMethod: 1
-  attackRange: 1.5
+  attackRange: 3
   attackInterval: 1.5
   targetFlag: 0
+  serchFlag: 0
 --- !u!1 &6207577269664982527
 GameObject:
   m_ObjectHideFlags: 0

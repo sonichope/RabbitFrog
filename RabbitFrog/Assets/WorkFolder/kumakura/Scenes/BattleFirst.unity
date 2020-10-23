@@ -419,7 +419,9 @@ MonoBehaviour:
   - {fileID: 7314427365406086232, guid: 46704d4885060394fb1ba2cc6a8284e6, type: 3}
   - {fileID: 6239510380242767673, guid: e02644ecc8c541c4b8a43dce57a58e62, type: 3}
   - {fileID: 5915686008672964401, guid: 9f05752f4ed184040beacc7e72ee17fb, type: 3}
-  summonInterval: 5
+  - {fileID: 4089355408939447811, guid: fd451c4d45bc15c4d98142372025802d, type: 3}
+  - {fileID: 4089355408939447811, guid: fd451c4d45bc15c4d98142372025802d, type: 3}
+  summonInterval: 8
 --- !u!4 &1672071904
 Transform:
   m_ObjectHideFlags: 0

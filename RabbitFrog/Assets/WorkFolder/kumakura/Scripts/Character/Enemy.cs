@@ -13,7 +13,7 @@ public class Enemy : CharacterBase
     public bool targetFlag = false;
 
     protected Vector2 characterPos;
-    protected bool serchFlag = false;
+    [SerializeField] protected bool serchFlag = false;
     protected float time = 0.0f;
     protected CharacterBase targetCharacter;
 
@@ -34,6 +34,7 @@ public class Enemy : CharacterBase
     void FixedUpdate()
     {
         hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
+        Debug.Log(characterPos);
     }
 
     public void EnemyMove(float speed)
@@ -113,7 +114,7 @@ public class Enemy : CharacterBase
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Character")

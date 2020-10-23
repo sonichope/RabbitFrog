@@ -77,7 +77,7 @@ public class Character : CharacterBase
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (myCardType == CardType.thunderGod) { return; }
         if (explosionFlag)
@@ -99,16 +99,16 @@ public class Character : CharacterBase
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        //if (explosionFlag)
-        //{
-        //    Debug.Log("Flag true");
-        //    targetCharacter.Add(GetComponent<CharacterBase>());
-        //    Debug.Log("取得");
-        //    Explosion();
-        //}
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    //if (explosionFlag)
+    //    //{
+    //    //    Debug.Log("Flag true");
+    //    //    targetCharacter.Add(GetComponent<CharacterBase>());
+    //    //    Debug.Log("取得");
+    //    //    Explosion();
+    //    //}
+    //}
 
     /// <summary>
     /// 攻撃
