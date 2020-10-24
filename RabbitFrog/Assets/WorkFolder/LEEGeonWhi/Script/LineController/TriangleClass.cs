@@ -17,11 +17,11 @@ public class TriangleClass
         Vector3 Dir_Chack = Vector3.Normalize(MaxY_Pos - startPos);
         if (Dir_Chack.y <= 0) return false;
 
-        if (GetAngle(startPos, MaxY_Pos) <= 70 || GetAngle(startPos, MaxY_Pos) >= 110)
+        if (GetAngle(startPos, MaxY_Pos) <= 80 || GetAngle(startPos, MaxY_Pos) >= 100)
         {
             if (GetAngle(startPos, MaxY_Pos) < 0) return false;
 
-            if (GetAngle(MaxY_Pos, endPos) >= -80 || GetAngle(MaxY_Pos, endPos) <= -120)
+            if (GetAngle(MaxY_Pos, endPos) <= -80 || GetAngle(MaxY_Pos, endPos) >= -100)
             {
                 if (GetAngle(MaxY_Pos, endPos) > 0) return false;
                 return true;

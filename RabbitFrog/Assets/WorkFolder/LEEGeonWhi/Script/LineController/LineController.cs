@@ -141,13 +141,13 @@ public class LineController : MonoBehaviour
             if (lineClass.Chack_Line() && Points.Count < 10)
             {
                 if (MaxLine > 3 || InkAmout.image.fillAmount < 0.3f) return;
-                Instantiate(Wallparent ,startPos, Quaternion.identity);
+                Instantiate(Wallparent, startPos, Quaternion.identity);
                 InkAmout.decrease_Gauge(0.3f);
                 MaxLine++;
             }
 
             //三角形を生成
-            else if(triangleClass.Chack_Traiangle(startPos, Points_Y[Points_Y.Count - 1],endPos) 
+            else if (triangleClass.Chack_Traiangle(startPos, Points_Y[Points_Y.Count - 1], endPos)
                     && Points.Count < 10)
             {
                 if (InkAmout.image.fillAmount < 0.3f) return;
@@ -156,9 +156,9 @@ public class LineController : MonoBehaviour
                 float Tri_area = Tri_Height * Tri_Width / 2;
 
                 Vector3 Center = Vector3.Lerp(startPos, endPos, 0.5f);
-                var Tri_obj = Instantiate(Triangle, new Vector2(0,0) , Quaternion.identity);
+                var Tri_obj = Instantiate(Triangle, new Vector2(0, 0), Quaternion.identity);
                 Tri_obj.GetComponent<Triangle>().HP = 10.0f;
-                
+
                 Tri_linRenderer = Tri_obj.GetComponent<LineRenderer>();
                 Tri_linRenderer.SetPosition(0, Center);
                 Center.y += Tri_Height;
@@ -167,9 +167,10 @@ public class LineController : MonoBehaviour
             }
 
             // draw circle
-            else if(circleClass.Chack_Circle(Points_normal))
+            else if (circleClass.Chack_Circle(Points_normal))
             {
-                if (Points.Count < 10 || Points.Count > 15 || InkAmout.image.fillAmount < 0.5f) return;
+
+                if (Points.Count < 8 || Points.Count > 20 || InkAmout.image.fillAmount < 0.5f) return;
                 circle_center = new Vector2(
                                              (Points_Y[0].x + Points_Y[Points_Y.Count - 1].x) / 2 ,
                                              (Points_X[0].y + Points_X[Points_X.Count - 1].y) / 2

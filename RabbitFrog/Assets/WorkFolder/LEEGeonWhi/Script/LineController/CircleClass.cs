@@ -14,7 +14,7 @@ public class CircleClass
         {
             if (Points_normal[i].x < 0 && temp > 0) ChangeDir_X = true;
             if (Points_normal[i].x > 0 && temp < 0) ChangeDir_X = true;
-            temp = Points_normal[i].x;
+            temp = Points_normal[i].x;  
         }
 
 
@@ -25,7 +25,7 @@ public class CircleClass
             temp = Points_normal[i].y - Points_normal[i + 1].y;
         }
 
-        if (ChangeDir_X && ChangeDir_Y) return true;
+        if (ChangeDir_X & ChangeDir_Y) return true;
         else return false;
     }
 }
