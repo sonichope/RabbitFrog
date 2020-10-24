@@ -2143,7 +2143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.50012, y: 100.000015}
+  m_AnchoredPosition: {x: -196.50012, y: 100.00001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &638886034
@@ -4429,8 +4429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d18ec1d10558a4288c5ed9720a8b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armyOrganization: {fileID: 1100524742}
-  stageSelect: {fileID: 682134818}
+  armyOrganization: {fileID: 169398522}
+  stageSelect: {fileID: 1669320014}
 --- !u!114 &1178667346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5355,8 +5355,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1432625082}
   m_HandleRect: {fileID: 1432625081}
   m_Direction: 2
-  m_Value: 0.99999964
-  m_Size: 0.3571428
+  m_Value: 1
+  m_Size: 0.3571429
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
