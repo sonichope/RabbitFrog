@@ -8,14 +8,20 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 {
     [SerializeField] private Sprite uiMask;
     public Image iconImage;
-    private Sprite nowSprite;
+    public Sprite nowSprite;
     public CardPoolObject cardPoolObject;
     public PreviewManager preMana;
 
-    void Start()
+    //2010225　イゴンヒ
+    void Awake()
     {
         nowSprite = uiMask;
         preMana = FindObjectOfType<PreviewManager>();
+    }
+
+    void Start()
+    {
+        
     }
 
     /// <summary>

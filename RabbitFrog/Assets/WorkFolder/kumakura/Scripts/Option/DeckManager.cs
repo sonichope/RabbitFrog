@@ -42,8 +42,7 @@ public class DeckManager : MonoBehaviour
             {
                 deckObjects[i].cardPoolObject = GameObject.Find(DeckSave.cardPoolObject[i]).GetComponent<CardPoolObject>();
                 deckObjects[i].GetComponent<Image>().sprite = DeckSave.iconImage[i].sprite;
-                Debug.Log("abcd = " + DeckSave.cardPoolObject[i]);
-
+                deckObjects[i].GetComponent<DeckObject>().nowSprite = DeckSave.iconImage[i].sprite;
             }
         }
         //===============
@@ -99,6 +98,8 @@ public class DeckManager : MonoBehaviour
 
     }
 
+    //ステージを選択すると実行
+
     public static void SetDeckObject()
     {
         for (int i = 0; i < deckObjects.Length; i++)
@@ -115,6 +116,8 @@ public class DeckManager : MonoBehaviour
             DeckSave.cardPoolObject[i] = deckObjects[i].cardPoolObject.name;
             DeckSave.iconImage[i] = deckObjects[i].GetComponent<Image>();
         }
+         
+         
         Debug.Log("Set出来たよ");
     }
 

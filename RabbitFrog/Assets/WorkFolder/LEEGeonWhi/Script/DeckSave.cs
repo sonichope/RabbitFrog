@@ -12,7 +12,7 @@ public class DeckSave : MonoBehaviour
 
     public static bool DeckChack()
     {
-        for(int i =0; i < 8; i++)
+        for(int i = 0; i < cardPoolObject.Length; i++)
         {
             if (cardPoolObject[i] != null)
             {

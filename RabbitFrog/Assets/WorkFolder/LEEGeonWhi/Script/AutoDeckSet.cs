@@ -15,6 +15,8 @@ public class AutoDeckSet : MonoBehaviour
         {
             deckObjects[i].cardPoolObject = cardPoolObjects[i];
             deckImage[i].sprite = deckObjects[i].cardPoolObject.character.image;
+            //2020/10/25 bug修正　イゴンヒ
+            deckObjects[i].GetComponent<DeckObject>().nowSprite = deckImage[i].sprite;
         }
     }
 }
