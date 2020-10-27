@@ -17,7 +17,7 @@ public class makimono : MonoBehaviour
 
     public float speed;
 
-    float present_Location = 0;
+    float present_Location = 1;
 
     private makimonoAnim makimonoAnimation;
 
