@@ -10,7 +10,6 @@ public class Character : CharacterBase
     [Header("攻撃方法")] public AttackMethod myAttackMethod;   // 攻撃方法
     [SerializeField, Header("攻撃範囲")] protected float attackRange = 1.5f;
     [SerializeField, Header("攻撃速度")] protected float attackInterval = 1.75f;
-    //[Header("特徴")] public characteristic myCharacteristic;   // 特徴
 
     protected Vector2 enemyPos;
     protected bool serchFlag = false;
@@ -18,25 +17,7 @@ public class Character : CharacterBase
     protected Enemy targetEnemy;
     protected List<Enemy> targetEnemies;
 
-    //[Header("自身のカード名")] public CardType myCardType;
-
-    //public enum CardType
-    //{
-    //    none = -1,
-    //    infantry,
-    //    infantryPlatoon,
-    //    cavalry,
-    //    knight,
-    //    samurai,
-    //    archeryCorps,
-    //    ninja,
-    //    cavalryGeneral,
-    //    heavyKnight,
-    //    monster,
-    //    necromancer,
-    //    ghost,
-    //    thunderGod,
-    //}
+    private int maxHp;
 
     public enum AttackMethod
     {
@@ -45,15 +26,15 @@ public class Character : CharacterBase
         longDistance,
     }
 
-    //public enum characteristic // 特徴
-    //{
-    //    none,               // 無し
-    //    quickness,          // 俊足
-    //    ironWall,           // 鉄壁
-    //    covert,             // 隠密
-    //    explosion,          // 爆発
-    //    electricShock,      // 感電
-    //}
+    void Awake()
+    {
+        maxHp = hp;
+    }
+
+    void FixedUpdate()
+    {
+        hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
+    }
 
     /// <summary>
     /// キャラの移動関数

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class StageSelectControl : MonoBehaviour
@@ -8,32 +9,74 @@ public class StageSelectControl : MonoBehaviour
     [SerializeField, Header("MainCameraにアタッチ")]
     Effect_Sketch effect_Sketch;
 
-    private bool Scene_changing = false;
+    [SerializeField] private Canvas confirmCanvas;
+    [SerializeField] private Image[] StagePanel;　//BattleFirst, BattleSecond , BattleThird ,BattleBossにアタッチ
 
-    public void OnBattleFirst()
+    public static string NextScene = null;
+
+    private void Awake()
     {
-        //if (DeckCheck()) GameSceneManager.LoadBattleFirstScene();
-        if (DeckCheck() && !Scene_changing)
+        
+    }
+
+    private void Start()
+    {
+        //SaveDataを呼び込んてステージに移動可能かをUIで表示
+       for(int i = 0; i < StagePanel.Length; i++)
         {
-            Scene_changing = true;
-            StartCoroutine(effect_Sketch.fade_Out("BattleFirst"));
+            if(SaveData.StageClear[i] == true)
+            {
+                StagePanel[i].color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                StagePanel[i].color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
+            }
+            
         }
     }
 
-    //public void OnBattleSecond()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
-    //}
+    public void OnBattleFirst()
+    {
+        //if (DeckCheck()) GameSceneManager.LdadBattleFirstScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[0])
+        {
+            //StartCoroutine(effect_Sketch.NextScene("BattleFirst"));
+            NextScene = "BattleFirst";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+        }
+    }
 
-    //public void OnBattleThird()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
-    //}
+    public void OnBattleSecond()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[1])
+        {
+            NextScene = "BattleSecond";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+        }
+    }
 
-    //public void OnBattleBoss()
-    //{
-    //    if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
-    //}
+    public void OnBattleThird()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[2])
+        {
+            NextScene = "BattleThird";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+
+        }
+    }
+
+    public void OnBattleBoss()
+    {
+        //if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
+        if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[3])
+        {
+            NextScene = "BattleBoss";
+            confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
+        }
+    }
 
     /// <summary>
     /// デッキ編成に穴がないかチェック

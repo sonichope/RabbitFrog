@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleController : MonoBehaviour
 {
-    private bool Scene_changing = false;
-
     [SerializeField, Header("MainCameraにアタッチ")]
     Effect_Sketch effect_Sketch;
 
@@ -22,20 +20,13 @@ public class TitleController : MonoBehaviour
     {
         // 条件は後々変更する
         // PCからタブレットでも動くように条件式を書き換える
-        if (Input.GetMouseButtonDown(0) && !Scene_changing)
+        if (Input.GetMouseButtonDown(0) && !effect_Sketch.Scene_changing)
         {
-            Scene_changing = true;
-            StartCoroutine(effect_Sketch.fade_Out("ScenarioScene"));
+            effect_Sketch.Scene_changing = true;
+            StartCoroutine(effect_Sketch.NextScene("ScenarioScene"));
            
             //StartCoroutine(nextScene());
             //GameSceneManager.LoadScenarioScene();
         }
     }
-
-    //IEnumerator nextScene()
-    //{
-    //    Scene_changing = true;
-    //    yield return StartCoroutine(effect_Sketch.fade_Out());
-    //}
-
 }
