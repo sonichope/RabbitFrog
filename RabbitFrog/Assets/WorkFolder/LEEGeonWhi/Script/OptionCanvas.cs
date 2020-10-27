@@ -35,6 +35,7 @@ public class OptionCanvas : MonoBehaviour
     //gameReturn button
     public void ReturnButton()
     {
+        Time.timeScale = 1;
         gameObject.SetActive(false);
     }
 
