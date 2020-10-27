@@ -1,54 +1,101 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class makimono : MonoBehaviour
 {
-    [SerializeField] GameObject Makia;
-    [SerializeField] GameObject pepar;
-    [SerializeField] GameObject Makib;
-    //public bool makiFrag = true;
-    //[SerializeField] GameObject Peperb;
-    Animation anim;
+    [SerializeField] GameObject army;
+    [SerializeField] GameObject armyOrganization;
+    [SerializeField] GameObject select;
+    [SerializeField] GameObject stageSelect;
+
+    public Transform startMaker;
+    public Transform endMaker;
+
+    [SerializeField] private bool testFlag = true;
+    [SerializeField] private bool markFlag = true;
+
+    public float speed;
+
+    float present_Location = 1;
+
+    private makimonoAnim makimonoAnimation;
 
     void Start()
     {
-        anim = pepar.gameObject.GetComponent<Animation>();
+        makimonoAnimation = GetComponent<makimonoAnim>();
+        makimonoAnimation.GetComponent<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // testが軍編成
+        if(testFlag == false)
+        {
+            present_Location += Time.deltaTime * speed;
+            //if (present_Location <= 0)
+            //{
+                // 軍編成のposition移動makerが配置されている場所まで
+                army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
+                // 戦場選択…(上に同じく)　Leap…0と1なら移動できる
+                select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
+            //}
+            if (present_Location >= 1)
+            {
+                Debug.Log("aaaa");
+                // paperのAnimation再生、軍編成が開く
+                testFlag = true;
+                present_Location = 1;
+                //makimonoAnimation.ArmyFlag();
+                makimonoAnimation.ClickArmy();
+            }
+            return;
+        }
+        // markが戦場選択
+        if(markFlag == false)
+        {
+            present_Location -= Time.deltaTime * speed;
+            //if (present_Location <= 0)
+            //{
+                army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
+                select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
+            //}
+            if (present_Location <= 0)
+            {
+                Debug.Log("bbbb");
+                // paperのAnimation再生、戦場選択が開く
+                markFlag = true;
+                present_Location = 0;
+                //makimonoAnimation.SelectFrag();
+                makimonoAnimation.ClickSelect();
+            }
+        }
     }
 
-   public void OpenMakimono()
+    public void ArmyMakimono()
     {
-        Makia.transform.localScale = new Vector2(1, 1.25f);
-        Makia.transform.localPosition = new Vector2(260, 0);
-        Makib.transform.localScale = new Vector2(1, 1);
-        Makib.transform.localPosition = new Vector2(350, 0);
-        
+        //if (present_Location > 0 || present_Location < 1) { return; }
+        if (!testFlag) { return; }
+        testFlag = false;
     }
 
-    public void CloseMakimono()
+    public void SelectMakimono()
     {
-        Makib.transform.localScale = new Vector2(1, 1.25f);
-        Makib.transform.localPosition = new Vector2(260, 0);
-        Makia.transform.localScale = new Vector2(1, 1);
-        Makia.transform.localPosition = new Vector2(350, 0);
-        //anim.Play();
+        //if (present_Location > 0 || present_Location < 1) { return; }
+        if (!markFlag) { return; }
+        markFlag = false;
     }
 
-    void ShowMakimono()
+    public void ArmyOrganizationScale()
     {
-        anim = pepar.gameObject.GetComponent<Animation>();
-        anim.Play();
+        armyOrganization.transform.localScale = new Vector2(1, 1.43f);
+        stageSelect.transform.localScale = new Vector2(1, 1);
     }
 
-    void isCanvasEnable()
+    public void StageSelectScale()
     {
-
+        armyOrganization.transform.localScale = new Vector2(1, 1);
+        stageSelect.transform.localScale = new Vector2(1, 1.43f);
     }
 }
