@@ -89,7 +89,7 @@ public class ConfirmCanvas_Battle : MonoBehaviour
             case "BattleSecond":
                 return "BattleThird";
             case "BattleThird":
-                return "BattleBoss";
+                return "BattleBoss";    
             case "BattleBoss":
                 return "ClearScene";
             default:
