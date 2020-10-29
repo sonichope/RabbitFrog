@@ -15,6 +15,16 @@ public class makimono : MonoBehaviour
     [SerializeField] private bool testFlag = true;
     [SerializeField] private bool markFlag = true;
 
+    public bool GetTestFlag 
+    {
+        get { return testFlag; }
+    }
+
+    public bool GetMarkFlag
+    {
+        get { return markFlag; }
+    }
+
     public float speed;
 
     float present_Location = 1;
@@ -50,10 +60,9 @@ public class makimono : MonoBehaviour
                 //makimonoAnimation.ArmyFlag();
                 makimonoAnimation.ClickArmy();
             }
-            return;
         }
         // markが戦場選択
-        if(markFlag == false)
+        else if(markFlag == false)
         {
             present_Location -= Time.deltaTime * speed;
             //if (present_Location <= 0)

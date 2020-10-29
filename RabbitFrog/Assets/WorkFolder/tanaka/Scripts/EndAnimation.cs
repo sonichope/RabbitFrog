@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndAnimation : MonoBehaviour
+public class EndAnimation : OptionController
 {
     [SerializeField] GameObject armyOrganization;
     [SerializeField] GameObject stageSelect;
 
-    private makimonoAnim makimonoAnimation;
-    Transform makimono;
+    makimonoAnim makimonoAnimation;
+    //OptionController optionCon;
+
+    Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<Animation>();
         makimonoAnimation = GetComponent<makimonoAnim>();
+        //anim.GetComponent<OptionController>();
+
         //makimonoAnimation.GetComponent<Animation>();
         //makimono = GameObject.FindWithTag("Makimono")?.transform;
     }
@@ -23,6 +28,7 @@ public class EndAnimation : MonoBehaviour
     {
         
     }
+
     public void MakimonoScale()
     {
         armyOrganization.transform.localScale = new Vector2(1, 1);

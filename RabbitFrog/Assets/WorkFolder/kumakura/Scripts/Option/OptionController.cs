@@ -11,12 +11,20 @@ public class OptionController : MonoBehaviour
     [SerializeField] private Canvas stageSelectCanvas;
     [SerializeField] private Canvas confirmCanvas;
     [SerializeField] private PreviewManager preMana;
-    
+    [SerializeField] private GameObject startPaper;
+
+    //private makimonoAnim makimonoAnimation;
+    Animation anim;
+
+    [SerializeField] makimonoAnim _makimono;
+    [SerializeField] makimono _makimonoFlag;
 
     void Start()
     {
+        anim = startPaper.GetComponent<Animation>();
         organizationCanvas.enabled = false;
         stageSelectCanvas.enabled = false;
+        //makimonoAnimation = GetComponent<makimonoAnim>();
         //confirmCanvas.enabled = false;
     }
 
@@ -25,6 +33,7 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenOrganization()
     {
+        if (!_makimono.GetArmyFlag) { return; }
         stageSelectCanvas.rootCanvas.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
@@ -35,9 +44,28 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenStageSelect()
     {
+        if (!_makimono.GetSelectFlag) { return; }
         organizationCanvas.rootCanvas.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
+    }
+
+    public void GetFlag()
+    {
+        if (_makimonoFlag.GetTestFlag)
+        {
+            OnOpenOrganization();
+        }
+        if (_makimonoFlag.GetMarkFlag)
+        {
+            OnOpenStageSelect();
+        }
+    }
+
+    public void Enable()
+    {
+        stageSelectCanvas.rootCanvas.enabled = false;
+        organizationCanvas.rootCanvas.enabled = false;
     }
 
     //public void OnOpenConfirm()
@@ -46,5 +74,5 @@ public class OptionController : MonoBehaviour
     //    organizationCanvas.rootCanvas.enabled = false;
     //    confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
     //}
-    
+
 }

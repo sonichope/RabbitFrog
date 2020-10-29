@@ -14,6 +14,25 @@ public class makimonoAnim : MonoBehaviour
     private makimono _makimono;
 
     [SerializeField] private bool armyFlag = false;
+
+    // プロパティ例1
+    public bool GetArmyFlag
+    {
+        get { return armyFlag; }
+    }
+
+    public bool GetSelectFlag
+    {
+        get { return selectFlag; }
+    }
+
+    #region プロパティ例2
+    //public bool AAA()
+    //{
+    //    return armyFlag;
+    //}
+    #endregion
+
     [SerializeField] private bool selectFlag = false;
     // transitionFlagのtrue,falseを管理する
     [SerializeField] private bool transitionAnimFlag = false;
@@ -23,13 +42,6 @@ public class makimonoAnim : MonoBehaviour
     private string transitionFirst = "TransitionFirst";
     private string isOpenFlag = "IsOpenFlag";
     private string transitionFlag = "TransitionFlag";
-
-    // FirstAnim ::開くアニメーションへのトリガー(最初に動く)
-    // FirstAnimFlag::開くアニメーションと閉じるアニメーション管理
-    // StartAnim ::閉じるアニメーションへのトリガー(空のstateから)
-    // EndAnim   ::閉じるアニメーションから空のstateに戻ってくるトリガー()
-    // TransitionFirst::開くと、閉じるのアニメーションへのトリガー
-    // TransitionEnd  ::開くと、閉じるのアニメーションから空のstateに戻ってくるトリガー
 
     void Start()
     {
@@ -61,7 +73,6 @@ public class makimonoAnim : MonoBehaviour
     public void ClickArmy()
     {
         Debug.Log("ClickArmy()");
-        // 軍編成2回連続タップ
         if (armyFlag == true && selectFlag == false && secondFlag == false)
         {
             Debug.Log("軍編成2回連続タップ / " + armyFlag + " / " + selectFlag);
@@ -88,20 +99,11 @@ public class makimonoAnim : MonoBehaviour
             anim.SetTrigger(transitionFirst);
             //-----armyFlag = true;
             selectFlag = false;
-            //secondFlag = false;
+            secondFlag = false;
             //
             transitionAnimFlag = !transitionAnimFlag;
             anim.SetBool(transitionFlag, transitionAnimFlag);
         }
-        
-        // ArmyFlag()が一瞬呼ばれるからFlagが反転する
-        //else if (armyFlag == false && selectFlag == true)
-        //{
-        //    anim.SetBool(transitionFlag, true);
-        //    armyFlag = false;
-        //    //-----selectFlag = false;
-        //    secondFlag = false;
-        //}
     }
 
     /// <summary>
@@ -109,7 +111,6 @@ public class makimonoAnim : MonoBehaviour
     /// </summary>
     public void ClickSelect()
     {
-        // 戦場選択2回連続タップ
         if (selectFlag == true && armyFlag == false && secondFlag == false)
         {
             Debug.Log(armyFlag + " / " + selectFlag);
@@ -137,21 +138,10 @@ public class makimonoAnim : MonoBehaviour
             // 開いたままのアニメーションを再生
             armyFlag = false;
             //-----selectFlag = true;
-            //econdFlag = false;
+            secondFlag = false;
             transitionAnimFlag = !transitionAnimFlag;
             anim.SetBool(transitionFlag, transitionAnimFlag);
         }
-
-        //-----------------------------------------------------
-        //// 一度"MakimonoBothAnim"が呼ばれた後にもう一度別の巻物を開きなおす時の処理
-        //else if (armyFlag == true && selectFlag == false)
-        //{
-        //    anim.SetBool(transitionFlag, true);
-        //    secondFlag = false;
-        //}
-
-        //-----------------------------------------------------
-        // "MakimonoBothAnim"が呼ばれた後にもう一度同じ巻物がタップされた時の処理
     }
 
     /// <summary>
