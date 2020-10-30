@@ -386,7 +386,7 @@ PrefabInstance:
     - target: {fileID: 8840495933366875683, guid: c257276f9591fff41be0f101ade50e3f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8840495933366875704, guid: c257276f9591fff41be0f101ade50e3f,
         type: 3}
@@ -1494,6 +1494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff331cab1e6dd584c93909b28ea5a6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preMana: {fileID: 0}
   CharaText: {fileID: 382830672}
   Description:
   - "\u529B\u3082\u4F53\u529B\u3082\u5C11\u306A\u3044\u304C\u30B3\u30B9\u30C8\u3082\u4F4E\u304F\u6C17\u8EFD\u306B\u53EC\u559A\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B"
@@ -5987,7 +5988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.49998, y: 100}
+  m_AnchoredPosition: {x: -196.49998, y: 100.00001}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2079403064

@@ -6,11 +6,14 @@ using UnityEngine.EventSystems;
 
 public class PreviewCon : MonoBehaviour, IPointerClickHandler
 {
+    public PreviewManager preMana;
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         if (pointerEventData.pointerEnter == null) { return; }
         int characterId = (int)pointerEventData.pointerEnter.GetComponent<CardPoolObject>().character.myCardType;
-        CharaText.text = Description[characterId];
+        //CharaText.text = Description[characterId];
+        preMana.explanationText.text = Description[characterId];
+        
     }
 
     [SerializeField]
@@ -65,10 +68,12 @@ public class PreviewCon : MonoBehaviour, IPointerClickHandler
     public string[] Description;
     public Dictionary<CardType, string> Charatext = new Dictionary<CardType, string>();
 
+    
+
     public void OnClick()
     {
         //int Charatext = (int)CardType.infantry;
-        //Charatext.Add(CardType.infantry, Description[0]);
+        //Charatext.Add(CardType.infantry, Description[0]);b
         //CharaText.text = Description[0];
 
         //Charatext.Add(CardType.infantryPlatoon, Description[1]);
