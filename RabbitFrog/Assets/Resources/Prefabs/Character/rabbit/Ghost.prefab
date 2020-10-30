@@ -111,6 +111,7 @@ MonoBehaviour:
   attackRange: 1.5
   attackInterval: 1.75
   explosionCol: {fileID: 8499356188783627826}
+  effect: {fileID: 3365695966788552371, guid: 0a5129f51b892b94ca89753e9ef08524, type: 3}
 --- !u!61 &288606128051328640
 BoxCollider2D:
   m_ObjectHideFlags: 0

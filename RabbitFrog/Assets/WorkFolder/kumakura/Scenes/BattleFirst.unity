@@ -1278,6 +1278,11 @@ PrefabInstance:
       propertyPath: preMana
       value: 
       objectReference: {fileID: 853198260}
+    - target: {fileID: 7220989883399130905, guid: c665477f90810da4990c10faf4f4d25e,
+        type: 3}
+      propertyPath: effect_Sketch
+      value: 
+      objectReference: {fileID: 1273585795}
     - target: {fileID: 8412947881606718365, guid: c665477f90810da4990c10faf4f4d25e,
         type: 3}
       propertyPath: myHandNumber

@@ -12,12 +12,15 @@ public class NecromancerCharacter : Character
     [SerializeField] private float maxRandomPos_x;
     [SerializeField] private float minRandomPos_y;
     [SerializeField] private float maxRandomPos_y;
+
+    private BattleController battlecontroller;
     Vector3 ghostSummonPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        battlecontroller = FindObjectOfType<BattleController>();
+        //SummonGhost(transform.position);
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class NecromancerCharacter : Character
         float randomPos_y = Random.Range(minRandomPos_y, maxRandomPos_y);
         summonPos.x += randomPos_x;
         summonPos.y += randomPos_y;
-        Instantiate(ghost, summonPos, Quaternion.identity);
+        GameObject Ghosh = Instantiate(ghost, summonPos, Quaternion.identity);
+        battlecontroller.characterList.Add(Ghosh);
     }
 }
