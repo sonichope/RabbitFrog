@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeckManager : MonoBehaviour
 {
@@ -23,13 +25,29 @@ public class DeckManager : MonoBehaviour
         //    }
         //    DeckData.deckSetFlag = false;
         //}
-
+        
         for (int i = 0; i < deckObjects.Length; i++)
         {
             DeckData.Instance.deckObjects[i] = getDeckObjects[i];
             deckObjects[i] = getDeckObjects[i];
             //deckObjects[i] = DeckData.deckObjects[i];
         }
+
+        //イゴンヒ
+        //===============
+        //if(DeckSave.cardPoolObject[0] != null)
+        if (DeckSave.DeckChack() == false)
+        {
+            for (int i = 0; i < deckObjects.Length; i++)
+            {
+                deckObjects[i].cardPoolObject = GameObject.Find(DeckSave.cardPoolObject[i]).GetComponent<CardPoolObject>();
+                deckObjects[i].GetComponent<Image>().sprite = DeckSave.iconImage[i].sprite;
+                deckObjects[i].GetComponent<DeckObject>().nowSprite = DeckSave.iconImage[i].sprite;
+            }
+        }
+        //===============
+        //if (DeckSave.iconImage[0] != null) deckObjects[0].iconImage = DeckSave.iconImage[0];
+
 
         //if (DeckData.Instance.deckSetFlag)
         //{
@@ -57,7 +75,7 @@ public class DeckManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Debug.Log("Setしてみるね");
-            SetDeckObject();
+            //SetDeckObject();
         }
         
         if (Input.GetKeyDown(KeyCode.D))
@@ -73,20 +91,33 @@ public class DeckManager : MonoBehaviour
             for (int i = 0; i < deckObjects.Length; i++)
             {
                 Debug.Log(DeckData.Instance.deckObjects[i]);
-            }
+            }   
         }
+
+
+
     }
+
+    //ステージを選択すると実行
 
     public static void SetDeckObject()
     {
         for (int i = 0; i < deckObjects.Length; i++)
         {
             if (deckObjects[i] == null) { return; }
-            DeckData.Instance.deckObjects[i] = deckObjects[i];
-            Debug.Log(DeckData.Instance.deckObjects[i]);
-            Debug.Log(DeckData.Instance.deckObjects[i].cardPoolObject.character.characterName);
-            Debug.Log(deckObjects[i].iconImage.sprite);
+            //DeckData.Instance.deckObjects[i] = deckObjects[i];
+            //Debug.Log(DeckData.Instance.deckObjects[i]);
+            //Debug.Log(DeckData.Instance.deckObjects[i].cardPoolObject.name);
+            //Debug.Log(DeckData.Instance.deckObjects[i].cardPoolObject.character.characterName);
+            //Debug.Log(deckObjects[i].iconImage.sprite);
+
+            //int index = deckObjects[i].name.IndexOf("(") + 1;
+            //Debug.Log(deckObjects[i].name[index]);
+            DeckSave.cardPoolObject[i] = deckObjects[i].cardPoolObject.name;
+            DeckSave.iconImage[i] = deckObjects[i].GetComponent<Image>();
         }
+         
+         
         Debug.Log("Set出来たよ");
     }
 

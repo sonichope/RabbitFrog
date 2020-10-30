@@ -8,14 +8,20 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 {
     [SerializeField] private Sprite uiMask;
     public Image iconImage;
-    private Sprite nowSprite;
+    public Sprite nowSprite;
     public CardPoolObject cardPoolObject;
     public PreviewManager preMana;
 
-    void Start()
+    //2010225　イゴンヒ
+    void Awake()
     {
         nowSprite = uiMask;
         preMana = FindObjectOfType<PreviewManager>();
+    }
+
+    void Start()
+    {
+        
     }
 
     /// <summary>
@@ -24,7 +30,8 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     /// <param name="pointerEventData"></param>
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        if (pointerEventData.pointerDrag == null) return;
+        if (pointerEventData.pointerDrag == null || pointerEventData.pointerDrag.tag != "CardPool") return;
+        Debug.Log(pointerEventData.pointerDrag.tag);
         Image dropImage = pointerEventData.pointerDrag.GetComponent<Image>();
         iconImage.sprite = dropImage.sprite;
         iconImage.color = Vector4.one;
@@ -48,16 +55,23 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     /// <param name="pointerEventData"></param>
     public void OnDrop(PointerEventData pointerEventData)
     {
+        if (pointerEventData.pointerDrag.tag != "CardPool") return;
         Image dropImage = pointerEventData.pointerDrag.GetComponent<Image>();
         cardPoolObject = pointerEventData.pointerDrag.GetComponent<CardPoolObject>();
         cardPoolObject.character.myCardType = pointerEventData.pointerDrag.GetComponent<CardPoolObject>().character.myCardType;
         iconImage.sprite = dropImage.sprite;
         nowSprite = dropImage.sprite;
         iconImage.color = Vector4.one;
+
+        
+        //==============
+        int index  = this.gameObject.name.IndexOf("(") + 1;
+        Debug.Log(this.gameObject.name[index]);
+        //==============
     }
 
     /// <summary>
-    /// クリック時
+    /// クリック時 Previwe用
     /// </summary>
     /// <param name="pointerEventData"></param>
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -68,5 +82,6 @@ public class DeckObject : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
         preMana.nameText.text = cardInfo.character.characterName;
         preMana.costText.text = cardInfo.character.cost.ToString();
         preMana.characterImage.sprite = cardInfo.character.image;
+        preMana.explanationText.text = preMana.data.GetExplanation((int)cardInfo.character.myCardType);
     }
 }

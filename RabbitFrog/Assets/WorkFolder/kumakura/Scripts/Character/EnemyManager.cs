@@ -5,6 +5,7 @@ using UnityEngine;
 // Enemyの生成などを管理
 public class EnemyManager : MonoBehaviour
 {
+    public BattleController battleController;
     // 生成したい敵Objectのリスト
     public GameObject[] createEnemyList;
     
@@ -32,7 +33,8 @@ public class EnemyManager : MonoBehaviour
             float pos_x = Random.Range(-4.5f, -1.0f);
             float pos_y = Random.Range(-2.0f, 2.0f);
             int randomSummonNum = Random.Range(0, createEnemyList.Length);
-            Instantiate(createEnemyList[randomSummonNum], new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+            var chara = Instantiate(createEnemyList[randomSummonNum], new Vector3(pos_x, pos_y, 0), Quaternion.identity);
+            battleController.characterList.Add(chara);
         }
     }
 }

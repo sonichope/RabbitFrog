@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 7104759746441361709}
   - component: {fileID: 3843153192977241277}
   - component: {fileID: 1562026514426497756}
+  - component: {fileID: 8898018099294825935}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Character
@@ -251,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c65b999a345e73d4f8b01a2bb7bf5738, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a54c9b9270862ee48bae773ea3f80122, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: "\u9A0E\u58EB"
-  image: {fileID: 21300000, guid: c65b999a345e73d4f8b01a2bb7bf5738, type: 3}
+  image: {fileID: 21300000, guid: a54c9b9270862ee48bae773ea3f80122, type: 3}
   hp: 21
   power: 15
   myCharacteristic: 2
@@ -287,6 +288,7 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.75
   attackInterval: 2.25
+  explosionCol: {fileID: 0}
 --- !u!61 &3843153192977241277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -304,7 +306,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.2}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 5.12, y: 4.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -334,3 +336,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &8898018099294825935
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6379124955803089558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4df306eb81c44442a6b81b241b23414, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

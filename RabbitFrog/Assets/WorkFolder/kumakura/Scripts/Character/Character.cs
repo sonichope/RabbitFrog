@@ -15,9 +15,18 @@ public class Character : CharacterBase
     protected bool serchFlag = false;
     protected float atackTime = 0.0f;
     protected Enemy targetEnemy;
-    protected List<Enemy> targetEnemies;
 
     private int maxHp;
+
+    // 爆発の為の変数
+    [SerializeField] private Collider2D explosionCol;
+    private List<CharacterBase> targetCharacter = new List<CharacterBase>();
+    private bool explosionFlag;
+
+    // Animation変数
+    protected Animator characterAnim;
+    protected string attackTrigger = "AttackTrigger";
+    protected string isMove = "IsMove";
 
     public enum AttackMethod
     {
@@ -28,6 +37,10 @@ public class Character : CharacterBase
 
     void Awake()
     {
+        if (GetComponent<Animator>() != null)
+        {
+            characterAnim = GetComponent<Animator>();
+        }
         maxHp = hp;
     }
 
@@ -60,53 +73,49 @@ public class Character : CharacterBase
         {
             // 索敵状態であればひたすら歩く処理
             transform.Translate(-speed, 0, 0);
+            if (characterAnim != null) { characterAnim.SetBool(isMove, true); }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        if (myCardType == CardType.thunderGod) { return; }
+        if (explosionFlag)
+        {
+            targetCharacter.Add(GetComponent<CharacterBase>());
+            Debug.Log("取得");
+            Explosion();
+        }
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
             // 敵の情報を取得
             targetEnemy = collision.GetComponent<Enemy>();
             //targetEnemies.Add(collision.GetComponent<Enemy>());
-            if (myCardType == CardType.thunderGod) { return; }
             // 敵を発見したのでこれ以上他の敵と接触しないための処理
             serchFlag = true;
             // 索敵した敵のPositionを格納
             enemyPos = collision.transform.position;
         }
-
     }
 
-    /*GameObject serchTag(GameObject nowObj, string tagName)
-    {
-        float tmpDis = 0;           
-        float nearDis = 0;          
-          
-        GameObject targetObj = null;
-
-        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
-        {
-            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
-
-            if (nearDis == 0 || nearDis > tmpDis)
-            {
-                nearDis = tmpDis;
-                //nearObjName = obs.name;
-                targetObj = obs;
-            }
-        }
-        Debug.Log("aaa");
-        return targetObj;
-    }*/
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    //if (explosionFlag)
+    //    //{
+    //    //    Debug.Log("Flag true");
+    //    //    targetCharacter.Add(GetComponent<CharacterBase>());
+    //    //    Debug.Log("取得");
+    //    //    Explosion();
+    //    //}
+    //}
 
     /// <summary>
     /// 攻撃
     /// </summary>
     public override void Attack()
     {
+        if (characterAnim != null) { characterAnim.SetBool(isMove, false); }
         atackTime += Time.deltaTime;
         if (serchFlag == true && atackTime > attackInterval)
         {
@@ -150,6 +159,7 @@ public class Character : CharacterBase
                     Debug.LogError("特徴が不適切です");
                     break;
             }
+            if (characterAnim != null) { characterAnim.SetTrigger(attackTrigger); }
             atackTime = 0f;
         }
 
@@ -163,7 +173,7 @@ public class Character : CharacterBase
     public override void Death()
     {
         // 特徴が爆発ならばここで爆発をする
-
+        if (myCharacteristic == characteristic.explosion) { explosionFlag = true;}
         IsDeath = true;
         gameObject.SetActive(false);
     }
@@ -173,6 +183,31 @@ public class Character : CharacterBase
     /// </summary>
     public void Explosion()
     {
+        // 取得したキャラクターのHPを減らす処理
+        foreach (var chara in targetCharacter)
+        {
+            chara.hp -= 10;
+            Debug.Log("どかん");
+        }
+        IsDeath = true;
+        gameObject.SetActive(false);
+    }
 
+    /// <summary>
+    /// 感電
+    /// </summary>
+    /// <param name="enemy">対象の敵</param>
+    public void ElectricShock(Enemy enemy)
+    {
+        enemy.IsMove = false;
+        enemy.Invoke("IsMoveHealing", 3f);
+    }
+
+    /// <summary>
+    /// 感電からの回復
+    /// </summary>
+    public void IsMoveHealing()
+    {
+        IsMove = true;
     }
 }

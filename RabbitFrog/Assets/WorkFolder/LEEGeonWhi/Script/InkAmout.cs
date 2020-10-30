@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InkAmout : MonoBehaviour
 {
-    static private Image image;
+    public static Image image;
 
     void Start()
     {

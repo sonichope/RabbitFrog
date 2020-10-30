@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 4603428676329082814}
   - component: {fileID: 362925956304462999}
   - component: {fileID: 3636339714402739497}
+  - component: {fileID: 3841213086365979754}
   m_Layer: 0
   m_Name: ThunderGod
   m_TagString: Character
@@ -172,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de7880413cad8c544ba261f587160edd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 750ef3e146065d044a1c2cb17329b6e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -196,11 +197,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: "\u96F7\u795E"
-  image: {fileID: 21300000, guid: de7880413cad8c544ba261f587160edd, type: 3}
+  image: {fileID: 21300000, guid: 750ef3e146065d044a1c2cb17329b6e7, type: 3}
   hp: 200
   power: 55
   myCharacteristic: 5
-  myCardType: 12
+  myCardType: 11
   hpText: {fileID: 7768324700832311910}
   moveSpeed: 0.0035
   summonVol: 1
@@ -208,6 +209,7 @@ MonoBehaviour:
   myAttackMethod: 2
   attackRange: 3.5
   attackInterval: 2.5
+  explosionCol: {fileID: 0}
 --- !u!61 &362925956304462999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 1.97}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 5.12, y: 3.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -255,6 +257,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &3841213086365979754
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364739107273175023}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4cd3f26d3c4fe4d439ef102420356cd1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7763144517947810421
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,8 +27,8 @@ public abstract class CharacterBase : MonoBehaviour
         heavyKnight,
         monster,
         necromancer,
-        ghost,
         thunderGod,
+        ghost,
     }
 
     public enum characteristic // 特徴
@@ -41,6 +41,7 @@ public abstract class CharacterBase : MonoBehaviour
         electricShock,      // 感電
     }
 
+    // 動けるかどうかのFlag(感電用)
     public bool IsMove { get; set; } = true;
 
     public bool IsDeath { get; set; } = false;

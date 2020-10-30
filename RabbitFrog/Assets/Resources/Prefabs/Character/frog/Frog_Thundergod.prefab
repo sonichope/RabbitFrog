@@ -148,14 +148,15 @@ MonoBehaviour:
   hp: 200
   power: 55
   myCharacteristic: 5
-  myCardType: 12
+  myCardType: 11
   hpText: {fileID: 941980416077751676}
   moveSpeed: 0.0035
   summonVol: 1
   myAttackMethod: 2
-  attackRange: 1.5
+  attackRange: 4
   attackInterval: 2.5
   targetFlag: 0
+  serchFlag: 0
 --- !u!1 &7460515982102534298
 GameObject:
   m_ObjectHideFlags: 0

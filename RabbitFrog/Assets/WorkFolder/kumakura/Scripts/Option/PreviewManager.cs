@@ -11,6 +11,7 @@ public class PreviewManager : MonoBehaviour
     public Text explanationText;
     public Text costText;
     public Image characterImage;
+    public CharacterDeta data;
 
     public bool isPreview = false;
 
@@ -18,6 +19,7 @@ public class PreviewManager : MonoBehaviour
     {
         panel.enabled = false;
         preview.SetActive(false);
+        data.SetExplanation();
     }
 
     void Update()

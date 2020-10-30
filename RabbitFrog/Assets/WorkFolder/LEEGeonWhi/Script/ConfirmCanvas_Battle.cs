@@ -10,10 +10,19 @@ public class ConfirmCanvas_Battle : MonoBehaviour
     Canvas confirmcanvas_battle;
 
     [SerializeField]
+    Image nextStage;
+
+    [SerializeField]
+    Tower Rabbit_Tower;
+
+    [SerializeField]
     EnemyTower Frog_Tower;
 
     [SerializeField]
     Effect_Sketch effect_Sketch;
+
+    [SerializeField]
+    Image win;
 
     void Start()
     {
@@ -22,11 +31,28 @@ public class ConfirmCanvas_Battle : MonoBehaviour
 
     void Update()
     {
+        if (Rabbit_Tower.IsDeath)
+        {
+            RabbitDeath();
+        }
+
         if(Frog_Tower.IsDeath)
         {
-            confirmcanvas_battle.rootCanvas.enabled = true;
-            clear();
+            FlogDeath();
         }
+    }
+
+    public void RabbitDeath()
+    {
+        confirmcanvas_battle.rootCanvas.enabled = true;
+        nextStage.gameObject.SetActive(false);
+        win.enabled = false;
+    }
+
+    public void FlogDeath()
+    {
+        confirmcanvas_battle.rootCanvas.enabled = true;
+        clear();
     }
 
     //実行関数、EnventTrigger
@@ -63,7 +89,7 @@ public class ConfirmCanvas_Battle : MonoBehaviour
             case "BattleSecond":
                 return "BattleThird";
             case "BattleThird":
-                return "BattleBoss";
+                return "BattleBoss";    
             case "BattleBoss":
                 return "ClearScene";
             default:

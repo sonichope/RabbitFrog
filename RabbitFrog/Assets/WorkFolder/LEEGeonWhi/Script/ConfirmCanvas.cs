@@ -21,6 +21,7 @@ public class ConfirmCanvas : MonoBehaviour
     public void NextScene()
     {
         StartCoroutine(effect_sketch.NextScene(StageSelectControl.NextScene));
+        DeckManager.SetDeckObject();
         confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
     }
 

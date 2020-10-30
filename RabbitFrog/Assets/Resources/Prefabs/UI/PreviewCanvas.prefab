@@ -370,7 +370,7 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: New Text
@@ -831,4 +831,22 @@ MonoBehaviour:
   explanationText: {fileID: 6101172495954184984}
   costText: {fileID: 6101172496192189833}
   characterImage: {fileID: 4099732695562433221}
+  data:
+    name: 
+    hp: 0
+    maxHp: 0
+    power: 0
+    explanation:
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
   isPreview: 0
