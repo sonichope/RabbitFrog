@@ -1,30 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class makimonoAnim : MonoBehaviour
 {
     [SerializeField] GameObject startPaper;
-
+    
+    [SerializeField] private bool armyFlag = false;
+    [SerializeField] private bool selectFlag = false;
+    // transitionFlagのtrue,falseを管理する
+    [SerializeField] private bool transitionAnimFlag = true;
+    // 2回クリックしたかを検知する
+    [SerializeField] private bool secondFlag = false;
+    
+    private string transitionFirst = "TransitionFirst";
+    private string isOpenFlag = "IsOpenFlag";
+    private string transitionFlag = "TransitionFlag";
+    
     public new Animation animation;
-
     Animator anim;
 
     private makimono _makimono;
 
-    [SerializeField] private bool armyFlag = false;
-
     // プロパティ例1
-    public bool GetArmyFlag
-    {
-        get { return armyFlag; }
-    }
+    public bool GetArmyFlag { get { return armyFlag; } }
 
-    public bool GetSelectFlag
-    {
-        get { return selectFlag; }
-    }
+    public bool GetSelectFlag { get { return selectFlag; } }
 
     #region プロパティ例2
     //public bool AAA()
@@ -32,16 +33,6 @@ public class makimonoAnim : MonoBehaviour
     //    return armyFlag;
     //}
     #endregion
-
-    [SerializeField] private bool selectFlag = false;
-    // transitionFlagのtrue,falseを管理する
-    [SerializeField] private bool transitionAnimFlag = false;
-    // 2回クリックしたかを検知する
-    [SerializeField] private bool secondFlag = false;
-
-    private string transitionFirst = "TransitionFirst";
-    private string isOpenFlag = "IsOpenFlag";
-    private string transitionFlag = "TransitionFlag";
 
     void Start()
     {
@@ -87,6 +78,7 @@ public class makimonoAnim : MonoBehaviour
         {
             Debug.Log("2連続タップ / " + armyFlag + " / " + selectFlag + " / " + secondFlag);
             anim.SetBool(isOpenFlag, true);
+            armyFlag = true;
             secondFlag = false;
             //_makimono.MakimonoScale();
         }
@@ -96,13 +88,16 @@ public class makimonoAnim : MonoBehaviour
         else if (armyFlag == true && selectFlag == false)
         {
             Debug.Log("1回目が戦場選択、2回目が軍編成(軍編成の巻物が開いている時) / " + armyFlag + " / " + selectFlag + " 反転");
+            // 開いている状態の巻物を入れ替える処理(1回目)
             anim.SetTrigger(transitionFirst);
             //-----armyFlag = true;
             selectFlag = false;
             secondFlag = false;
-            //
+            // 入れ替えた処理からもう一度入れ替えの処理を行う時(2回目以降)
+            //--------------------------------------------------------
             transitionAnimFlag = !transitionAnimFlag;
             anim.SetBool(transitionFlag, transitionAnimFlag);
+            //--------------------------------------------------------
         }
     }
 
@@ -125,6 +120,7 @@ public class makimonoAnim : MonoBehaviour
         {
             Debug.Log(armyFlag + " / " + selectFlag + " / " + secondFlag);
             anim.SetBool(isOpenFlag, true);
+            selectFlag = true;
             secondFlag = false;
             //_makimono.MakimonoScale();
         }
@@ -139,8 +135,10 @@ public class makimonoAnim : MonoBehaviour
             armyFlag = false;
             //-----selectFlag = true;
             secondFlag = false;
+            //--------------------------------------------------------
             transitionAnimFlag = !transitionAnimFlag;
             anim.SetBool(transitionFlag, transitionAnimFlag);
+            //--------------------------------------------------------
         }
     }
 
@@ -149,7 +147,6 @@ public class makimonoAnim : MonoBehaviour
     /// </summary>
     public void EndAnim()
     {
-        //anim.SetBool(firstAnimFlag, false);
         anim.SetTrigger("EndAnim");
     }
 
@@ -158,7 +155,6 @@ public class makimonoAnim : MonoBehaviour
     /// </summary>
     public void ArmyFlag()
     {
-        //anim.SetBool(firstAnimFlag, true);
         anim.SetBool(isOpenFlag, false);
         anim.SetTrigger("FirstAnim");
         selectFlag = false;
@@ -171,7 +167,6 @@ public class makimonoAnim : MonoBehaviour
     /// </summary>
     public void SelectFrag()
     {
-        //anim.SetBool(firstAnimFlag, true);
         anim.SetBool(isOpenFlag, false);
         anim.SetTrigger("FirstAnim");
         armyFlag = false;

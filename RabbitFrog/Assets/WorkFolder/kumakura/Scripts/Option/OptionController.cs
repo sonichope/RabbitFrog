@@ -50,6 +50,9 @@ public class OptionController : MonoBehaviour
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
     }
 
+    /// <summary>
+    /// 他のスクリプトからこのFlagがtrueの時どちらかの関数を呼び出す
+    /// </summary>
     public void GetFlag()
     {
         if (_makimonoFlag.GetTestFlag)
@@ -62,6 +65,9 @@ public class OptionController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 巻物を閉じるアニメーション再生時にメニューUIを非表示にする
+    /// </summary>
     public void Enable()
     {
         stageSelectCanvas.rootCanvas.enabled = false;

@@ -15,21 +15,15 @@ public class makimono : MonoBehaviour
     [SerializeField] private bool testFlag = true;
     [SerializeField] private bool markFlag = true;
 
-    public bool GetTestFlag 
-    {
-        get { return testFlag; }
-    }
-
-    public bool GetMarkFlag
-    {
-        get { return markFlag; }
-    }
+    // 軍編成が開いているかどうかのFlag管理のプロパティー
+    public bool GetTestFlag { get { return testFlag; } }
+    // 戦場選択が開いているかどうかのFlag管理のプロパティー
+    public bool GetMarkFlag { get { return markFlag; } }
 
     public float speed;
-
     float present_Location = 1;
 
-    private makimonoAnim makimonoAnimation;
+    makimonoAnim makimonoAnimation;
 
     void Start()
     {
@@ -41,15 +35,15 @@ public class makimono : MonoBehaviour
     void Update()
     {
         // testが軍編成
-        if(testFlag == false)
+        if (testFlag == false)
         {
             present_Location += Time.deltaTime * speed;
             //if (present_Location <= 0)
             //{
-                // 軍編成のposition移動makerが配置されている場所まで
-                army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
-                // 戦場選択…(上に同じく)　Leap…0と1なら移動できる
-                select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
+            // 軍編成のposition移動makerが配置されている場所まで
+            army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
+            // 戦場選択…(上に同じく)　Leap…0と1なら移動できる
+            select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
             //}
             if (present_Location >= 1)
             {
@@ -62,13 +56,13 @@ public class makimono : MonoBehaviour
             }
         }
         // markが戦場選択
-        else if(markFlag == false)
+        else if (markFlag == false)
         {
             present_Location -= Time.deltaTime * speed;
             //if (present_Location <= 0)
             //{
-                army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
-                select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
+            army.transform.position = Vector3.Lerp(startMaker.position, endMaker.position, present_Location);
+            select.transform.position = Vector3.Lerp(endMaker.position, startMaker.position, present_Location);
             //}
             if (present_Location <= 0)
             {
