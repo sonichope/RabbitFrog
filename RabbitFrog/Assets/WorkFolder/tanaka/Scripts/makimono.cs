@@ -47,7 +47,6 @@ public class makimono : MonoBehaviour
             //}
             if (present_Location >= 1)
             {
-                Debug.Log("aaaa");
                 // paperのAnimation再生、軍編成が開く
                 testFlag = true;
                 present_Location = 1;
@@ -66,7 +65,6 @@ public class makimono : MonoBehaviour
             //}
             if (present_Location <= 0)
             {
-                Debug.Log("bbbb");
                 // paperのAnimation再生、戦場選択が開く
                 markFlag = true;
                 present_Location = 0;
