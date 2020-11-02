@@ -51,7 +51,7 @@ public class makimono : MonoBehaviour
                 testFlag = true;
                 present_Location = 1;
                 //makimonoAnimation.ArmyFlag();
-                makimonoAnimation.ClickArmy();
+                //makimonoAnimation.ClickArmy();
             }
         }
         // markが戦場選択
@@ -69,7 +69,7 @@ public class makimono : MonoBehaviour
                 markFlag = true;
                 present_Location = 0;
                 //makimonoAnimation.SelectFrag();
-                makimonoAnimation.ClickSelect();
+                //makimonoAnimation.ClickSelect();
             }
         }
     }
