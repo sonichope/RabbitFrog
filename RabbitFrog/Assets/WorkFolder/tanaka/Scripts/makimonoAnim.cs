@@ -4,11 +4,12 @@ using UnityEngine;
 
 public enum OptionState
 {
-    None=0,
+    None = 0,
     Army,
     Select,
     Num
 }
+
 public class makimonoAnim : MonoBehaviour
 {
     [SerializeField] OptionState optionState = OptionState.None;
@@ -71,6 +72,7 @@ public class makimonoAnim : MonoBehaviour
     /// <summary>
     /// 軍編成をタップした時
     /// </summary>
+    /// クリックされたら動かす部分のコメント分
     public void ClickArmy()
     {
         Debug.Log("ClickArmy()");
@@ -110,7 +112,6 @@ public class makimonoAnim : MonoBehaviour
             //_makimono.MakimonoScale();
         }
         //-----------------------------------------------------
-
     }
 
     /// <summary>
@@ -142,7 +143,7 @@ public class makimonoAnim : MonoBehaviour
         }
         //-----------------------------------------------------
         // 2連続タップ
-        else if (selectFlag ==　false && armyFlag == false && secondFlag)
+        else if (selectFlag == false && armyFlag == false && secondFlag)
         {
             Debug.Log("armyFlagが" + armyFlag + " / " + "selectFlagが" + selectFlag + " / " + "secondFlagが" + secondFlag);
             anim.SetBool(isOpenFlag, true);
@@ -151,7 +152,6 @@ public class makimonoAnim : MonoBehaviour
             //_makimono.MakimonoScale();
         }
         //-----------------------------------------------------
-
     }
 
     /// <summary>
@@ -190,6 +190,7 @@ public class makimonoAnim : MonoBehaviour
     {
         OptionState prevState = optionState;
         OptionState nextState = (OptionState)clickButton;
+        
         //if((int)nextState<0)
         //{
         //    nextState = OptionState.None;

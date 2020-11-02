@@ -2216,7 +2216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196.50012, y: 99.999985}
+  m_AnchoredPosition: {x: -196.50012, y: 100}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &638886034
@@ -3400,7 +3400,7 @@ MonoBehaviour:
   preMana: {fileID: 0}
   startPaper: {fileID: 1178667343}
   _makimono: {fileID: 1590311162}
-  _makimonoFlag: {fileID: 0}
+  _makimonoFlag: {fileID: 1590311160}
 --- !u!4 &882966384
 Transform:
   m_ObjectHideFlags: 0
@@ -4525,7 +4525,7 @@ MonoBehaviour:
   _makimonoFlag: {fileID: 1590311160}
   armyOrganization: {fileID: 169398522}
   stageSelect: {fileID: 1669320014}
-  makimonoAnimation: {fileID: 0}
+  makimonoAnimation: {fileID: 1590311162}
 --- !u!114 &1178667346
 MonoBehaviour:
   m_ObjectHideFlags: 0
