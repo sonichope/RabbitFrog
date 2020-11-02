@@ -1923,7 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2452,7 +2452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c41058e62e13907489784aa7b69ebd26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a9c3ae810d97504db792e362fc45538, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2603,18 +2603,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 682134820}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1590311159}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &688657549 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3147840094910167461, guid: 0c6a2e9ad71a1b64499916635315ed88,
@@ -4217,7 +4206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c41058e62e13907489784aa7b69ebd26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a9c3ae810d97504db792e362fc45538, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5653,7 +5642,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1432625081}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.71428573
+  m_Size: 0.35714296
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5896,7 +5885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd91a716003f1a042acef8a8ac4180bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionState: 0
   startPaper: {fileID: 1178667343}
   armyFlag: 0
   selectFlag: 0
@@ -6691,7 +6679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
