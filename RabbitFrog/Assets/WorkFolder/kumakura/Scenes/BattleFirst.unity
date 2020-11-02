@@ -269,6 +269,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2493852708222708551, guid: 32187554392481846b3e1c37c43894fb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2493852708222708569, guid: 32187554392481846b3e1c37c43894fb,
         type: 3}
       propertyPath: effect_Sketch
@@ -693,6 +698,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndGameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1934120310953567384, guid: d3f1985120186a54b8454368583430e9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f1985120186a54b8454368583430e9, type: 3}
 --- !u!1 &1672071902
@@ -1030,11 +1040,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1273585793}
-    - target: {fileID: 3113985937918969124, guid: 04a9c7de82329fc4490f609d4cd2b59b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3113985937918969127, guid: 04a9c7de82329fc4490f609d4cd2b59b,
         type: 3}
       propertyPath: enemytowe

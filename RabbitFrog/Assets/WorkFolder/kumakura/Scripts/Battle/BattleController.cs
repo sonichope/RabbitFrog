@@ -57,6 +57,11 @@ public class BattleController : MonoBehaviour
             foreach (var chara in characterList)
             {
                 chara.GetComponent<CharacterBase>().IsMove = false;
+                
+                if (chara.GetComponent<Animator>() != null)
+                {
+                    chara.GetComponent<Animator>().SetBool(chara.GetComponent<Character>().isMove, false);
+                }
             }
             enemyManager.enabled = false;
             return;
