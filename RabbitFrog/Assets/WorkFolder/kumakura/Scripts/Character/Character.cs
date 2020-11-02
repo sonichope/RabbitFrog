@@ -11,6 +11,7 @@ public class Character : CharacterBase
     [SerializeField, Header("攻撃範囲")] protected float attackRange = 1.5f;
     [SerializeField, Header("攻撃速度")] protected float attackInterval = 1.75f;
 
+
     protected Vector2 enemyPos;
     protected bool serchFlag = false;
     protected float atackTime = 0.0f;
@@ -18,10 +19,10 @@ public class Character : CharacterBase
 
     private int maxHp;
 
-    // 爆発の為の変数
-    [SerializeField] private Collider2D explosionCol;
-    private List<CharacterBase> targetCharacter = new List<CharacterBase>();
-    private bool explosionFlag;
+    //// 爆発の為の変数
+    //[SerializeField] private Collider2D explosionCol;
+    //private List<CharacterBase> targetCharacter = new List<CharacterBase>();
+    //private bool explosionFlag;
 
     // Animation変数
     protected Animator characterAnim;
@@ -80,12 +81,12 @@ public class Character : CharacterBase
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (myCardType == CardType.thunderGod) { return; }
-        if (explosionFlag)
-        {
-            targetCharacter.Add(GetComponent<CharacterBase>());
-            Debug.Log("取得");
-            Explosion();
-        }
+        //if (explosionFlag)
+        //{
+        //    targetCharacter.Add(GetComponent<CharacterBase>());
+        //    Debug.Log("取得");
+        //    Explosion();
+        //}
         if (serchFlag) { return; }
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyTower")
         {
@@ -98,17 +99,6 @@ public class Character : CharacterBase
             enemyPos = collision.transform.position;
         }
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    //if (explosionFlag)
-    //    //{
-    //    //    Debug.Log("Flag true");
-    //    //    targetCharacter.Add(GetComponent<CharacterBase>());
-    //    //    Debug.Log("取得");
-    //    //    Explosion();
-    //    //}
-    //}
 
     /// <summary>
     /// 攻撃
@@ -173,21 +163,22 @@ public class Character : CharacterBase
     public override void Death()
     {
         // 特徴が爆発ならばここで爆発をする
-        if (myCharacteristic == characteristic.explosion) { explosionFlag = true;}
+        //if (myCharacteristic == characteristic.explosion) { explosionFlag = true;}
         IsDeath = true;
         gameObject.SetActive(false);
+
     }
 
     /// <summary>
     /// 爆発
     /// </summary>
-    public void Explosion()
+    public void Explosion(Collider2D[] targetCharacter)
     {
-        // 取得したキャラクターのHPを減らす処理
+        //取得したキャラクターのHPを減らす処理
+        //（201030）イゴンヒ修正
         foreach (var chara in targetCharacter)
         {
-            chara.hp -= 10;
-            Debug.Log("どかん");
+            chara.gameObject.GetComponent<CharacterBase>().hp -= 10;
         }
         IsDeath = true;
         gameObject.SetActive(false);
