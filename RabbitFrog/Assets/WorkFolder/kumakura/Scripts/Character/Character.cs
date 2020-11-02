@@ -25,9 +25,9 @@ public class Character : CharacterBase
     //private bool explosionFlag;
 
     // Animation変数
-    protected Animator characterAnim;
-    protected string attackTrigger = "AttackTrigger";
-    protected string isMove = "IsMove";
+    public Animator characterAnim;
+    public string attackTrigger = "AttackTrigger";
+    public string isMove = "IsMove";
 
     public enum AttackMethod
     {

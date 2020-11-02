@@ -21,4 +21,17 @@ public class DeckSave : MonoBehaviour
         }
         return true;
     }
+
+    public static void Reset()
+    {
+        for (int i = 0; i < cardPoolObject.Length; i++)
+        {
+            if (cardPoolObject[i] != null)
+            {
+                cardPoolObject[i] = null;
+                iconImage[i] = null;
+                nowSprite[i] = null;
+            }
+        }
+    }
 }
