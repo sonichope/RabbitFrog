@@ -1040,6 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f8253455ad98645836a5208f18756b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect_Sketch: {fileID: 0}
 --- !u!1 &4421351979685575254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2096,6 +2097,7 @@ GameObject:
   - component: {fileID: 4572256573669073856}
   - component: {fileID: 5719834761824641044}
   - component: {fileID: 1186671907441796477}
+  - component: {fileID: 4078742126717490895}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: Untagged
@@ -2159,6 +2161,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4078742126717490895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7195202961633909925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7280378988534605327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,6 +2240,7 @@ MonoBehaviour:
   rabbitTower: {fileID: 0}
   enemyManager: {fileID: 0}
   battleCanvas: {fileID: 0}
+  is_Time_out: 0
   characterList: []
 --- !u!1 &8199803344186308416
 GameObject:
