@@ -55,15 +55,19 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void GetFlag()
     {
-        Debug.Log(_makimonoFlag.GetTestFlag + " / " + _makimonoFlag.GetMarkFlag);
-        if (_makimonoFlag.GetTestFlag)
+        //Debug.Log(_makimonoFlag.test + " / " + _makimonoFlag.mark);
+        if (_makimonoFlag.test)
         {
             Debug.Log("aaaaa");
+            _makimonoFlag.test = !_makimonoFlag.test;
+            //_makimonoFlag.mark = false;
             OnOpenOrganization();
         }
-        else if (_makimonoFlag.GetMarkFlag)
+        else if (_makimonoFlag.mark)
         {
             Debug.Log("aaaaa");
+            _makimonoFlag.test = !_makimonoFlag.test;
+            //_makimonoFlag.test = false;
             OnOpenStageSelect();
         }
     }

@@ -225,6 +225,7 @@ public class makimonoAnim : MonoBehaviour
             if (nextState.Equals(OptionState.Army))//Armyに移動
             {
                 anim.SetBool(firstAnimFlag, true);
+                anim.SetBool(isOpenFlag, false);
                 //anim.SetTrigger("FirstAnim");
                 armyFlag = !armyFlag;
                 selectFlag = false;
@@ -232,6 +233,7 @@ public class makimonoAnim : MonoBehaviour
             else if (nextState.Equals(OptionState.Select))//Selectに移動
             {
                 anim.SetBool(firstAnimFlag, true);
+                anim.SetBool(isOpenFlag, false);
                 //anim.SetTrigger("FirstAnim");
                 //anim.SetBool(isOpenFlag, false);
                 armyFlag = false;

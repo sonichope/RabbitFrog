@@ -14,6 +14,8 @@ public class makimono : MonoBehaviour
 
     [SerializeField] private bool testFlag = true;
     [SerializeField] private bool markFlag = true;
+    public bool test = false;
+    public bool mark = false;
 
     // 軍編成が開いているかどうかのFlag管理のプロパティー
     public bool GetTestFlag { get { return testFlag; } }
@@ -34,6 +36,8 @@ public class makimono : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(testFlag + " / " + markFlag);
+        Debug.Log(test + " / " + mark);
         // testが軍編成
         if (testFlag == false)
         {
@@ -49,6 +53,8 @@ public class makimono : MonoBehaviour
             {
                 // paperのAnimation再生、軍編成が開く
                 testFlag = true;
+                //test = !test;
+                test = true;
                 present_Location = 1;
                 //makimonoAnimation.ArmyFlag();
                 //makimonoAnimation.ClickArmy();
@@ -67,6 +73,8 @@ public class makimono : MonoBehaviour
             {
                 // paperのAnimation再生、戦場選択が開く
                 markFlag = true;
+                //mark = !mark;
+                mark = true;
                 present_Location = 0;
                 //makimonoAnimation.SelectFrag();
                 //makimonoAnimation.ClickSelect();

@@ -35,7 +35,7 @@ public class EndAnimation : OptionController
     public void MakimonoScale()
     {
         //animator.SetTrigger("EndAnim");
-        animator.SetBool(firstAnimFlag, true);
+        //animator.SetBool(firstAnimFlag, true);
         armyOrganization.transform.localScale = new Vector2(1, 1);
         stageSelect.transform.localScale = new Vector2(1, 1);
     }
