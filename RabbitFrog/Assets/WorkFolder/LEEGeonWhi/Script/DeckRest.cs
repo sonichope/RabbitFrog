@@ -8,5 +8,6 @@ public class DeckRest : MonoBehaviour
     void Start()
     {
         DeckSave.Reset();
+        SaveData.SaveReset();
     }
 }
