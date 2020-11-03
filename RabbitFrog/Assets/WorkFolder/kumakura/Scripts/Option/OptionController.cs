@@ -60,14 +60,14 @@ public class OptionController : MonoBehaviour
         {
             Debug.Log("aaaaa");
             _makimonoFlag.test = !_makimonoFlag.test;
-            //_makimonoFlag.mark = false;
+            _makimonoFlag.mark = false;
             OnOpenOrganization();
         }
         else if (_makimonoFlag.mark)
         {
             Debug.Log("aaaaa");
             _makimonoFlag.test = !_makimonoFlag.test;
-            //_makimonoFlag.test = false;
+            _makimonoFlag.test = false;
             OnOpenStageSelect();
         }
     }

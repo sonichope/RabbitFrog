@@ -21,6 +21,7 @@ public class makimonoAnim : MonoBehaviour
     [SerializeField] private bool selectFlag = false;
     // transitionFlagのtrue,falseを管理する
     [SerializeField] private bool transitionAnimFlag = false;
+    [SerializeField] private bool isOpenAnimFlag = false;
     // 2回クリックしたかを検知する
     [SerializeField] private bool secondFlag = false;
     
@@ -69,6 +70,20 @@ public class makimonoAnim : MonoBehaviour
         else if(transitionAnimFlag)
         {
             anim.SetBool(transitionFlag, true);
+        }
+    }
+
+    public void OpenFlag()
+    {
+        isOpenAnimFlag = !isOpenAnimFlag;
+        Debug.Log("isOpenAnimFlagが" + isOpenAnimFlag + "です");
+        if (!isOpenAnimFlag)
+        {
+            anim.SetBool(isOpenFlag, false);
+        }
+        if (isOpenAnimFlag)
+        {
+            anim.SetBool(isOpenFlag, true);
         }
     }
 
@@ -226,16 +241,18 @@ public class makimonoAnim : MonoBehaviour
             {
                 anim.SetBool(firstAnimFlag, true);
                 anim.SetBool(isOpenFlag, false);
+                //OpenFlag();
                 //anim.SetTrigger("FirstAnim");
                 armyFlag = !armyFlag;
                 selectFlag = false;
             }
             else if (nextState.Equals(OptionState.Select))//Selectに移動
             {
+                Debug.Log("ここ来た");
                 anim.SetBool(firstAnimFlag, true);
                 anim.SetBool(isOpenFlag, false);
+                //OpenFlag();
                 //anim.SetTrigger("FirstAnim");
-                //anim.SetBool(isOpenFlag, false);
                 armyFlag = false;
                 selectFlag = !selectFlag;
             }
@@ -274,7 +291,9 @@ public class makimonoAnim : MonoBehaviour
             }
             else if (nextState.Equals(OptionState.Select))//閉じる処理
             {
-                anim.SetBool(isOpenFlag, true);
+                Debug.Log("今ここ");
+                //anim.SetBool(isOpenFlag, true);
+                OpenFlag();
                 armyFlag = false;
                 selectFlag = false;
             }
