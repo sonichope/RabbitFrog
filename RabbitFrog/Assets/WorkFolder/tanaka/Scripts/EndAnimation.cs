@@ -13,6 +13,8 @@ public class EndAnimation : OptionController
     Animation anim;
     Animator animator;
 
+    private string firstAnimFlag = "FirstAnimFlag";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +34,9 @@ public class EndAnimation : OptionController
 
     public void MakimonoScale()
     {
+        //animator.SetTrigger("EndAnim");
+        //animator.SetBool(firstAnimFlag, true);
         armyOrganization.transform.localScale = new Vector2(1, 1);
         stageSelect.transform.localScale = new Vector2(1, 1);
-        //animator.SetTrigger("EndAnim");
     }
 }

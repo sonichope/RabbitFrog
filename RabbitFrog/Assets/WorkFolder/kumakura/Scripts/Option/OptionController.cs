@@ -33,7 +33,7 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenOrganization()
     {
-        if (!_makimono.GetArmyFlag) { return; }
+        //if (!_makimono.GetArmyFlag) { return; }
         stageSelectCanvas.rootCanvas.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
@@ -44,7 +44,7 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenStageSelect()
     {
-        if (!_makimono.GetSelectFlag) { return; }
+        //if (!_makimono.GetSelectFlag) { return; }
         organizationCanvas.rootCanvas.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
         stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
@@ -55,12 +55,19 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void GetFlag()
     {
-        if (_makimonoFlag.GetTestFlag)
+        //Debug.Log(_makimonoFlag.test + " / " + _makimonoFlag.mark);
+        if (_makimonoFlag.test)
         {
+            Debug.Log("aaaaa");
+            _makimonoFlag.test = !_makimonoFlag.test;
+            _makimonoFlag.test = false;
             OnOpenOrganization();
         }
-        if (_makimonoFlag.GetMarkFlag)
+        else if (_makimonoFlag.mark)
         {
+            Debug.Log("aaaaa");
+            _makimonoFlag.mark = !_makimonoFlag.mark;
+            _makimonoFlag.mark = false;
             OnOpenStageSelect();
         }
     }
