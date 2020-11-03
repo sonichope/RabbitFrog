@@ -264,18 +264,21 @@ public class makimonoAnim : MonoBehaviour
             {
                 nextState = OptionState.None;
                 anim.SetBool(isOpenFlag, true);
+                anim.SetBool(firstAnimFlag, false);
                 armyFlag = false;
             }
             else if (nextState.Equals(OptionState.Select))//Selectに移動
             {
                 anim.SetTrigger(transitionFirst);
                 BoolFlag();
+                anim.SetBool(firstAnimFlag, false);
                 armyFlag = false;
                 selectFlag = true;
             }
             if (nextState.Equals(OptionState.None))//閉じる処理
             {
                 anim.SetBool(isOpenFlag, true);
+                anim.SetBool(firstAnimFlag, false);
                 armyFlag = false;
                 selectFlag = false;
             }
@@ -286,6 +289,7 @@ public class makimonoAnim : MonoBehaviour
             {
                 anim.SetTrigger(transitionFirst);
                 BoolFlag();
+                anim.SetBool(firstAnimFlag, false);
                 armyFlag = true;
                 selectFlag = false;
             }
@@ -300,6 +304,8 @@ public class makimonoAnim : MonoBehaviour
             if (nextState.Equals(OptionState.None))//閉じる処理
             {
                 anim.SetBool(isOpenFlag, true);
+                //OpenFlag();
+                anim.SetBool(firstAnimFlag, false);
                 armyFlag = false;
                 selectFlag = false;
             }

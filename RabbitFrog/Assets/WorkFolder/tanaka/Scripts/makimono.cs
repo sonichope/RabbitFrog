@@ -53,7 +53,7 @@ public class makimono : MonoBehaviour
             {
                 // paperのAnimation再生、軍編成が開く
                 testFlag = true;
-                //test = !test;
+                test = !test;
                 test = true;
                 present_Location = 1;
                 //makimonoAnimation.ArmyFlag();
@@ -73,7 +73,7 @@ public class makimono : MonoBehaviour
             {
                 // paperのAnimation再生、戦場選択が開く
                 markFlag = true;
-                //mark = !mark;
+                mark = !mark;
                 mark = true;
                 present_Location = 0;
                 //makimonoAnimation.SelectFrag();
