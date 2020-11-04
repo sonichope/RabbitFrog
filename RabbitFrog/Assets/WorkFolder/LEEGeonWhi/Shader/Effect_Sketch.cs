@@ -22,6 +22,7 @@ public class Effect_Sketch : MonoBehaviour
     void Start()
     {
         rect = ScrollPaper.GetComponent<RectTransform>();
+        this.GetComponent<Camera>().depth = 0;
         StartCoroutine(InitScene());
         Alpha = 1.0f;
         effect.SetFloat("_t", Alpha);
