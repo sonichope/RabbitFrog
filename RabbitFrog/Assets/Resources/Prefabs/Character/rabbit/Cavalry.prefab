@@ -133,7 +133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 1.2}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2678416240892604810
@@ -288,7 +288,9 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.5
-  explosionCol: {fileID: 0}
+  characterAnim: {fileID: 0}
+  attackTrigger: AttackTrigger
+  isMove: IsMove
 --- !u!61 &7868166922440875828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -313,7 +315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92, y: 1.28}
+  m_Size: {x: 1.8, y: 2.3}
   m_EdgeRadius: 0
 --- !u!50 &7683648007739628773
 Rigidbody2D:
