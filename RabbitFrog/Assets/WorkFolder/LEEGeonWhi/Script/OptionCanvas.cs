@@ -43,6 +43,7 @@ public class OptionCanvas : MonoBehaviour
     public void RetireButton()
     {
         TargetScene = SceneManager.GetActiveScene().name;
+        TargetScene = "OptionScene";
         TitlePanel.SetActive(true);
         textContants.text = "ゲームをリタイアしますか？";
     }

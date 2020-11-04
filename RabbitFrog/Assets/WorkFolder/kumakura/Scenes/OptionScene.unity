@@ -2877,6 +2877,10 @@ MonoBehaviour:
   stageSelectCanvas: {fileID: 1861672473}
   confirmCanvas: {fileID: 358190172}
   preMana: {fileID: 0}
+  organizationMask: {fileID: 0}
+  organization: {fileID: 0}
+  stageSelectMask: {fileID: 0}
+  stageSelect: {fileID: 0}
 --- !u!4 &882966384
 Transform:
   m_ObjectHideFlags: 0
@@ -3477,7 +3481,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 198852344}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.34920636
+  m_Size: 0.6984127
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
