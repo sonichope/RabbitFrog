@@ -11,21 +11,24 @@ public class OptionController : MonoBehaviour
     [SerializeField] private Canvas stageSelectCanvas;
     [SerializeField] private Canvas confirmCanvas;
     [SerializeField] private PreviewManager preMana;
-    [SerializeField] private GameObject startPaper;
 
-    //private makimonoAnim makimonoAnimation;
-    Animation anim;
+    [SerializeField] private OrganizationMask organizationMask;
+    [SerializeField] private Organization organization;
+    [SerializeField] private StageSelectMask stageSelectMask;
+    [SerializeField] private StageSelect stageSelect;
 
-    [SerializeField] makimonoAnim _makimono;
-    [SerializeField] makimono _makimonoFlag;
+    GraphicRaycaster organization_raycaster;
+    GraphicRaycaster stageSelect_raycaster;
+    
 
     void Start()
     {
-        anim = startPaper.GetComponent<Animation>();
         organizationCanvas.enabled = false;
         stageSelectCanvas.enabled = false;
-        //makimonoAnimation = GetComponent<makimonoAnim>();
         //confirmCanvas.enabled = false;
+
+        organization_raycaster = organizationCanvas.GetComponent<GraphicRaycaster>();
+        stageSelect_raycaster = stageSelectCanvas.GetComponent<GraphicRaycaster>();
     }
 
     /// <summary>
@@ -33,10 +36,24 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenOrganization()
     {
-        //if (!_makimono.GetArmyFlag) { return; }
         stageSelectCanvas.rootCanvas.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
         organizationCanvas.rootCanvas.enabled = !organizationCanvas.rootCanvas.enabled;
+        
+        stageSelect_raycaster.enabled = false;
+        stageSelect.Close();
+
+        //イゴンヒ（201104）==============
+        organizationCanvas.rootCanvas.enabled = true;
+        //organization_raycaster.enabled = !organization_raycaster.enabled;
+        organization_raycaster.enabled = true;
+        
+        stageSelectMask.image.fillAmount = 0;
+        stageSelectMask.start_anime = false;
+        
+        organizationMask.Run_animation();
+        organization.Open();
+        //================================
     }
 
     /// <summary>
@@ -44,42 +61,27 @@ public class OptionController : MonoBehaviour
     /// </summary>
     public void OnOpenStageSelect()
     {
-        //if (!_makimono.GetSelectFlag) { return; }
         organizationCanvas.rootCanvas.enabled = false;
+        organization.Close();
+        organization_raycaster.enabled = false;
         //confirmCanvas.rootCanvas.enabled = false;
-        stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
+        //stageSelectCanvas.rootCanvas.enabled = !stageSelectCanvas.rootCanvas.enabled;
+
+        //イゴンヒ（201104）==============
+        stageSelectCanvas.rootCanvas.enabled = true;
+        stageSelect_raycaster.enabled = true;
+        //stageSelect_raycaster.enabled = !stageSelect_raycaster.enabled;
+        
+        organizationMask.image.fillAmount = 0;
+        organizationMask.start_anime = false;
+        
+        stageSelectMask.Run_animation();
+        stageSelect.Open();
+        //================================
+
     }
 
-    /// <summary>
-    /// 他のスクリプトからこのFlagがtrueの時どちらかの関数を呼び出す
-    /// </summary>
-    public void GetFlag()
-    {
-        //Debug.Log(_makimonoFlag.test + " / " + _makimonoFlag.mark);
-        if (_makimonoFlag.test)
-        {
-            Debug.Log("aaaaa");
-            _makimonoFlag.test = !_makimonoFlag.test;
-            _makimonoFlag.test = false;
-            OnOpenOrganization();
-        }
-        else if (_makimonoFlag.mark)
-        {
-            Debug.Log("aaaaa");
-            _makimonoFlag.mark = !_makimonoFlag.mark;
-            _makimonoFlag.mark = false;
-            OnOpenStageSelect();
-        }
-    }
 
-    /// <summary>
-    /// 巻物を閉じるアニメーション再生時にメニューUIを非表示にする
-    /// </summary>
-    public void Enable()
-    {
-        stageSelectCanvas.rootCanvas.enabled = false;
-        organizationCanvas.rootCanvas.enabled = false;
-    }
 
     //public void OnOpenConfirm()
     //{
@@ -87,4 +89,5 @@ public class OptionController : MonoBehaviour
     //    organizationCanvas.rootCanvas.enabled = false;
     //    confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
     //}
+
 }
