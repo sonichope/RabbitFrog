@@ -29,7 +29,7 @@ public class Triangle : MonoBehaviour
     {
         if (col.tag == "Enemy")
         {
-
+            col.GetComponent<Enemy>().hp -= 20;
         }
 
     }
