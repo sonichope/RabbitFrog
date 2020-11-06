@@ -154,6 +154,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2493852708222708548, guid: 32187554392481846b3e1c37c43894fb,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2493852708222708550, guid: 32187554392481846b3e1c37c43894fb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -273,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493852708222708551, guid: 32187554392481846b3e1c37c43894fb,
+        type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2493852708222708569, guid: 32187554392481846b3e1c37c43894fb,
         type: 3}
@@ -765,6 +775,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1273585793}
+    - target: {fileID: 1934120309888948900, guid: d3f1985120186a54b8454368583430e9,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1934120309888948902, guid: d3f1985120186a54b8454368583430e9,
         type: 3}
       propertyPath: m_Name
