@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class StageSelectMask : MonoBehaviour
 {
     public Image image;
-    public bool start_anime = false;
+    //public bool start_anime = false;
+
+    public bool is_status = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,22 +19,48 @@ public class StageSelectMask : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (image.fillAmount <= 1 && start_anime)
-        {
-            image.fillAmount += Time.deltaTime;
-        }
+        //if (image.fillAmount <= 1 && start_anime)
+        //{
+        //    image.fillAmount += Time.deltaTime;
+        //}
 
-        if (image.fillAmount >= 0 && !start_anime)
-        {
-            image.fillAmount -= Time.deltaTime;
-        }
+        //if (image.fillAmount >= 0 && !start_anime)
+        //{
+        //    image.fillAmount -= Time.deltaTime;
+        //}
 
 
     }
 
-    public void Run_animation()
+    //public void Open_animation()
+    //{
+    //    //start_anime = !start_anime;
+    //    start_anime = true;
+    //}
+
+    public IEnumerator Open()
     {
-        //start_anime = !start_anime;
-        start_anime = true;
+        is_status = true;
+        OptionController.is_runing = true;
+        while (image.fillAmount <= 1)
+        {
+            if (image.fillAmount >= 1) break;
+            yield return new WaitForSeconds(Time.deltaTime);
+            image.fillAmount += Time.deltaTime;
+        }
+        OptionController.is_runing = false;
+    }
+
+    public IEnumerator Close()
+    {
+        is_status = false;
+        OptionController.is_runing = true;
+        while (image.fillAmount >= 0)
+        {
+            if (image.fillAmount <= 0) break;
+            yield return new WaitForSeconds(Time.deltaTime);
+            image.fillAmount -= Time.deltaTime;
+        }
+        OptionController.is_runing = false;
     }
 }
