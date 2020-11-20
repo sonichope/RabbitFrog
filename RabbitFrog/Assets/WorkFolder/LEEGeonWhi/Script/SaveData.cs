@@ -8,4 +8,13 @@ public class SaveData
     //StageClear[1] = stage2
     //StageClear[2] = stage3
     public static bool[] StageClear = new bool[4] {true, false, false, false};
+
+    public static void SaveReset()
+    {
+        StageClear[0] = true;
+        for(int i = 1; i < StageClear.Length; i++)
+        {
+            StageClear[i] = false;
+        }
+    }
 }

@@ -102,7 +102,7 @@ public class ScenarioTextControl : MonoBehaviour
 
         for (int i = 0; i < CharPos.Length; i++)
         {
-            CharPos[i].color = new Color(1, 1, 1, 0.1f);
+            CharPos[i].color = new Color(0.5f, 0.5f, 0.5f, 0.6f);
         }
 
         switch (name)

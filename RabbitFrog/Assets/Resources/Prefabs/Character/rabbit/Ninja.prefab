@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.8}
+  m_AnchoredPosition: {x: 0, y: 1.2}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2909597436154717465
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e0ea73a1112b38240b86b2d409e88dc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e4b06c4d98b66d94f96fa09537c6e7c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: "\u5FCD\u8005"
-  image: {fileID: 21300000, guid: e0ea73a1112b38240b86b2d409e88dc5, type: 3}
+  image: {fileID: 21300000, guid: e4b06c4d98b66d94f96fa09537c6e7c8, type: 3}
   hp: 20
   power: 10
   myCharacteristic: 3
@@ -188,6 +188,9 @@ MonoBehaviour:
   myAttackMethod: 1
   attackRange: 1.5
   attackInterval: 1.5
+  characterAnim: {fileID: 0}
+  attackTrigger: AttackTrigger
+  isMove: IsMove
 --- !u!61 &6998925600800306974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -205,14 +208,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.92}
+    oldSize: {x: 3.14, y: 3.05}
     newSize: {x: 5.14, y: 3.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 0.92}
+  m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
 --- !u!50 &2111261711406051070
 Rigidbody2D:

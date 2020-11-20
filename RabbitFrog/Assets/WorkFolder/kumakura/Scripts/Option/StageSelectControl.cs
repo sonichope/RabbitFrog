@@ -30,7 +30,7 @@ public class StageSelectControl : MonoBehaviour
             }
             else
             {
-                StagePanel[i].color = new Color(0.7f, 0.7f, 0.7f, 0.7f);
+                StagePanel[i].color = new Color(0.7f, 0.7f, 0.7f, 0.3f);
             }
             
         }

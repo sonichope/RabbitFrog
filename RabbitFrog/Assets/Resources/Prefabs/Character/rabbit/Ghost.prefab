@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1aca60e7452d9b947aaf0d9599808f44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac92d4d1b9d578d4a95f5d52845d3350, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: "\u6B7B\u970A"
-  image: {fileID: 21300000, guid: 1aca60e7452d9b947aaf0d9599808f44, type: 3}
+  image: {fileID: 21300000, guid: ac92d4d1b9d578d4a95f5d52845d3350, type: 3}
   hp: 10
   power: 3
   myCharacteristic: 4
@@ -110,7 +110,12 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.75
-  explosionCol: {fileID: 8499356188783627826}
+  characterAnim: {fileID: 0}
+  attackTrigger: AttackTrigger
+  isMove: IsMove
+  effect: {fileID: 3365695966788552371, guid: 0a5129f51b892b94ca89753e9ef08524, type: 3}
+  hitColliders: []
+  radius: 2
 --- !u!61 &288606128051328640
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,18 +129,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2, y: -0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.87, y: 1.28}
+    oldSize: {x: 2.99, y: 2.81}
     newSize: {x: 3.48, y: 5.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.87, y: 1.28}
+  m_Size: {x: 2.1485043, y: 2.7224422}
   m_EdgeRadius: 0
 --- !u!50 &836739336583448937
 Rigidbody2D:
@@ -208,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 1.2}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7653165393436290917

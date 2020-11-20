@@ -110,7 +110,9 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.5
   attackInterval: 1.75
-  explosionCol: {fileID: 0}
+  characterAnim: {fileID: 0}
+  attackTrigger: AttackTrigger
+  isMove: IsMove
 --- !u!61 &3224262353349109011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +137,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
 --- !u!50 &3609178734311400540
 Rigidbody2D:
@@ -211,7 +213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 1.3}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4852638307490492350

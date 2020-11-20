@@ -288,7 +288,9 @@ MonoBehaviour:
   myAttackMethod: 0
   attackRange: 1.75
   attackInterval: 2.25
-  explosionCol: {fileID: 0}
+  characterAnim: {fileID: 0}
+  attackTrigger: AttackTrigger
+  isMove: IsMove
 --- !u!61 &3843153192977241277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -313,7 +315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &1562026514426497756
 Rigidbody2D:

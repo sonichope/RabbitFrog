@@ -16,6 +16,9 @@ public class BattleController : MonoBehaviour
     [SerializeField] ConfirmCanvas_Battle battleCanvas;
 
     private float summonGageVal = 5.0f;     // 召喚ゲージ　: 最大は10
+
+    public bool is_Time_out = false;
+
     public float SummonGageVal
     {
         get { return summonGageVal; }
@@ -34,6 +37,11 @@ public class BattleController : MonoBehaviour
         // 時間処理
         if (gameTime <= 0 || enemyTower.hp <= 0 || rabbitTower.hp <= 0)
         {
+            //イゴンヒ（20201030）
+            if (gameTime <= 0)
+            {
+                is_Time_out = true;
+            }
             // 勝敗判定
             if (enemyTower.hp <= rabbitTower.hp)
             {
@@ -49,6 +57,11 @@ public class BattleController : MonoBehaviour
             foreach (var chara in characterList)
             {
                 chara.GetComponent<CharacterBase>().IsMove = false;
+                
+                if (chara.GetComponent<Animator>() != null)
+                {
+                    chara.GetComponent<Animator>().SetBool(chara.GetComponent<Character>().isMove, false);
+                }
             }
             enemyManager.enabled = false;
             return;
