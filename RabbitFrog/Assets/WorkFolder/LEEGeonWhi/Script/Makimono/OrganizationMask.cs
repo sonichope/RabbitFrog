@@ -36,10 +36,18 @@ public class OrganizationMask : MonoBehaviour
     //    start_anime = true;
     //}
 
-    public IEnumerator Open()
+    /// <summary>
+    /// アニメーション起動
+    /// </summary>
+    /// <param name="Close_Target">閉じるCanvas Target</param>
+    /// <returns></returns>
+    public IEnumerator Open(StageSelectMask Close_Target)
     {
-        is_status = true;
         OptionController.is_runing = true;
+
+        StartCoroutine(Close_Target.Close());
+        yield return StartCoroutine(Close_Target.Close());
+
 
         while (image.fillAmount <= 1)
         {
@@ -52,9 +60,6 @@ public class OrganizationMask : MonoBehaviour
 
     public IEnumerator Close()
     {
-        is_status = false;
-        OptionController.is_runing = true;
-
 
         while (image.fillAmount >= 0)
         {
@@ -62,6 +67,5 @@ public class OrganizationMask : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
             image.fillAmount -= Time.deltaTime;
         }
-        OptionController.is_runing = false;
     }
 }
