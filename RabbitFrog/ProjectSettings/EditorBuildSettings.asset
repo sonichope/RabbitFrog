@@ -32,4 +32,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WorkFolder/kumakura/Scenes/ClearScene.unity
     guid: 737bda21152624449a8ad4b303753be3
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/WorkFolder/Ghost/Scenes/Setup.unity
+    guid: c59ff54a34e746746b20b3713b9c1b6d
+  - enabled: 1
+    path: Assets/WorkFolder/Ghost/Scenes/Title.unity
+    guid: 0e08f698848517c4da30fbe8d680cf5b
+  - enabled: 1
+    path: Assets/WorkFolder/Ghost/Scenes/Story.unity
+    guid: d4859c9f3474cb4468eb64f7ed7cc78e
+  - enabled: 1
+    path: Assets/WorkFolder/Ghost/Scenes/Select.unity
+    guid: fe4f230c2d294fa42a280c11ff96ee37
+  - enabled: 1
+    path: Assets/WorkFolder/Ghost/Scenes/Battle.unity
+    guid: dd88a60125efe9043a15bd5b12b86a3a
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 3ab0eb0f4b795764cac3552e40629527,
+      type: 2}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Ghost;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,6 +39,7 @@ public class StageSelectControl : MonoBehaviour
 
     public void OnBattleFirst()
     {
+        if ( !GameSetting.GetStageData(0)) return;
         //if (DeckCheck()) GameSceneManager.LdadBattleFirstScene();
         if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[0])
         {
@@ -49,6 +51,7 @@ public class StageSelectControl : MonoBehaviour
 
     public void OnBattleSecond()
     {
+        if ( !GameSetting.GetStageData(1)) return;
         //if (DeckCheck()) GameSceneManager.LoadBattleSecondScene();
         if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[1])
         {
@@ -59,17 +62,18 @@ public class StageSelectControl : MonoBehaviour
 
     public void OnBattleThird()
     {
+        if ( !GameSetting.GetStageData(2)) return;
         //if (DeckCheck()) GameSceneManager.LoadBattleThirdScene();
         if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[2])
         {
             NextScene = "BattleThird";
             confirmCanvas.rootCanvas.enabled = !confirmCanvas.rootCanvas.enabled;
-
         }
     }
 
     public void OnBattleBoss()
     {
+        if ( !GameSetting.GetStageData(3)) return;
         //if (DeckCheck()) GameSceneManager.LoadBattleBossScene();
         if (DeckCheck() && !effect_Sketch.Scene_changing && SaveData.StageClear[3])
         {

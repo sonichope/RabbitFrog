@@ -34,7 +34,7 @@ public class Enemy : CharacterBase
     void FixedUpdate()
     {
         hpText.text = hp.ToString("") + "/" + maxHp.ToString("");
-        Debug.Log(characterPos);
+        //Debug.Log(characterPos);
     }
 
     public void EnemyMove(float speed)

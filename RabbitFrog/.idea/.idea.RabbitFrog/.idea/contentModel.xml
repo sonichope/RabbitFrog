@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\sonic\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sonic\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_RabbitFrog.397936064.00" t="ExcludeRecursive" />
+    <e p="D:\User\sonic\UnityProjects\RabbitFrog\RabbitFrog" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="CreateEnemyPositionHandle.cs" t="Include" />
+          <e p="EnemyManagerEditor.cs" t="Include" />
+        </e>
+        <e p="WorkFolder" t="Include">
+          <e p="Ghost" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="ActionController.cs" t="Include" />
+              <e p="AiController.cs" t="Include" />
+              <e p="AiFactory.cs" t="Include" />
+              <e p="BattleStage.cs" t="Include" />
+              <e p="ConfirmCanvas.cs" t="Include" />
+              <e p="DeckSerializeData.cs" t="Include" />
+              <e p="DefaultActionController.cs" t="Include" />
+              <e p="DefaultAiController.cs" t="Include" />
+              <e p="EnemyTowerAiController.cs" t="Include" />
+              <e p="GameConstants.cs" t="Include" />
+              <e p="GameData.cs" t="Include" />
+              <e p="GameSetting.cs" t="Include" />
+              <e p="GameStart.cs" t="Include" />
+              <e p="HandManager.cs" t="Include" />
+              <e p="HandManagerUi.cs" t="Include" />
+              <e p="HandUi.cs" t="Include" />
+              <e p="SelectStart.cs" t="Include" />
+              <e p="SetupStart.cs" t="Include" />
+              <e p="StageSelectControl.cs" t="Include" />
+              <e p="StageSerializeData.cs" t="Include" />
+              <e p="StoryTextController.cs" t="Include" />
+              <e p="TitleController.cs" t="Include" />
+              <e p="TowerObject.cs" t="Include" />
+              <e p="UnitDefaultAiController.cs" t="Include" />
+              <e p="UnitGameObject.cs" t="Include" />
+              <e p="UnitObject.cs" t="Include" />
+              <e p="UnitObjectBase.cs" t="Include" />
+              <e p="UnitSerializeData.cs" t="Include" />
+              <e p="UserDataControl.cs" t="Include" />
+            </e>
+          </e>
+          <e p="kumakura" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Battle" t="Include">
+                <e p="BattleController.cs" t="Include" />
+                <e p="HandManager.cs" t="Include" />
+                <e p="HandObject.cs" t="Include" />
+                <e p="IncModeController.cs" t="Include" />
+              </e>
+              <e p="Character" t="Include">
+                <e p="Chara" t="Include">
+                  <e p="ArcheryCorpsCharacter.cs" t="Include" />
+                  <e p="CavalryCharacter.cs" t="Include" />
+                  <e p="CavalryGeneralCharacter.cs" t="Include" />
+                  <e p="GhostCharacter.cs" t="Include" />
+                  <e p="HeavyKnightCharacter.cs" t="Include" />
+                  <e p="InfantryCharacter.cs" t="Include" />
+                  <e p="InfantryPlatoonCharacter.cs" t="Include" />
+                  <e p="KnightCharacter.cs" t="Include" />
+                  <e p="MonsterCharacter.cs" t="Include" />
+                  <e p="NecromancerCharacter.cs" t="Include" />
+                  <e p="NinjaCharacter.cs" t="Include" />
+                  <e p="SamuraiCharacter.cs" t="Include" />
+                  <e p="ThunderGodCharacter.cs" t="Include" />
+                </e>
+                <e p="Character.cs" t="Include" />
+                <e p="CharacterBase.cs" t="Include" />
+                <e p="CharacterController.cs" t="Include" />
+                <e p="CharacterDeta.cs" t="Include" />
+                <e p="CreateEnemyPosition.cs" t="Include" />
+                <e p="Enemy" t="Include">
+                  <e p="ArcheryCorpsEnemy.cs" t="Include" />
+                  <e p="CavalryEnemy.cs" t="Include" />
+                  <e p="CavalryGeneralEnemy.cs" t="Include" />
+                  <e p="GhostEnemy.cs" t="Include" />
+                  <e p="HeavyKnightEnemy.cs" t="Include" />
+                  <e p="InfantryEnemy.cs" t="Include" />
+                  <e p="InfantryPlatoonEnemy.cs" t="Include" />
+                  <e p="KnightEnemy.cs" t="Include" />
+                  <e p="MonsterEnemy.cs" t="Include" />
+                  <e p="NecromancerEnemy.cs" t="Include" />
+                  <e p="NinjaEnemy.cs" t="Include" />
+                  <e p="SamuraiEnemy.cs" t="Include" />
+                  <e p="ThunderGodEnemy.cs" t="Include" />
+                </e>
+                <e p="Enemy.cs" t="Include" />
+                <e p="EnemyManager.cs" t="Include" />
+                <e p="EnemyTower.cs" t="Include" />
+                <e p="Tower.cs" t="Include" />
+                <e p="TowerDeta.cs" t="Include" />
+              </e>
+              <e p="Clear" t="Include">
+                <e p="ClearController.cs" t="Include" />
+              </e>
+              <e p="GameSceneManager.cs" t="Include" />
+              <e p="Option" t="Include">
+                <e p="CardPoolObject.cs" t="Include" />
+                <e p="DeckData.cs" t="Include" />
+                <e p="DeckManager.cs" t="Include" />
+                <e p="DeckObject.cs" t="Include" />
+                <e p="OptionController.cs" t="Include" />
+                <e p="PreviewManager.cs" t="Include" />
+                <e p="SetDeckDebug.cs" t="Include" />
+                <e p="StageSelectControl.cs" t="Include" />
+              </e>
+              <e p="Scenario" t="Include">
+                <e p="ScenarioTextControl.cs" t="Include" />
+              </e>
+              <e p="Title" t="Include">
+                <e p="TitleController.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="LEEGeonWhi" t="Include">
+            <e p="Scenes" t="Include">
+              <e p="Drawing.cs" t="Include" />
+            </e>
+            <e p="Script" t="Include">
+              <e p="AutoDeckSet.cs" t="Include" />
+              <e p="BattleSceneUI.cs" t="Include" />
+              <e p="Circle.cs" t="Include" />
+              <e p="ConfirmCanvas.cs" t="Include" />
+              <e p="ConfirmCanvas_Battle.cs" t="Include" />
+              <e p="DeckRest.cs" t="Include" />
+              <e p="DeckSave.cs" t="Include" />
+              <e p="EndGame.cs" t="Include" />
+              <e p="handBackGround.cs" t="Include" />
+              <e p="InkAmout.cs" t="Include" />
+              <e p="InkMode.cs" t="Include" />
+              <e p="Line.cs" t="Include" />
+              <e p="LineClass.cs" t="Include" />
+              <e p="LineController" t="Include">
+                <e p="CircleClass.cs" t="Include" />
+                <e p="LineController.cs" t="Include" />
+                <e p="TriangleClass.cs" t="Include" />
+              </e>
+              <e p="List Test.cs" t="Include" />
+              <e p="Makimono" t="Include">
+                <e p="Organization.cs" t="Include" />
+                <e p="OrganizationMask.cs" t="Include" />
+                <e p="StageSelect.cs" t="Include" />
+                <e p="StageSelectMask.cs" t="Include" />
+              </e>
+              <e p="OptionCanvas.cs" t="Include" />
+              <e p="PlayerAiController.cs" t="Include" />
+              <e p="SaveData.cs" t="Include" />
+              <e p="Triangle.cs" t="Include" />
+              <e p="Wall.cs" t="Include" />
+              <e p="WallParent.cs" t="Include" />
+            </e>
+            <e p="Shader" t="Include">
+              <e p="Effect_Sketch.cs" t="Include" />
+              <e p="OutLine.shader" t="Include" />
+              <e p="SceneChangeEffect.shader" t="Include" />
+            </e>
+          </e>
+          <e p="miyata" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="BattleOption.cs" t="Include" />
+              <e p="ChoicesCon.cs" t="Include" />
+              <e p="OptionCon.cs" t="Include" />
+              <e p="SoundOption.cs" t="Include" />
+              <e p="TaitleBackCon.cs" t="Include" />
+              <e p="Test.cs" t="Include" />
+              <e p="TitleCon.cs" t="Include" />
+            </e>
+          </e>
+          <e p="tanaka" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="EndAnimation.cs" t="Include" />
+              <e p="makimono.cs" t="Include" />
+              <e p="makimonoAnim.cs" t="Include" />
+              <e p="Searching.cs" t="Include" />
+              <e p="TestDistance.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="RabbitFrog.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
