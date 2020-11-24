@@ -12,6 +12,8 @@ public class InkMode : MonoBehaviour
     RectTransform Set_rt;
     Vector3 rt_temp;
 
+    private bool Lnow = false;
+
     //[SerializeField]
     //float Width;
 
@@ -28,18 +30,22 @@ public class InkMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 水墨モードON
         if (LineController.is_inkMode)
         {
             //image.material.SetFloat("_Width", Width);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.6f);
-            rt_temp.y = 1.8f;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
+            Lnow = true;
+            rt_temp.y = 2f;     // ONの状態の時サイズが大きくなる
             Set_rt.localScale = rt_temp;
         }
+        // 水墨モードOFF
         if (!LineController.is_inkMode)
         {
             //image.material.SetFloat("_Width", 0);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1.0f);
-            rt_temp.y = 2f;
+            image.color = new Color(image.color.r, image.color.g, image.color.b, 0.6f);
+            Lnow = false;
+            rt_temp.y = 1.8f;   // OFFの状態の時サイズが小さくなる
             Set_rt.localScale = rt_temp;
         }
         //rend.material.SetFloat("_Shininess", shininess);
